@@ -256,10 +256,10 @@
 				class="mt-4 text-3xl font-light text-primary lg:text-4xl"
 				style="font-family: var(--font-heading);"
 			>
-				Посетите наш салон
+				Посетите наши салоны
 			</h2>
 			<p class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-text-secondary">
-				Наши консультанты всегда в курсе последних новинок и акций. Приходите — расскажем всё лично.
+				Наши дизайнеры всегда в курсе последних новинок и акций. Приходите — расскажем всё лично.
 			</p>
 			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
 				<a

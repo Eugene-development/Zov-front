@@ -258,7 +258,6 @@
 					<span
 						class="inline-flex items-center gap-2 border border-secondary/30 bg-white/70 px-4 py-2 text-[11px] tracking-[0.25em] text-secondary uppercase backdrop-blur-sm"
 					>
-						<span class="h-1.5 w-1.5 rounded-full bg-secondary"></span>
 						Специальные предложения 2026
 					</span>
 				</div>
