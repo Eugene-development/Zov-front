@@ -1,7 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
+	import Modal from '$lib/components/Modal.svelte';
+	import DesignerForm from '$lib/components/DesignerForm.svelte';
 
 	let heroVisible = $state(false);
+	let isDesignerModalOpen = $state(false);
 	let sections = $state({});
 
 	onMount(() => {
@@ -151,8 +154,8 @@
 					class:animate-fade-up={heroVisible}
 					style="animation-delay: 0.9s"
 				>
-					<a
-						href="/styles"
+					<button
+						onclick={() => (isDesignerModalOpen = true)}
 						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 					>
 						Дизайнер на дом
@@ -169,7 +172,7 @@
 								d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
 							/>
 						</svg>
-					</a>
+					</button>
 					<a
 						href="/about"
 						class="group inline-flex items-center gap-3 border border-border-medium bg-white/60 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary"
@@ -695,3 +698,8 @@
 		</div>
 	</div>
 </section>
+
+<!-- Modals -->
+<Modal bind:showModal={isDesignerModalOpen} title="Вызов дизайнера">
+	<DesignerForm onSuccess={() => (isDesignerModalOpen = false)} />
+</Modal>

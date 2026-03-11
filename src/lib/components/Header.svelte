@@ -1,6 +1,10 @@
 <script>
+	import Modal from '$lib/components/Modal.svelte';
+	import ShowroomForm from '$lib/components/ShowroomForm.svelte';
+
 	let scrolled = $state(false);
 	let mobileMenuOpen = $state(false);
+	let isShowroomModalOpen = $state(false);
 
 	const topLinks = [
 		{ label: 'О фабрике', href: '/about' },
@@ -126,12 +130,12 @@
 
 		<!-- CTA Desktop -->
 		<div class="hidden items-center gap-4 lg:flex">
-			<a
-				href="/showrooms"
+			<button
+				onclick={() => (isShowroomModalOpen = true)}
 				class="group relative overflow-hidden rounded-none border border-primary bg-primary px-7 py-2.5 text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-500 hover:bg-transparent hover:text-primary"
 			>
-				<span class="relative z-10">Найти салон</span>
-			</a>
+				<span class="relative z-10">Запись в салон</span>
+			</button>
 		</div>
 
 		<!-- Mobile Burger -->
@@ -201,12 +205,19 @@
 	<div class="mt-auto border-t border-border-light px-8 py-6">
 		<a href="tel:+375291234567" class="block text-sm text-text-secondary"> +7 915 400-00-20 </a>
 		<a href="mailto:info@zov.by" class="mt-2 block text-sm text-text-secondary"> info@zov.top </a>
-		<a
-			href="/showrooms"
-			class="mt-5 block border border-primary bg-primary py-3 text-center text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-300 hover:bg-transparent hover:text-primary"
-			onclick={closeMenu}
+		<button
+			onclick={() => {
+				isShowroomModalOpen = true;
+				closeMenu();
+			}}
+			class="mt-5 block w-full cursor-pointer border border-primary bg-primary py-3 text-center text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-300 hover:bg-transparent hover:text-primary"
 		>
-			Найти салон
-		</a>
+			Запись в салон
+		</button>
 	</div>
 </div>
+
+<!-- Modals -->
+<Modal bind:showModal={isShowroomModalOpen} title="Запись в салон">
+	<ShowroomForm onSuccess={() => (isShowroomModalOpen = false)} />
+</Modal>
