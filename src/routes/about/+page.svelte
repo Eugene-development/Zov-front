@@ -69,7 +69,7 @@
 </svelte:head>
 
 <!-- ==================== HERO SECTION ==================== -->
-<section class="relative min-h-screen overflow-hidden bg-surface" id="about-hero">
+<section class="relative min-h-[90vh] overflow-hidden bg-surface" id="about-hero">
 	<!-- Background Image -->
 	<div class="absolute inset-0">
 		<img
@@ -83,7 +83,7 @@
 	</div>
 
 	<!-- Content -->
-	<div class="relative z-10 flex min-h-screen items-center pb-24">
+	<div class="relative z-10 flex min-h-[90vh] items-center pb-24">
 		<div class="mx-auto w-full max-w-7xl px-6">
 			<div class="max-w-2xl">
 				<!-- Label -->
@@ -323,61 +323,6 @@
 					</p>
 				</div>
 			{/each}
-		</div>
-	</div>
-</section>
-
-<!-- ==================== GALLERY / FEATURED IMAGE ==================== -->
-<section class="relative z-10 px-6" id="gallery-section" data-animate>
-	<div class="mx-auto max-w-7xl">
-		<div
-			class="relative overflow-hidden opacity-0"
-			class:animate-scale-in={sections['gallery-section']}
-		>
-			<img
-				src="/images/hero-kitchen.png"
-				alt="Кухня ЗОВ в интерьере"
-				class="h-[400px] w-full object-cover lg:h-[550px]"
-			/>
-			<div
-				class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"
-			></div>
-
-			<!-- Overlay Content -->
-			<div class="absolute inset-0 flex items-end p-8 lg:p-14">
-				<div class="max-w-xl">
-					<h2
-						class="text-3xl font-light text-white lg:text-5xl"
-						style="font-family: var(--font-heading);"
-					>
-						Ждём вас в наших салонах
-					</h2>
-					<p class="mt-4 text-sm leading-relaxed text-white/75 lg:text-base">
-						Посетите ли вы наши салоны или проконсультируетесь онлайн — в любом случае вы получите
-						полную и исчерпывающую информацию о нашей мебели, фасадах, фурнитуре и о дополнительных
-						услугах.
-					</p>
-					<a
-						href="/showrooms"
-						class="group mt-6 inline-flex items-center gap-3 border border-white/30 bg-white/10 px-8 py-3.5 text-xs tracking-[0.15em] text-white uppercase backdrop-blur-sm transition-all duration-500 hover:bg-white hover:text-primary"
-					>
-						Найти ближайший салон
-						<svg
-							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="1.5"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-							/>
-						</svg>
-					</a>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>

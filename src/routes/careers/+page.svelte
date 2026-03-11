@@ -563,7 +563,7 @@
 								/>
 							</svg>
 						</div>
-						<span class="text-sm text-white/60">+375 (29) 123-45-67 (HR-отдел)</span>
+						<span class="text-sm text-white/60">+7 915 400-00-20</span>
 					</div>
 				</div>
 			</div>
