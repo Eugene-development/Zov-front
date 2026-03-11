@@ -9,7 +9,7 @@
 			description:
 				'Чистые линии, минимализм, интегрированная техника и матовые текстуры для создания идеального пространства.',
 			image: '/images/style-modern.png',
-			tags: ['Минимализм', 'Hi-Tech', 'Матовые фасады']
+			tags: ['Минимализм', 'Hi-Tech', 'Матовость']
 		},
 		{
 			id: 'classic',
@@ -78,8 +78,8 @@
 				</span>
 			</h1>
 			<p class="mx-auto max-w-2xl text-xl leading-relaxed font-light text-white/80 md:text-2xl">
-				Откройте для себя наше портфолио и найдите вдохновение для создания кухни, которая отражает
-				ваш вкус и стиль жизни.
+				Откройте для себя наше портфолио и найдите вдохновение для создания кухонного гарнитура,
+				отражающего ваш вкус и индивидуальный стиль жизни.
 			</p>
 		</div>
 	</section>
@@ -134,7 +134,7 @@
 						</div>
 
 						<!-- Interactive Arrow -->
-						<div
+						<!-- <div
 							class="absolute right-8 bottom-8 translate-x-4 opacity-0 transition-all delay-300 duration-500 group-hover:translate-x-0 group-hover:opacity-100"
 						>
 							<div
@@ -153,7 +153,7 @@
 									/>
 								</svg>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			{/each}
@@ -171,15 +171,15 @@
 		<div class="relative z-10 mx-auto max-w-4xl px-4 text-center">
 			<h2 class="mb-6 text-4xl font-bold text-white md:text-5xl">Нашли идеальный стиль?</h2>
 			<p class="mx-auto mb-10 max-w-2xl text-xl font-light text-white/70">
-				Запишитесь на бесплатную консультацию с нашим дизайнером. Мы поможем адаптировать любой
-				стиль под размеры вашей кухни и ваши потребности.
+				Запишитесь на бесплатную консультацию с профессиональным дизайнером в салоне. Мы поможем
+				адаптировать любой стиль под размеры вашей кухни и ваши потребности.
 			</p>
 
 			<button
 				class="group relative overflow-hidden rounded-full bg-white px-8 py-4 text-lg font-medium text-black shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all hover:scale-105 active:scale-95"
 			>
 				<span class="relative z-10 flex items-center gap-2">
-					Заказать дизайн-проект
+					Запись в салон ЗОВ
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="h-5 w-5 transition-transform group-hover:translate-x-1"

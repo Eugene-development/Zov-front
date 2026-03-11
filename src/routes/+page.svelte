@@ -28,17 +28,17 @@
 	const styles = [
 		{
 			title: 'Современный',
-			description: 'Чистые линии, минималистичные формы и функциональность',
+			description: 'Чистые линии, минималистичные формы и функциональность мебели',
 			image: '/images/style-modern.png'
 		},
 		{
 			title: 'Классический',
-			description: 'Элегантность традиций с вниманием к каждой детали',
+			description: 'Элегантность мебельных традиций с вниманием к каждой детали фасада',
 			image: '/images/style-classic.png'
 		},
 		{
 			title: 'Минимализм',
-			description: 'Совершенство в простоте, пространство и свет',
+			description: 'Совершенство в простоте кухрнного гарнитура, пространство и свет',
 			image: '/images/style-minimalist.png'
 		}
 	];
@@ -58,17 +58,18 @@
 		{
 			number: '03',
 			title: 'Индивидуальный дизайн',
-			description: 'Каждый проект создаётся по вашим размерам с учётом всех пожеланий'
+			description: 'Каждый проект создаётся по вашим размерам с учётом всех пожеланий клиента'
 		},
 		{
 			number: '04',
 			title: 'Гарантия качества',
-			description: 'Многоступенчатый контроль качества и гарантия до 10 лет на всю продукцию'
+			description:
+				'Многоступенчатый фабричный контроль качества и гарантия до 5 лет на всю продукцию'
 		}
 	];
 
 	const stats = [
-		{ value: '20+', label: 'лет опыта' },
+		{ value: '25+', label: 'лет опыта' },
 		{ value: '50 000+', label: 'реализованных проектов' },
 		{ value: '120+', label: 'салонов по всей стране' },
 		{ value: '500+', label: 'оттенков фасадов' }
@@ -90,7 +91,7 @@
 </svelte:head>
 
 <!-- ==================== HERO SECTION ==================== -->
-<section class="relative min-h-screen overflow-hidden bg-surface" id="hero">
+<section class="relative min-h-[90vh] overflow-hidden bg-surface" id="hero">
 	<!-- Background Image with Overlay -->
 	<div class="absolute inset-0">
 		<img
@@ -104,7 +105,7 @@
 	</div>
 
 	<!-- Content -->
-	<div class="relative z-10 flex min-h-screen items-center">
+	<div class="relative z-10 flex min-h-[85vh] items-center">
 		<div class="mx-auto w-full max-w-7xl px-6">
 			<div class="max-w-2xl">
 				<!-- Label -->
@@ -136,12 +137,12 @@
 
 				<!-- Description -->
 				<p
-					class="mt-8 max-w-md text-base leading-relaxed text-text-secondary opacity-0 md:text-lg"
+					class="mt-8 max-w-md text-base leading-relaxed text-primary opacity-0 md:text-lg"
 					class:animate-fade-up={heroVisible}
 					style="animation-delay: 0.7s"
 				>
 					Создаём кухни и мебель, которые сочетают безупречный дизайн, премиальные материалы и
-					выверенную функциональность.
+					выверенную функциональность
 				</p>
 
 				<!-- CTA Buttons -->
@@ -239,9 +240,9 @@
 						class="absolute -right-6 -bottom-6 h-12 w-12 border-r border-b border-accent/40 transition-transform duration-700 hover:translate-x-2 hover:translate-y-2 lg:h-16 lg:w-16"
 					></div>
 					<img
-						src="/images/logo-rus.png"
+						src="https://storage.yandexcloud.net/zovrus/brand/logo-white.svg"
 						alt="Логотип фабрики ЗОВ"
-						class="relative z-10 w-64 object-contain opacity-90 transition-transform duration-1000 hover:scale-105 hover:opacity-100 md:w-80 lg:w-[26rem]"
+						class="relative z-10 w-64 object-contain opacity-80 invert transition-transform duration-1000 hover:scale-105 hover:opacity-100 md:w-80 lg:w-[26rem]"
 					/>
 				</div>
 			</div>
@@ -288,9 +289,7 @@
 					class="mt-10 flex w-full flex-col items-center border-t border-border-light pt-8 lg:flex-row lg:items-center lg:justify-between lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8"
 				>
 					<div class="flex flex-col items-center lg:items-start">
-						<p class="mt-1.5 text-sm font-medium tracking-[0.1em] text-primary uppercase">
-							Зуховицкий О.В.
-						</p>
+						<p class="mt-1.5 text-sm font-medium tracking-[0.1em] text-primary">Зуховицкий О.В.</p>
 						<p class="mt-1 text-[11px] tracking-wider text-text-muted uppercase">
 							Руководитель мебельной фабрики «ЗОВ»
 						</p>
@@ -595,7 +594,7 @@
 					долгие годы.
 				</p>
 				<ul class="mt-8 flex flex-col gap-4">
-					{#each ['Фасады из массива, МДФ, пластика и эмали', 'Петли с плавным закрыванием Blum', 'Выдвижные системы полного выдвижения', 'Столешницы из камня, кварца и HPL'] as item}
+					{#each ['Фасады из массива, МДФ, пластика и эмали', 'Петли с плавным закрыванием с доводчиком', 'Выкатные ящики с полным выдвижением', 'Столешницы из камня, кварца и HPL'] as item}
 						<li class="flex items-start gap-3 text-sm text-text-primary">
 							<svg
 								class="mt-0.5 h-4 w-4 flex-shrink-0 text-accent"
@@ -650,8 +649,8 @@
 				<span class="text-accent-light">вашей мечты</span>
 			</h2>
 			<p class="mx-auto mt-6 max-w-lg text-base leading-relaxed text-white/60">
-				Запишитесь на бесплатную консультацию. Наш дизайнер поможет подобрать идеальное решение для
-				вашего пространства.
+				Запишитесь на бесплатную консультацию в один из наших салонов. Наш дизайнер поможет
+				подобрать идеальное решение для вашего пространства.
 			</p>
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
 				<a
