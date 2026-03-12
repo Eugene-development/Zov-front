@@ -1,5 +1,9 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
+	import Modal from '$lib/components/Modal.svelte';
+	import ShowroomForm from '$lib/components/ShowroomForm.svelte';
+
+	let isShowroomModalOpen = $state(false);
 
 	// Data for styles
 	const styles = [
@@ -62,141 +66,153 @@
 	/>
 </svelte:head>
 
-<div class="min-h-screen bg-primary text-white">
-	<!-- Hero Section -->
-	<section class="relative flex h-[60vh] items-center justify-center overflow-hidden md:h-[70vh]">
-		<div class="absolute inset-0 bg-[url('/images/style-neoclassic.png')] bg-cover bg-center"></div>
-		<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-primary"></div>
-
+<div class="min-h-screen bg-surface text-primary selection:bg-accent-light selection:text-primary">
+	<!-- Editorial Hero Section -->
+	<section
+		class="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden border-b border-border-light px-4 py-20 text-center sm:px-6 lg:px-8"
+	>
+		<!-- Background Image -->
 		<div
-			class="relative z-10 mx-auto max-w-4xl px-4 text-center"
-			in:fade={{ duration: 1000, delay: 200 }}
-		>
-			<h1 class="mb-6 text-5xl font-bold tracking-tight md:text-7xl">
-				<span class="block bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
-					Стили кухонь
-				</span>
+			class="absolute inset-0 bg-[url('/images/style-neoclassic.png')] bg-cover bg-fixed bg-center"
+		></div>
+
+		<!-- Light Overlay for readability -->
+		<div class="absolute inset-0 bg-surface-warm/90 backdrop-blur-[2px]"></div>
+		<div class="relative z-10 mx-auto max-w-4xl" in:fade={{ duration: 1000, delay: 200 }}>
+			<span class="mb-4 block text-sm font-medium tracking-[0.2em] text-secondary uppercase">
+				Коллекции
+			</span>
+			<h1 class="mb-8 font-heading text-6xl text-primary md:text-8xl">
+				Стили <span class="text-accent italic">кухонь</span>
 			</h1>
-			<p class="mx-auto max-w-2xl text-xl leading-relaxed font-light text-white/80 md:text-2xl">
-				Откройте для себя наше портфолио и найдите вдохновение для создания кухонного гарнитура,
-				отражающего ваш вкус и индивидуальный стиль жизни.
+			<p
+				class="mx-auto mt-8 max-w-2xl text-lg leading-relaxed font-light text-text-secondary md:text-xl"
+			>
+				Откройте для себя наше портфолио. <br />От строгой классики до минимализма — найдите идеальное
+				решение, отражающее ваш индивидуальный вкус.
 			</p>
+
+			<div class="mt-12">
+				<a
+					href="#styles-grid"
+					class="group inline-flex items-center justify-center gap-3 border border-border-medium bg-transparent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:border-secondary hover:text-secondary"
+				>
+					Выбрать стиль
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="1.5"
+							d="M19 14l-7 7m0 0l-7-7m7 7V3"
+						/>
+					</svg>
+				</a>
+			</div>
+		</div>
+
+		<!-- Scroll Indicator -->
+		<div
+			class="absolute bottom-10 left-1/2 -translate-x-1/2"
+			in:fade={{ duration: 1000, delay: 1000 }}
+		>
+			<div class="flex flex-col items-center gap-2">
+				<span class="text-[10px] tracking-[0.3em] text-text-muted uppercase">Вниз</span>
+				<div class="h-10 w-px bg-gradient-to-b from-border-medium to-transparent"></div>
+			</div>
 		</div>
 	</section>
 
-	<!-- Styles Grid -->
-	<section class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-		<div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12 lg:grid-cols-3">
+	<!-- Light Editorial Grid -->
+	<section
+		id="styles-grid"
+		class="mx-auto max-w-7xl scroll-mt-24 px-4 py-20 sm:px-6 lg:scroll-mt-32 lg:px-8"
+	>
+		<div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-16">
 			{#each styles as style}
-				<div
-					class="group relative aspect-[4/5] cursor-pointer overflow-hidden rounded-2xl bg-neutral-900 shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-white/10"
-				>
-					<!-- Background Image with Zoom on Hover -->
-					<img
-						src={style.image}
-						alt={style.name}
-						class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-					/>
-
-					<!-- Gradient Overlay -->
+				<div class="group flex cursor-pointer flex-col">
+					<!-- Image container -->
 					<div
-						class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100"
-					></div>
-
-					<!-- Additional Dark Overlay for readable text on hover -->
-					<div
-						class="absolute inset-0 bg-black/40 opacity-0 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-100"
-					></div>
-
-					<!-- Content Content -->
-					<div
-						class="absolute inset-x-0 bottom-0 flex translate-y-8 flex-col justify-end p-8 transition-transform duration-500 ease-out group-hover:translate-y-0"
+						class="relative mb-6 aspect-[4/3] overflow-hidden bg-surface-muted transition-shadow duration-500 group-hover:shadow-medium"
 					>
-						<h2 class="mb-3 text-3xl font-bold text-white">
+						<img
+							src={style.image}
+							alt={style.name}
+							class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+						/>
+						<!-- Subtle Hover Overlay -->
+						<div
+							class="absolute inset-0 bg-black/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+						></div>
+					</div>
+
+					<!-- Content -->
+					<div class="flex flex-grow flex-col text-center">
+						<h2
+							class="mb-3 font-heading text-3xl text-primary transition-colors group-hover:text-secondary"
+						>
 							{style.name}
 						</h2>
-						<p
-							class="mb-6 line-clamp-3 leading-relaxed text-white/70 opacity-0 transition-opacity delay-100 duration-500 group-hover:opacity-100"
-						>
+						<p class="mb-6 line-clamp-3 text-sm leading-relaxed text-text-secondary">
 							{style.description}
 						</p>
 
-						<div
-							class="flex flex-wrap gap-2 opacity-0 transition-opacity delay-200 duration-500 group-hover:opacity-100"
-						>
+						<div class="mt-auto flex flex-wrap justify-center gap-2">
 							{#each style.tags as tag}
 								<span
-									class="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur-md"
+									class="border border-border-light bg-transparent px-3 py-1 text-xs text-text-muted transition-colors group-hover:border-secondary-light group-hover:text-secondary"
 								>
 									{tag}
 								</span>
 							{/each}
 						</div>
-
-						<!-- Interactive Arrow -->
-						<!-- <div
-							class="absolute right-8 bottom-8 translate-x-4 opacity-0 transition-all delay-300 duration-500 group-hover:translate-x-0 group-hover:opacity-100"
-						>
-							<div
-								class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									class="h-5 w-5"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-								>
-									<path
-										fill-rule="evenodd"
-										d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-										clip-rule="evenodd"
-									/>
-								</svg>
-							</div>
-						</div> -->
 					</div>
 				</div>
 			{/each}
 		</div>
 	</section>
 
-	<!-- CTA Section -->
-	<section class="relative overflow-hidden py-24">
-		<div class="absolute inset-0 bg-neutral-900"></div>
-		<!-- Decorative glow -->
-		<div
-			class="pointer-events-none absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 blur-[120px]"
-		></div>
-
-		<div class="relative z-10 mx-auto max-w-4xl px-4 text-center">
-			<h2 class="mb-6 text-4xl font-bold text-white md:text-5xl">Нашли идеальный стиль?</h2>
-			<p class="mx-auto mb-10 max-w-2xl text-xl font-light text-white/70">
-				Запишитесь на бесплатную консультацию с профессиональным дизайнером в салоне. Мы поможем
-				адаптировать любой стиль под размеры вашей кухни и ваши потребности.
+	<!-- Refined Light CTA -->
+	<section class="border-t border-border-light bg-white py-24">
+		<div class="mx-auto max-w-4xl px-4 text-center">
+			<h2 class="mb-6 font-heading text-4xl text-primary md:text-5xl">Поможем с выбором</h2>
+			<p class="mx-auto mb-10 max-w-2xl text-lg font-light text-text-secondary">
+				Запишитесь на встречу с нашим дизайнером. Мы подберем идеальный стиль, материалы и
+				фурнитуру, учитывая архитектуру вашего пространства.
 			</p>
 
 			<button
-				class="group relative overflow-hidden rounded-full bg-white px-8 py-4 text-lg font-medium text-black shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all hover:scale-105 active:scale-95"
+				onclick={() => {
+					isShowroomModalOpen = true;
+				}}
+				class="group relative inline-flex items-center justify-center gap-3 overflow-hidden border border-primary bg-primary px-8 py-4 text-sm tracking-wider text-white uppercase transition-all hover:bg-white hover:text-primary active:scale-95"
 			>
-				<span class="relative z-10 flex items-center gap-2">
-					Запись в салон ЗОВ
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-5 w-5 transition-transform group-hover:translate-x-1"
-						viewBox="0 0 20 20"
-						fill="currentColor"
-					>
-						<path
-							fill-rule="evenodd"
-							d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-							clip-rule="evenodd"
-						/>
-					</svg>
-				</span>
-				<div
-					class="absolute inset-0 bg-gradient-to-r from-white via-neutral-200 to-white opacity-0 transition-opacity group-hover:opacity-100"
-				></div>
+				<span>Записаться в салон</span>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-4 w-4 transition-transform group-hover:translate-x-1"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M14 5l7 7m0 0l-7 7m7-7H3"
+					/>
+				</svg>
 			</button>
 		</div>
 	</section>
+
+	<!-- Modals -->
+	<Modal bind:showModal={isShowroomModalOpen} title="Запись в салон">
+		<ShowroomForm onSuccess={() => (isShowroomModalOpen = false)} />
+	</Modal>
 </div>

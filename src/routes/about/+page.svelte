@@ -1,7 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
+	import Modal from '$lib/components/Modal.svelte';
+	import DesignerForm from '$lib/components/DesignerForm.svelte';
 
 	let heroVisible = $state(false);
+	let isDesignerModalOpen = $state(false);
 	let sections = $state({});
 
 	onMount(() => {
@@ -352,9 +355,9 @@
 				вашего пространства.
 			</p>
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-				<a
-					href="/showrooms"
-					class="group inline-flex items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
+				<button
+					onclick={() => (isDesignerModalOpen = true)}
+					class="group inline-flex cursor-pointer items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
 				>
 					Заказать дизайн-проект
 					<svg
@@ -370,7 +373,7 @@
 							d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
 						/>
 					</svg>
-				</a>
+				</button>
 				<a
 					href="tel:+375291234567"
 					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50"
@@ -394,3 +397,8 @@
 		</div>
 	</div>
 </section>
+
+<!-- Modals -->
+<Modal bind:showModal={isDesignerModalOpen} title="Заказ дизайн-проекта">
+	<DesignerForm onSuccess={() => (isDesignerModalOpen = false)} />
+</Modal>

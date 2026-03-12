@@ -78,12 +78,12 @@
 	<title>Мебельная фурнитура | Blum, Hettich, GTV | ЗОВ</title>
 	<meta
 		name="description"
-		content="Надежная и долговечная мебельная фурнитура от ведущих мировых производителей: Blum, Hettich, GTV. Безупречный комфорт для вашей кухни ЗОВ."
+		content="Надежная и долговечная мебельная фурнитура от ведущих мировых производителей: Blum, Hettich, GTV. Безупречный комфорт для вашей мебели ЗОВ."
 	/>
 </svelte:head>
 
 <!-- ==================== HERO SECTION ==================== -->
-<section class="relative min-h-screen overflow-hidden bg-surface" id="hero">
+<section class="relative min-h-[90vh] overflow-hidden bg-surface" id="hero">
 	<!-- Background Image with Dark Overlay -->
 	<div class="absolute inset-0">
 		<img
@@ -98,7 +98,7 @@
 	</div>
 
 	<!-- Content -->
-	<div class="relative z-10 flex min-h-screen items-center">
+	<div class="relative z-10 flex min-h-[90vh] items-center">
 		<div class="mx-auto w-full max-w-7xl px-6">
 			<div class="max-w-2xl">
 				<!-- Label -->
@@ -127,13 +127,40 @@
 
 				<!-- Description -->
 				<p
-					class="mt-8 max-w-lg text-base leading-relaxed text-white/70 opacity-0 md:text-lg"
+					class="mt-8 max-w-xl text-base leading-relaxed text-white/70 opacity-0 md:text-lg"
 					class:animate-fade-up={heroVisible}
 					style="animation-delay: 0.7s"
 				>
 					Мебель премиум-класса требует фурнитуры соответствующего уровня. Мы предлагаем решения от
-					ведущих европейских брендов, которые сделают каждый день на вашей кухне комфортным.
+					ведущих европейских брендов, которые сделают каждое движение фасада или ящика плавным и
+					комфортным.
 				</p>
+
+				<div
+					class="mt-10 opacity-0"
+					class:animate-fade-up={heroVisible}
+					style="animation-delay: 0.9s"
+				>
+					<a
+						href="#intro-section"
+						class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent"
+					>
+						Узнать больше
+						<svg
+							class="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							stroke-width="1.5"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+							/>
+						</svg>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -152,7 +179,11 @@
 </section>
 
 <!-- ==================== INTRO SECTION ==================== -->
-<section class="relative bg-white py-section-sm lg:py-section" id="intro-section" data-animate>
+<section
+	class="relative scroll-mt-20 bg-white py-section-sm lg:scroll-mt-24 lg:py-section"
+	id="intro-section"
+	data-animate
+>
 	<div class="mx-auto max-w-7xl px-6 text-center">
 		<div class="opacity-0" class:animate-fade-up={sections['intro-section']}>
 			<span class="text-[11px] tracking-[0.3em] text-secondary uppercase">Качество в деталях</span>
@@ -252,7 +283,7 @@
 				class="mx-auto mt-6 max-w-2xl text-3xl font-light text-white lg:text-5xl"
 				style="font-family: var(--font-heading);"
 			>
-				Поможем выбрать <span class="text-accent-light">лучшую систему</span> для вашей кухни
+				Поможем выбрать <span class="text-accent-light">лучшую систему</span> для вашей мебели
 			</h2>
 			<p class="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/60 lg:text-base">
 				Наши дизайнеры подберут фурнитуру, которая идеально подойдет под ваши потребности,

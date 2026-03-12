@@ -131,10 +131,28 @@
 		<!-- CTA Desktop -->
 		<div class="hidden items-center gap-4 lg:flex">
 			<button
-				onclick={() => (isShowroomModalOpen = true)}
-				class="group relative overflow-hidden rounded-none border border-primary bg-primary px-7 py-2.5 text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-500 hover:bg-transparent hover:text-primary"
+				onclick={() => {
+					isShowroomModalOpen = true;
+				}}
+				class="group relative flex items-center gap-2 px-2 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
 			>
-				<span class="relative z-10">Запись в салон</span>
+				Запись в салон
+				<svg
+					class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="1.5"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+					/>
+				</svg>
+				<span
+					class="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 bg-secondary transition-all duration-500 group-hover:w-full"
+				></span>
 			</button>
 		</div>
 
@@ -210,9 +228,22 @@
 				isShowroomModalOpen = true;
 				closeMenu();
 			}}
-			class="mt-5 block w-full cursor-pointer border border-primary bg-primary py-3 text-center text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-300 hover:bg-transparent hover:text-primary"
+			class="group relative mt-5 flex w-full cursor-pointer items-center justify-between border-t border-border-light pt-5 text-left text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
 		>
 			Запись в салон
+			<svg
+				class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+				stroke-width="1.5"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+				/>
+			</svg>
 		</button>
 	</div>
 </div>

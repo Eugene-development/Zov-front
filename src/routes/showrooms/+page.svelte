@@ -1,7 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
+	import Modal from '$lib/components/Modal.svelte';
+	import DesignerForm from '$lib/components/DesignerForm.svelte';
 
 	let heroVisible = $state(false);
+	let isDesignerModalOpen = $state(false);
 	let sections = $state({});
 	let activeCountry = $state('Беларусь');
 	let activeCity = $state('Все');
@@ -115,11 +118,11 @@
 </svelte:head>
 
 <!-- ==================== HERO SECTION ==================== -->
-<section class="relative min-h-[70vh] overflow-hidden bg-surface" id="hero">
+<section class="relative min-h-[90vh] overflow-hidden bg-surface" id="hero">
 	<!-- Background Image -->
 	<div class="absolute inset-0">
 		<img
-			src="/images/showroom_hero.png"
+			src="/images/modern_showroom.png"
 			alt="Интерьер салона ЗОВ"
 			class="h-full w-full object-cover transition-transform duration-[2s]"
 			class:scale-105={heroVisible}
@@ -130,7 +133,7 @@
 	</div>
 
 	<!-- Content -->
-	<div class="relative z-10 flex min-h-[70vh] items-center">
+	<div class="relative z-10 flex min-h-[90vh] items-center">
 		<div class="mx-auto w-full max-w-7xl px-6">
 			<div class="max-w-xl">
 				<div
@@ -156,13 +159,54 @@
 					готовыми интерьерными решениями и создайте проект вашей кухни вместе с профессиональными
 					дизайнерами.
 				</p>
+				<div
+					class="mt-10 opacity-0"
+					class:animate-fade-up={heroVisible}
+					style="animation-delay: 0.9s"
+				>
+					<a
+						href="#network-section"
+						class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent"
+					>
+						Посмотреть карту
+						<svg
+							class="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							stroke-width="1.5"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+							/>
+						</svg>
+					</a>
+				</div>
 			</div>
+		</div>
+	</div>
+
+	<!-- Scroll Indicator -->
+	<div
+		class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0"
+		class:animate-fade-in={heroVisible}
+		style="animation-delay: 1.3s"
+	>
+		<div class="flex flex-col items-center gap-2">
+			<span class="text-[10px] tracking-[0.3em] text-white/50 uppercase">Вниз</span>
+			<div class="h-10 w-px bg-gradient-to-b from-white/50 to-transparent"></div>
 		</div>
 	</div>
 </section>
 
 <!-- ==================== MAP & LIST SECTION ==================== -->
-<section class="relative bg-surface py-section" id="network-section" data-animate>
+<section
+	class="relative scroll-mt-20 bg-surface py-section lg:scroll-mt-24"
+	id="network-section"
+	data-animate
+>
 	<div class="mx-auto max-w-7xl px-6">
 		<div class="grid gap-16 lg:grid-cols-12 lg:gap-12">
 			<!-- Left Column: Locations List -->
@@ -174,7 +218,7 @@
 					class="text-3xl font-light text-primary lg:text-4xl"
 					style="font-family: var(--font-heading);"
 				>
-					Фирменная сеть
+					Дилерская сеть салонов в Беларуси и России
 				</h2>
 
 				<!-- Country Toggle -->
@@ -220,7 +264,7 @@
 				<div class="relative -mx-2 mt-8 px-2">
 					<div
 						class="flex flex-col gap-10 {totalPlaces > 3
-							? 'max-h-[520px] overflow-y-auto pr-4 pb-12 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border-light/80 hover:[&::-webkit-scrollbar-thumb]:bg-border-light [&::-webkit-scrollbar-track]:bg-transparent'
+							? 'max-h-[550px] overflow-y-auto pr-4 pb-10 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border-light/80 hover:[&::-webkit-scrollbar-thumb]:bg-border-light [&::-webkit-scrollbar-track]:bg-transparent'
 							: ''}"
 					>
 						{#each filteredShowrooms as data}
@@ -291,7 +335,7 @@
 
 			<!-- Right Column: Yandex Interactive Map -->
 			<div
-				class="h-[500px] opacity-0 lg:col-span-7 lg:h-[600px]"
+				class="h-[600px] opacity-0 lg:col-span-7 lg:h-[750px]"
 				class:animate-fade-up={sections['network-section']}
 				style="animation-delay: 0.3s"
 			>
@@ -337,9 +381,9 @@
 			</p>
 
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-				<a
-					href="/call-designer"
-					class="group inline-flex items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-secondary"
+				<button
+					onclick={() => (isDesignerModalOpen = true)}
+					class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-secondary"
 				>
 					Вызвать дизайнера
 					<svg
@@ -355,8 +399,13 @@
 							d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
 						/>
 					</svg>
-				</a>
+				</button>
 			</div>
 		</div>
 	</div>
 </section>
+
+<!-- Modals -->
+<Modal bind:showModal={isDesignerModalOpen} title="Вызов дизайнера">
+	<DesignerForm onSuccess={() => (isDesignerModalOpen = false)} />
+</Modal>

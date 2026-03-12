@@ -94,10 +94,10 @@
 </svelte:head>
 
 <!-- ==================== HERO SECTION ==================== -->
-<section class="relative min-h-[80vh] overflow-hidden bg-surface" id="hero">
+<section class="relative min-h-[90vh] overflow-hidden bg-surface" id="hero">
 	<div class="absolute inset-0">
 		<img
-			src="/images/facades_hero.png"
+			src="/images/facades_hero_new.png"
 			alt="Мебельные фасады"
 			class="h-full w-full object-cover transition-transform duration-[2s]"
 			class:scale-105={heroVisible}
@@ -107,7 +107,7 @@
 		></div>
 	</div>
 
-	<div class="relative z-10 flex min-h-[80vh] items-center">
+	<div class="relative z-10 flex min-h-[90vh] items-center">
 		<div class="mx-auto w-full max-w-7xl px-6">
 			<div class="max-w-2xl">
 				<div
@@ -129,7 +129,7 @@
 				>
 					Фасад это лицо
 					<br />
-					вашей кухни
+					вашей мебели
 				</h1>
 
 				<p
@@ -141,13 +141,55 @@
 					технологичного акрила: мы предлагаем материалы, которые сочетают в себе безупречную
 					эстетику, функциональность и долговечность.
 				</p>
+
+				<div
+					class="mt-10 opacity-0"
+					class:animate-fade-up={heroVisible}
+					style="animation-delay: 0.9s"
+				>
+					<a
+						href="#facades-catalog"
+						class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent"
+					>
+						Узнать больше
+						<svg
+							class="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							stroke-width="1.5"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+							/>
+						</svg>
+					</a>
+				</div>
 			</div>
+		</div>
+	</div>
+
+	<!-- Scroll Indicator -->
+	<div
+		class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0"
+		class:animate-fade-in={heroVisible}
+		style="animation-delay: 1.3s"
+	>
+		<div class="flex flex-col items-center gap-2">
+			<span class="text-[10px] tracking-[0.3em] text-white/50 uppercase">Вниз</span>
+			<div class="h-10 w-px bg-gradient-to-b from-white/50 to-transparent"></div>
 		</div>
 	</div>
 </section>
 
 <!-- ==================== FACADES SHOWCASE ==================== -->
-<section class="relative bg-surface py-section" id="facades-catalog" data-animate>
+<section
+	class="relative scroll-mt-20 bg-surface py-section lg:scroll-mt-24"
+	id="facades-catalog"
+	data-animate
+>
 	<div class="mx-auto max-w-7xl px-6">
 		<div class="mb-16 opacity-0 lg:mb-24" class:animate-fade-up={sections['facades-catalog']}>
 			<h2

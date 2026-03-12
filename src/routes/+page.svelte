@@ -18,7 +18,7 @@
 					}
 				});
 			},
-			{ threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+			{ threshold: 0.25, rootMargin: '0px 0px -100px 0px' }
 		);
 
 		document.querySelectorAll('[data-animate]').forEach((el) => {
@@ -243,9 +243,9 @@
 						class="absolute -right-6 -bottom-6 h-12 w-12 border-r border-b border-accent/40 transition-transform duration-700 hover:translate-x-2 hover:translate-y-2 lg:h-16 lg:w-16"
 					></div>
 					<img
-						src="https://storage.yandexcloud.net/zovrus/brand/logo-white.svg"
-						alt="Логотип фабрики ЗОВ"
-						class="relative z-10 w-64 object-contain opacity-80 invert transition-transform duration-1000 hover:scale-105 hover:opacity-100 md:w-80 lg:w-[26rem]"
+						src="/images/founder.png"
+						alt="Основатель фабрики ЗОВ"
+						class="relative z-10 w-64 object-cover shadow-2xl transition-transform duration-1000 hover:scale-105 md:w-80 lg:w-[26rem]"
 					/>
 				</div>
 			</div>
@@ -294,27 +294,8 @@
 					<div class="flex flex-col items-center lg:items-start">
 						<p class="mt-1.5 text-sm font-medium tracking-[0.1em] text-primary">Зуховицкий О.В.</p>
 						<p class="mt-1 text-[11px] tracking-wider text-text-muted uppercase">
-							Руководитель мебельной фабрики «ЗОВ»
+							Основатель мебельной фабрики «ЗОВ»
 						</p>
-					</div>
-					<!-- Decorative Stamp/Sign -->
-					<div
-						class="mt-6 flex h-14 w-14 items-center justify-center rounded-full border border-primary/10 text-primary/20 opacity-60 lg:mt-0"
-					>
-						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1.5"
-								d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"
-							/>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1.5"
-								d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"
-							/>
-						</svg>
 					</div>
 				</div>
 			</div>
