@@ -193,25 +193,25 @@
 </svelte:head>
 
 <!-- ==================== HERO SECTION ==================== -->
-<section class="relative min-h-screen overflow-hidden bg-surface" id="promo-hero">
+<section class="relative min-h-[90vh] overflow-hidden bg-surface" id="promo-hero">
 	<!-- Background Image with Overlay -->
 	<div class="absolute inset-0">
 		<img
-			src="/images/promo-hero.png"
+			src="https://storage.yandexcloud.net/zovtop/bg/promosfvmwklfvmk.jpg"
 			alt="Акции ЗОВ — премиальная мебель"
 			class="h-full w-full object-cover transition-transform duration-[2s]"
 			class:scale-105={heroVisible}
 		/>
 		<!-- Strengthened gradient: left side is almost white, right stays transparent -->
-		<div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-white/10"></div>
+		<div class="absolute inset-0 bg-linear-to-r from-white/95 via-white/75 to-white/5"></div>
 		<div
-			class="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent"
+			class="absolute inset-0 bg-linear-to-t from-white/60 via-transparent to-transparent"
 		></div>
 	</div>
 
 	<!-- Decorative vertical accent line -->
 	<div
-		class="absolute top-0 left-1/2 h-full w-px bg-gradient-to-b from-transparent via-secondary/10 to-transparent opacity-0"
+		class="absolute top-0 left-1/2 h-full w-px bg-linear-to-b from-transparent via-secondary/10 to-transparent opacity-0"
 		class:animate-fade-in={heroVisible}
 		style="animation-delay: 1.2s"
 	></div>
@@ -249,7 +249,7 @@
 	</div>
 
 	<!-- Content -->
-	<div class="relative z-10 flex min-h-screen items-center pt-40 pb-32">
+	<div class="relative z-10 flex min-h-[90vh] items-center pt-40 pb-32">
 		<div class="mx-auto w-full max-w-7xl px-6">
 			<div class="max-w-2xl">
 				<!-- Label -->

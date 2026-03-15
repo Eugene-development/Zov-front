@@ -16,8 +16,8 @@
 
 	const topLinks = [
 		{ label: 'О фабрике', href: '/about' },
-		{ label: 'Акции', href: '/promotions' },
 		{ label: 'Новости', href: '/news' },
+		{ label: 'Акции', href: '/promotions' },
 		{ label: 'Кухни', href: '/' },
 		{ label: 'Шкафы', href: '/' }
 	];
