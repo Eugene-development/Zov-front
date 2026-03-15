@@ -2,8 +2,10 @@
 	import { fade } from 'svelte/transition';
 	import Modal from '$lib/components/Modal.svelte';
 	import ShowroomForm from '$lib/components/ShowroomForm.svelte';
+	import StyleConsultationForm from '$lib/components/StyleConsultationForm.svelte';
 
 	let isShowroomModalOpen = $state(false);
+	let isStyleModalOpen = $state(false);
 
 	// Data for styles
 	const styles = [
@@ -12,7 +14,7 @@
 			name: 'Современный',
 			description:
 				'Чистые линии, минимализм, интегрированная техника и матовые текстуры для создания идеального пространства.',
-			image: '/images/style-modern.png',
+			image: 'https://storage.yandexcloud.net/zovtop/stiles/sovremjknvndgvhj.jpg',
 			tags: ['Минимализм', 'Hi-Tech', 'Матовость']
 		},
 		{
@@ -20,7 +22,7 @@
 			name: 'Классика',
 			description:
 				'Традиционные формы, резные фасады, обилие дерева и теплые оттенки для уюта и респектабельности.',
-			image: '/images/style-classic.png',
+			image: 'https://storage.yandexcloud.net/zovtop/stiles/claskjdgnbkdgmj.jpg',
 			tags: ['Дерево', 'Резьба', 'Патина']
 		},
 		{
@@ -28,23 +30,47 @@
 			name: 'Лофт',
 			description:
 				'Индустриальный шик: бетон, кирпич, металл и брутальные формы, создающие стильное современное пространство.',
-			image: '/images/style-loft.png',
+			image: 'https://storage.yandexcloud.net/zovtop/stiles/loftelkjbngrtobnhekrjthbn.jpg',
 			tags: ['Бетон', 'Металл', 'Брутальность']
+		},
+		{
+			id: 'minimalist',
+			name: 'Минимализм',
+			description:
+				'Индустриальный шик: бетон, кирпич, металл и брутальные формы, создающие стильное современное пространство.',
+			image: 'https://storage.yandexcloud.net/zovtop/stiles/minimkjfvnfsjnvk.jpg',
+			tags: []
+		},
+		{
+			id: 'modern',
+			name: 'Модерн',
+			description:
+				'Индустриальный шик: бетон, кирпич, металл и брутальные формы, создающие стильное современное пространство.',
+			image: 'https://storage.yandexcloud.net/zovtop/stiles/modernlkthetrlkmjkdrythk.jpg',
+			tags: []
+		},
+		{
+			id: 'retro',
+			name: 'Ретро',
+			description:
+				'Индустриальный шик: бетон, кирпич, металл и брутальные формы, создающие стильное современное пространство.',
+			image: 'https://storage.yandexcloud.net/zovtop/stiles/retrofmsjvbjksdfvbnjksdjds.jpg',
+			tags: []
 		},
 		{
 			id: 'neoclassic',
 			name: 'Неоклассика',
 			description:
 				'Изящное сочетание традиционных элементов с современными материалами и светлыми тонами.',
-			image: '/images/style-neoclassic.png',
+			image: 'https://storage.yandexcloud.net/zovtop/stiles/neokjewtgniertwjv.jpg',
 			tags: ['Изящность', 'Мрамор', 'Светлые тона']
 		},
 		{
-			id: 'minimalist',
+			id: 'scandinavian',
 			name: 'Скандинавский',
 			description:
 				'Максимум света и пространства, натуральные материалы, светлое дерево и функциональный лаконичный дизайн.',
-			image: '/images/style-minimalist.png',
+			image: 'https://storage.yandexcloud.net/zovtop/stiles/scandkjbfvkjsdenbkj.jpg',
 			tags: ['Свет', 'Уют', 'Функциональность']
 		},
 		{
@@ -52,7 +78,7 @@
 			name: 'Прованс',
 			description:
 				'Французский кантри с пастельными тонами, винтажной фурнитурой и домашним теплом.',
-			image: '/images/style-provence.png',
+			image: 'https://storage.yandexcloud.net/zovtop/stiles/provanjvngkjenbkjrn.jpg',
 			tags: ['Кантри', 'Винтаж', 'Уют']
 		}
 	];
@@ -88,8 +114,8 @@
 			<p
 				class="mx-auto mt-8 max-w-2xl text-lg leading-relaxed font-light text-text-secondary md:text-xl"
 			>
-				Откройте для себя наше портфолио. <br />От строгой классики до минимализма — найдите идеальное
-				решение, отражающее ваш индивидуальный вкус.
+				Откройте для себя наше портфолио. <br />От строгой классики до минимализма — найдите
+				идеальное решение, отражающее ваш индивидуальный вкус.
 			</p>
 
 			<div class="mt-12">
@@ -208,11 +234,23 @@
 					/>
 				</svg>
 			</button>
+			<button
+				onclick={() => {
+					isStyleModalOpen = true;
+				}}
+				class="group relative ml-4 inline-flex items-center justify-center gap-3 overflow-hidden border border-primary bg-transparent px-8 py-4 text-sm tracking-wider text-primary uppercase transition-all hover:bg-primary-light hover:text-secondary active:scale-95"
+			>
+				<span>Консультация по стилю</span>
+			</button>
 		</div>
 	</section>
 
 	<!-- Modals -->
 	<Modal bind:showModal={isShowroomModalOpen} title="Запись в салон">
 		<ShowroomForm onSuccess={() => (isShowroomModalOpen = false)} />
+	</Modal>
+
+	<Modal bind:showModal={isStyleModalOpen} title="Бесплатная консультация">
+		<StyleConsultationForm onSuccess={() => (isStyleModalOpen = false)} />
 	</Modal>
 </div>

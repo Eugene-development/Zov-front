@@ -2,10 +2,12 @@
 	import { onMount } from 'svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import DesignerForm from '$lib/components/DesignerForm.svelte';
+	import StyleConsultationForm from '$lib/components/StyleConsultationForm.svelte';
 	import { regionState } from '$lib/state/region.svelte';
 
 	let heroVisible = $state(false);
 	let isDesignerModalOpen = $state(false);
+	let isStyleModalOpen = $state(false);
 	let sections = $state({});
 
 	onMount(() => {
@@ -295,7 +297,7 @@
 					<div class="flex flex-col items-center lg:items-start">
 						<p class="mt-1.5 text-sm font-medium tracking-[0.1em] text-primary">Зуховицкий О.В.</p>
 						<p class="mt-1 text-[11px] tracking-wider text-text-muted uppercase">
-							Руководитель СООО «ЗОВ-ЛенЕВРОМЕБЕЛЬ»
+							Руководитель фабрики ЗОВ
 						</p>
 					</div>
 				</div>
@@ -561,7 +563,7 @@
 					долгие годы.
 				</p>
 				<ul class="mt-8 flex flex-col gap-4">
-					{#each ['Фасады из массива, МДФ, пластика и эмали', 'Петли с плавным закрыванием с доводчиком', 'Выкатные ящики с полным выдвижением', 'Столешницы из камня, кварца и HPL'] as item}
+					{#each ['Фасады из массива, МДФ, пластика и эмали', 'Петли с плавным закрыванием с доводчиком', 'Выкатные ящики с полным выдвижением', 'Столешницы из акрила, кварца и HPL'] as item}
 						<li class="flex items-start gap-3 text-sm text-text-primary">
 							<svg
 								class="mt-0.5 h-4 w-4 flex-shrink-0 text-accent"
@@ -619,12 +621,12 @@
 				Запишитесь на бесплатную консультацию в один из наших салонов. Наш дизайнер поможет
 				подобрать идеальное решение для вашего пространства.
 			</p>
-			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-				<a
-					href="/showrooms"
-					class="group inline-flex items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
+			<div class="mt-10 flex flex-col items-center justify-center gap-4">
+				<button
+					onclick={() => (isStyleModalOpen = true)}
+					class="group w-full sm:w-auto inline-flex cursor-pointer justify-center items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
 				>
-					Записаться на консультацию
+					Бесплатная консультация
 					<svg
 						class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
 						fill="none"
@@ -638,26 +640,7 @@
 							d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
 						/>
 					</svg>
-				</a>
-				<a
-					href="tel:+375291234567"
-					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50"
-				>
-					<svg
-						class="h-4 w-4"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						stroke-width="1.5"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-						/>
-					</svg>
-					Позвонить
-				</a>
+				</button>
 			</div>
 		</div>
 	</div>
@@ -667,4 +650,8 @@
 
 <Modal bind:showModal={isDesignerModalOpen} title="Вызов дизайнера">
 	<DesignerForm onSuccess={() => (isDesignerModalOpen = false)} />
+</Modal>
+
+<Modal bind:showModal={isStyleModalOpen} title="Бесплатная консультация">
+	<StyleConsultationForm onSuccess={() => (isStyleModalOpen = false)} />
 </Modal>

@@ -18,8 +18,8 @@
 		{ label: 'О фабрике', href: '/about' },
 		{ label: 'Акции', href: '/promotions' },
 		{ label: 'Новости', href: '/news' },
-		{ label: 'Дизайнерам', href: '/designers' },
-		{ label: 'Вакансии', href: '/careers' }
+		{ label: 'Кухни', href: '/' },
+		{ label: 'Шкафы', href: '/' }
 	];
 
 	const mainNav = [

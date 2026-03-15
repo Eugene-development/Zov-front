@@ -13,7 +13,7 @@
 	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
-<section class="relative min-h-[90vh] overflow-hidden bg-surface flex items-center justify-center">
+<section class="relative flex min-h-[90vh] items-center justify-center overflow-hidden bg-surface">
 	<!-- Background Image -->
 	<div class="absolute inset-0">
 		<img
@@ -26,13 +26,11 @@
 	</div>
 
 	<!-- Content -->
-	<div class="relative z-10 w-full max-w-2xl mx-6 px-8 py-12 text-center bg-white/85 backdrop-blur-xl shadow-2xl border border-white/60 rounded-3xl md:px-16 md:py-16">
+	<div
+		class="relative z-10 mx-6 w-full max-w-2xl rounded-3xl border border-white/60 bg-white/85 px-8 py-12 text-center shadow-2xl backdrop-blur-xl md:px-16 md:py-16"
+	>
 		<!-- Label -->
-		<div
-			class="mb-6 opacity-0"
-			class:animate-fade-up={visible}
-			style="animation-delay: 0.3s"
-		>
+		<div class="mb-6 opacity-0" class:animate-fade-up={visible} style="animation-delay: 0.3s">
 			<span
 				class="inline-flex items-center gap-2 border border-secondary/30 px-4 py-2 text-[11px] tracking-[0.25em] text-secondary uppercase"
 			>
@@ -55,7 +53,8 @@
 			class:animate-fade-up={visible}
 			style="animation-delay: 0.7s"
 		>
-			Ваша заявка успешно отправлена. Наши менеджеры свяжутся с вами в ближайшее время для уточнения всех деталей и ответа на ваши вопросы.
+			Ваша заявка успешно отправлена. Наши менеджеры свяжутся с вами в ближайшее время для уточнения
+			всех деталей и ответа на ваши вопросы.
 		</p>
 
 		<!-- CTA Buttons -->
@@ -68,8 +67,18 @@
 				href="/"
 				class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 			>
-				<svg class="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+				<svg
+					class="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="1.5"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+					/>
 				</svg>
 				На главную
 			</a>

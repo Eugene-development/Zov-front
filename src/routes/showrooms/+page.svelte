@@ -331,6 +331,28 @@
 						></div>
 					{/if}
 				</div>
+
+				<div class="mt-10 flex">
+					<a
+						href="/how-to-order"
+						class="group inline-flex items-center gap-3 border border-border-medium px-6 py-3 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
+					>
+						Как сделать заказ
+						<svg
+							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							stroke-width="1.5"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+							/>
+						</svg>
+					</a>
+				</div>
 			</div>
 
 			<!-- Right Column: Yandex Interactive Map -->

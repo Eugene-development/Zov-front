@@ -1,7 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
+	import Modal from '$lib/components/Modal.svelte';
+	import StyleConsultationForm from '$lib/components/StyleConsultationForm.svelte';
 
 	let heroVisible = $state(false);
+	let isStyleModalOpen = $state(false);
 	let sections = $state({});
 	let activeFilter = $state('all');
 	let timeLeft = $state({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -336,12 +339,12 @@
 							/>
 						</svg>
 					</a>
-					<a
-						href="/showrooms"
-						class="group inline-flex items-center gap-3 border border-border-medium bg-white/70 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary"
+					<button
+						onclick={() => (isStyleModalOpen = true)}
+						class="group inline-flex cursor-pointer items-center gap-3 border border-border-medium bg-white/70 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary"
 					>
-						Записаться на консультацию
-					</a>
+						Бесплатная консультация
+					</button>
 				</div>
 			</div>
 		</div>
@@ -860,3 +863,8 @@
 		</div>
 	</div>
 </section>
+
+<!-- Modals -->
+<Modal bind:showModal={isStyleModalOpen} title="Бесплатная консультация">
+	<StyleConsultationForm onSuccess={() => (isStyleModalOpen = false)} />
+</Modal>

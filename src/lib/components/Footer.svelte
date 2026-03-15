@@ -8,8 +8,8 @@
 				{ label: 'Стили', href: '/styles' },
 				{ label: 'Фасады', href: '/facades' },
 				{ label: 'Фурнитура', href: '/furniture' },
-				{ label: 'Кухни', href: '/styles' },
-				{ label: 'Шкафы', href: '/styles' }
+				{ label: 'Кухни', href: '/' },
+				{ label: 'Шкафы', href: '/' }
 			]
 		},
 		{
@@ -17,7 +17,6 @@
 			links: [
 				{ label: 'О фабрике', href: '/about' },
 				{ label: 'Новости', href: '/news' },
-				{ label: 'Акции', href: '/promotions' },
 				{ label: 'Дизайнерам', href: '/designers' },
 				{ label: 'Вакансии', href: '/careers' }
 			]
@@ -26,10 +25,11 @@
 			title: 'Покупателям',
 			links: [
 				{ label: 'Салоны', href: '/showrooms' },
-				{ label: 'Как заказать', href: '/how-to-order' },
-				{ label: 'Доставка', href: '/delivery' },
-				{ label: 'Гарантия', href: '/warranty' },
-				{ label: 'Контакты', href: '/contacts' }
+				{ label: 'Акции', href: '/promotions' },
+				{ label: 'Как заказать', href: '/how-to-order' }
+				// { label: 'Доставка', href: '/delivery' },
+				// { label: 'Гарантия', href: '/warranty' },
+				// { label: 'Контакты', href: '/contacts' }
 			]
 		}
 	];
@@ -114,7 +114,7 @@
 			<!-- Contact Column -->
 			<div class="col-span-1 lg:col-span-2">
 				<h4 class="text-xs font-medium tracking-[0.2em] text-white/40 uppercase">Контакты</h4>
-				<div class="mt-5 flex flex-col gap-4">
+				<div class="mt-1 flex flex-col gap-1">
 					<a
 						href="tel:+375291234567"
 						class="text-sm text-white/65 transition-colors duration-300 hover:text-accent-light"
@@ -127,15 +127,18 @@
 					>
 						info@zov.top
 					</a>
-					<p class="text-sm leading-relaxed text-white/65">
-						230005, Республика Беларусь, г. Гродно, <br />ул. Мясницкая, 12
-					</p>
 				</div>
 
 				<div class="mt-6">
+					<p class="text-[10px] tracking-[0.2em] text-white/30 uppercase">Адрес</p>
+					<p class="mt-1 text-sm text-white/65">
+						230005, Республика Беларусь, г. Гродно, <br />ул. Мясницкая, 12
+					</p>
+				</div>
+				<div class="mt-6">
 					<p class="text-[10px] tracking-[0.2em] text-white/30 uppercase">Режим работы</p>
-					<p class="mt-2 text-sm text-white/65">Пн–Пт: 9:00 — 18:00</p>
-					<p class="text-sm text-white/65">Сб: 10:00 — 15:00</p>
+					<p class="mt-1 text-sm text-white/65">Пн–Пт: 9:00 — 18:00</p>
+					<!-- <p class="text-sm text-white/65">Сб: 10:00 — 15:00</p> -->
 				</div>
 			</div>
 		</div>
