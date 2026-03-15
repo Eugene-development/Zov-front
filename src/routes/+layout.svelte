@@ -4,6 +4,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import ToastContainer from '$lib/components/ToastContainer.svelte';
+	import BotFilterModal from '$lib/components/BotFilterModal.svelte';
 
 	let { children } = $props();
 </script>
@@ -20,4 +21,5 @@
 	<Footer />
 
 	<ToastContainer />
+	<BotFilterModal />
 </div>

@@ -6,15 +6,19 @@
 	let {
 		showModal = $bindable(false),
 		title = '',
+		dismissible = true,
 		children
 	}: {
 		showModal?: boolean;
 		title?: string;
+		dismissible?: boolean;
 		children?: Snippet;
 	} = $props();
 
 	function close() {
-		showModal = false;
+		if (dismissible) {
+			showModal = false;
+		}
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
@@ -44,20 +48,22 @@
 			tabindex="-1"
 		>
 			<!-- Close Button -->
-			<button
-				class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center border border-border-light text-text-muted transition-colors hover:border-text-primary hover:text-text-primary focus:outline-none"
-				onclick={close}
-				aria-label="Закрыть"
-			>
-				<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="1.5"
-						d="M6 18L18 6M6 6l12 12"
-					/>
-				</svg>
-			</button>
+			{#if dismissible}
+				<button
+					class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center border border-border-light text-text-muted transition-colors hover:border-text-primary hover:text-text-primary focus:outline-none"
+					onclick={close}
+					aria-label="Закрыть"
+				>
+					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="1.5"
+							d="M6 18L18 6M6 6l12 12"
+						/>
+					</svg>
+				</button>
+			{/if}
 
 			{#if title}
 				<h3 class="mb-6 text-2xl font-light text-primary" style="font-family: var(--font-heading);">

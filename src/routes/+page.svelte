@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import DesignerForm from '$lib/components/DesignerForm.svelte';
+	import { regionState } from '$lib/state/region.svelte';
 
 	let heroVisible = $state(false);
 	let isDesignerModalOpen = $state(false);
@@ -32,17 +33,17 @@
 		{
 			title: 'Современный',
 			description: 'Чистые линии, минималистичные формы и функциональность мебели',
-			image: '/images/style-modern.png'
+			image: 'https://storage.yandexcloud.net/zovtop/stiles/sovremjknvndgvhj.jpg'
 		},
 		{
 			title: 'Классический',
 			description: 'Элегантность мебельных традиций с вниманием к каждой детали фасада',
-			image: '/images/style-classic.png'
+			image: 'https://storage.yandexcloud.net/zovtop/stiles/claskjdgnbkdgmj.jpg'
 		},
 		{
 			title: 'Минимализм',
 			description: 'Совершенство в простоте кухрнного гарнитура, пространство и свет',
-			image: '/images/style-minimalist.png'
+			image: 'https://storage.yandexcloud.net/zovtop/stiles/minimkjfvnfsjnvk.jpg'
 		}
 	];
 
@@ -223,7 +224,7 @@
 	></div>
 
 	<div class="relative mx-auto max-w-7xl px-6">
-		<div class="flex flex-col items-center justify-between gap-16 lg:flex-row lg:gap-24">
+		<div class="flex flex-col items-center justify-between gap-16 lg:flex-row lg:gap-32">
 			<!-- Logo -->
 			<div
 				class="relative flex w-full justify-center opacity-0 lg:w-5/12 lg:justify-end"
@@ -243,9 +244,9 @@
 						class="absolute -right-6 -bottom-6 h-12 w-12 border-r border-b border-accent/40 transition-transform duration-700 hover:translate-x-2 hover:translate-y-2 lg:h-16 lg:w-16"
 					></div>
 					<img
-						src="/images/founder.png"
+						src="https://storage.yandexcloud.net/zovtop/foto/zovdir.png"
 						alt="Основатель фабрики ЗОВ"
-						class="relative z-10 w-64 object-cover shadow-2xl transition-transform duration-1000 hover:scale-105 md:w-80 lg:w-[26rem]"
+						class="relative z-10 w-64 object-cover transition-transform duration-1000 hover:scale-105 md:w-80 lg:w-[22rem]"
 					/>
 				</div>
 			</div>
@@ -294,7 +295,7 @@
 					<div class="flex flex-col items-center lg:items-start">
 						<p class="mt-1.5 text-sm font-medium tracking-[0.1em] text-primary">Зуховицкий О.В.</p>
 						<p class="mt-1 text-[11px] tracking-wider text-text-muted uppercase">
-							Основатель мебельной фабрики «ЗОВ»
+							Руководитель СООО «ЗОВ-ЛенЕВРОМЕБЕЛЬ»
 						</p>
 					</div>
 				</div>
@@ -350,7 +351,7 @@
 					style="animation-delay: {0.2 + i * 0.15}s"
 				>
 					<!-- Image -->
-					<div class="relative aspect-[4/5] overflow-hidden">
+					<div class="relative aspect-[4/3] overflow-hidden">
 						<img
 							src={style.image}
 							alt={style.title}
@@ -372,24 +373,6 @@
 						<p class="mt-2 text-sm leading-relaxed text-text-secondary">
 							{style.description}
 						</p>
-						<div
-							class="mt-4 flex items-center gap-2 text-xs tracking-wider text-secondary opacity-0 transition-all duration-500 group-hover:opacity-100"
-						>
-							Подробнее
-							<svg
-								class="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-								stroke-width="2"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-								/>
-							</svg>
-						</div>
 					</div>
 				</a>
 			{/each}
@@ -681,6 +664,7 @@
 </section>
 
 <!-- Modals -->
+
 <Modal bind:showModal={isDesignerModalOpen} title="Вызов дизайнера">
 	<DesignerForm onSuccess={() => (isDesignerModalOpen = false)} />
 </Modal>

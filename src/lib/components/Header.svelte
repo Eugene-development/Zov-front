@@ -1,10 +1,18 @@
 <script>
 	import Modal from '$lib/components/Modal.svelte';
 	import ShowroomForm from '$lib/components/ShowroomForm.svelte';
+	import { regionState } from '$lib/state/region.svelte';
 
 	let scrolled = $state(false);
 	let mobileMenuOpen = $state(false);
 	let isShowroomModalOpen = $state(false);
+	let isCityModalOpen = $state(false);
+	let activeCountry = $state('Россия');
+
+	const showroomsData = {
+		Беларусь: ['Минск', 'Гродно'],
+		Россия: ['Москва', 'Санкт-Петербург']
+	};
 
 	const topLinks = [
 		{ label: 'О фабрике', href: '/about' },
@@ -89,6 +97,31 @@
 			>
 				info@zov.top
 			</a>
+			<span class="h-3 w-px bg-border-medium"></span>
+			<button
+				class="flex cursor-pointer items-center gap-1.5 text-xs tracking-wide text-text-secondary transition-colors duration-300 hover:text-secondary"
+				onclick={() => (isCityModalOpen = true)}
+			>
+				<svg
+					class="h-3.5 w-3.5"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="1.5"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+					/>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+					/>
+				</svg>
+				{regionState.selectedCity}
+			</button>
 		</div>
 	</div>
 </div>
@@ -221,6 +254,27 @@
 	</div>
 
 	<div class="mt-auto border-t border-border-light px-8 py-6">
+		<button
+			class="mb-4 flex w-full cursor-pointer items-center gap-2 text-sm text-text-secondary transition-colors duration-300 hover:text-secondary"
+			onclick={() => {
+				isCityModalOpen = true;
+				closeMenu();
+			}}
+		>
+			<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+				/>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+				/>
+			</svg>
+			{regionState.selectedCity}
+		</button>
 		<a href="tel:+375291234567" class="block text-sm text-text-secondary"> +7 915 400-00-20 </a>
 		<a href="mailto:info@zov.by" class="mt-2 block text-sm text-text-secondary"> info@zov.top </a>
 		<button
@@ -251,4 +305,43 @@
 <!-- Modals -->
 <Modal bind:showModal={isShowroomModalOpen} title="Запись в салон">
 	<ShowroomForm onSuccess={() => (isShowroomModalOpen = false)} />
+</Modal>
+
+<Modal bind:showModal={isCityModalOpen} title="Выберите город">
+	<div class="flex flex-col gap-6">
+		<div class="flex items-center gap-4 border-b border-border-light pb-4">
+			{#each Object.keys(showroomsData) as country}
+				<button
+					class="relative text-sm font-medium tracking-wide transition-colors duration-300 {activeCountry ===
+					country
+						? 'text-primary'
+						: 'text-text-muted hover:text-text-secondary'}"
+					onclick={() => (activeCountry = country)}
+				>
+					{country}
+					{#if activeCountry === country}
+						<span class="absolute -bottom-[17px] left-0 h-px w-full animate-fade-in bg-primary"
+						></span>
+					{/if}
+				</button>
+			{/each}
+		</div>
+
+		<div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+			{#each showroomsData[activeCountry] as city}
+				<button
+					class="rounded-lg border border-border-light px-4 py-3 text-sm tracking-wide transition-all duration-300 {regionState.selectedCity ===
+					city
+						? 'border-primary bg-primary text-white'
+						: 'bg-transparent text-text-secondary hover:border-primary hover:text-primary'}"
+					onclick={() => {
+						regionState.setCity(city);
+						isCityModalOpen = false;
+					}}
+				>
+					{city}
+				</button>
+			{/each}
+		</div>
+	</div>
 </Modal>
