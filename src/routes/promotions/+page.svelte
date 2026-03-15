@@ -244,7 +244,7 @@
 				class="text-3xl leading-none font-light text-secondary"
 				style="font-family: var(--font-heading);">−30%</span
 			>
-			<span class="mt-0.5 text-[9px] tracking-[0.15em] text-text-muted uppercase">скидка</span>
+			<span class="mt-0.5 text-[9px] tracking-[0.15em] text-muted uppercase">скидка</span>
 		</div>
 	</div>
 
@@ -286,27 +286,27 @@
 						<span class="text-2xl font-light text-primary" style="font-family: var(--font-heading);"
 							>6+</span
 						>
-						<span class="text-xs tracking-[0.15em] text-text-muted uppercase">акций сейчас</span>
+						<span class="text-xs tracking-[0.15em] text-secondary uppercase">акций сейчас</span>
 					</div>
 					<div class="h-8 w-px bg-border-medium"></div>
 					<div class="flex flex-col gap-1">
 						<span class="text-2xl font-light text-primary" style="font-family: var(--font-heading);"
 							>−30%</span
 						>
-						<span class="text-xs tracking-[0.15em] text-text-muted uppercase">макс. скидка</span>
+						<span class="text-xs tracking-[0.15em] text-secondary uppercase">макс. скидка</span>
 					</div>
 					<div class="hidden h-8 w-px bg-border-medium sm:block"></div>
 					<div class="hidden flex-col gap-1 sm:flex">
 						<span class="text-2xl font-light text-primary" style="font-family: var(--font-heading);"
 							>0 ₽</span
 						>
-						<span class="text-xs tracking-[0.15em] text-text-muted uppercase">за доставку</span>
+						<span class="text-xs tracking-[0.15em] text-secondary uppercase">за доставку</span>
 					</div>
 				</div>
 
 				<!-- Description -->
 				<p
-					class="mt-6 max-w-md text-base leading-relaxed text-text-secondary opacity-0 md:text-lg"
+					class="mt-6 max-w-md text-base leading-relaxed text-secondary opacity-0 md:text-lg"
 					class:animate-fade-up={heroVisible}
 					style="animation-delay: 0.7s"
 				>
@@ -322,7 +322,7 @@
 				>
 					<a
 						href="#promo-grid"
-						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 					>
 						Смотреть акции
 						<svg
@@ -357,7 +357,7 @@
 		style="animation-delay: 1.3s"
 	>
 		<div class="flex flex-col items-center gap-2">
-			<span class="text-[10px] tracking-[0.3em] text-text-muted uppercase">Листайте</span>
+			<span class="text-[10px] tracking-[0.3em] text-muted uppercase">Листайте</span>
 			<div class="h-10 w-px bg-gradient-to-b from-text-muted to-transparent"></div>
 		</div>
 	</div>
@@ -388,7 +388,7 @@
 					Весенняя
 					<span class="text-secondary italic">акция</span>
 				</h2>
-				<p class="mx-auto mt-6 max-w-md text-base leading-relaxed text-text-secondary lg:mx-0">
+				<p class="mx-auto mt-6 max-w-md text-base leading-relaxed text-secondary lg:mx-0">
 					Успейте оформить заказ премиальной мебели до 15 апреля. Бесплатный дизайн-проект и скидки
 					до 30%.
 				</p>
@@ -434,7 +434,7 @@
 								{pad(unit.v)}
 							</span>
 						</div>
-						<span class="text-[10px] tracking-[0.25em] text-text-secondary uppercase">
+						<span class="text-[10px] tracking-[0.25em] text-secondary uppercase">
 							{unit.l}
 						</span>
 					</div>
@@ -487,7 +487,7 @@
 						class:bg-primary={activeFilter === filter.key}
 						class:text-white={activeFilter === filter.key}
 						class:border-border-medium={activeFilter !== filter.key}
-						class:text-text-secondary={activeFilter !== filter.key}
+						class:text-secondary={activeFilter !== filter.key}
 						class:hover:border-secondary={activeFilter !== filter.key}
 						class:hover:text-secondary={activeFilter !== filter.key}
 					>
@@ -550,12 +550,12 @@
 						>
 							{promo.title}
 						</h3>
-						<p class="mt-3 text-sm leading-relaxed text-text-secondary">{promo.description}</p>
+						<p class="mt-3 text-sm leading-relaxed text-secondary">{promo.description}</p>
 
 						<!-- Features -->
 						<ul class="mt-4 flex flex-col gap-2">
 							{#each promo.features as feat}
-								<li class="flex items-center gap-2 text-xs text-text-secondary">
+								<li class="flex items-center gap-2 text-xs text-secondary">
 									<svg
 										class="h-3.5 w-3.5 flex-shrink-0 text-accent"
 										fill="none"
@@ -579,7 +579,7 @@
 							<div class="flex items-end justify-between">
 								<div>
 									{#if promo.oldPrice}
-										<p class="text-xs text-text-muted line-through">{promo.oldPrice} ₽</p>
+										<p class="text-xs text-muted line-through">{promo.oldPrice} ₽</p>
 									{/if}
 									<p
 										class="text-2xl font-light text-primary"
@@ -594,8 +594,8 @@
 									</p>
 								</div>
 								<div class="text-right">
-									<p class="text-[10px] tracking-[0.1em] text-text-muted uppercase">До</p>
-									<p class="text-xs text-text-secondary">{promo.until}</p>
+									<p class="text-[10px] tracking-[0.1em] text-muted uppercase">До</p>
+									<p class="text-xs text-secondary">{promo.until}</p>
 								</div>
 							</div>
 
@@ -642,7 +642,7 @@
 					/>
 					<path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
 				</svg>
-				<p class="mt-4 text-base text-text-muted">Акций в этой категории пока нет</p>
+				<p class="mt-4 text-base text-muted">Акций в этой категории пока нет</p>
 			</div>
 		{/if}
 	</div>
@@ -735,7 +735,7 @@
 			>
 				Как получить скидку
 			</h2>
-			<p class="mx-auto mt-4 max-w-lg text-base leading-relaxed text-text-secondary">
+			<p class="mx-auto mt-4 max-w-lg text-base leading-relaxed text-secondary">
 				Воспользоваться акцией легко — всего 3 шага до новой мебели по выгодной цене
 			</p>
 		</div>
@@ -763,7 +763,7 @@
 						>
 							{step.title}
 						</h3>
-						<p class="mt-3 text-sm leading-relaxed text-text-secondary">{step.text}</p>
+						<p class="mt-3 text-sm leading-relaxed text-secondary">{step.text}</p>
 					</div>
 					<!-- Connector arrow (between cards) -->
 					{#if i < 2}
@@ -821,9 +821,9 @@
 				стоимость с учётом скидок.
 			</p>
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-				<a
-					href="/showrooms"
-					class="group inline-flex items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
+				<button
+					onclick={() => (isStyleModalOpen = true)}
+					class="group inline-flex cursor-pointer items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
 				>
 					Записаться на консультацию
 					<svg
@@ -839,7 +839,7 @@
 							d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
 						/>
 					</svg>
-				</a>
+				</button>
 				<a
 					href="tel:+375291234567"
 					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50"

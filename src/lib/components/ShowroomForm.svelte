@@ -130,7 +130,7 @@
 
 <form onsubmit={handleSubmit} class="flex flex-col gap-5">
 	<div class="flex flex-col gap-2">
-		<label class="text-xs tracking-wider text-text-secondary uppercase" for="name">Ваше имя</label>
+		<label class="text-xs tracking-wider text-secondary uppercase" for="name">Ваше имя</label>
 		<input
 			type="text"
 			id="name"
@@ -142,7 +142,7 @@
 	</div>
 
 	<div class="relative flex flex-col gap-2">
-		<label class="text-xs tracking-wider text-text-secondary uppercase" for="phone"
+		<label class="text-xs tracking-wider text-secondary uppercase" for="phone"
 			>Номер телефона</label
 		>
 		<input
@@ -163,7 +163,7 @@
 	</div>
 
 	<div class="mt-2 flex flex-col gap-2">
-		<label class="text-xs tracking-wider text-text-secondary uppercase" for="details"
+		<label class="text-xs tracking-wider text-secondary uppercase" for="details"
 			>Предпочтительный салон или город (опционально)</label
 		>
 		<input
@@ -178,7 +178,7 @@
 	<button
 		type="submit"
 		disabled={isSubmitting}
-		class="group mt-4 inline-flex items-center justify-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary disabled:opacity-70"
+		class="group mt-4 inline-flex items-center justify-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary disabled:opacity-70"
 	>
 		{#if isSubmitting}
 			<span
@@ -203,7 +203,7 @@
 		{/if}
 	</button>
 
-	<p class="mt-2 text-center text-[10px] text-text-muted">
+	<p class="mt-2 text-center text-[10px] text-muted">
 		Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.
 	</p>
 </form>

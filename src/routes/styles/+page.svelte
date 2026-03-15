@@ -112,7 +112,7 @@
 				Стили <span class="text-accent italic">кухонь</span>
 			</h1>
 			<p
-				class="mx-auto mt-8 max-w-2xl text-lg leading-relaxed font-light text-text-secondary md:text-xl"
+				class="mx-auto mt-8 max-w-2xl text-lg leading-relaxed font-light text-secondary md:text-xl"
 			>
 				Откройте для себя наше портфолио. <br />От строгой классики до минимализма — найдите
 				идеальное решение, отражающее ваш индивидуальный вкус.
@@ -148,7 +148,7 @@
 			in:fade={{ duration: 1000, delay: 1000 }}
 		>
 			<div class="flex flex-col items-center gap-2">
-				<span class="text-[10px] tracking-[0.3em] text-text-muted uppercase">Вниз</span>
+				<span class="text-[10px] tracking-[0.3em] text-muted uppercase">Вниз</span>
 				<div class="h-10 w-px bg-gradient-to-b from-border-medium to-transparent"></div>
 			</div>
 		</div>
@@ -184,14 +184,14 @@
 						>
 							{style.name}
 						</h2>
-						<p class="mb-6 line-clamp-3 text-sm leading-relaxed text-text-secondary">
+						<p class="mb-6 line-clamp-3 text-sm leading-relaxed text-secondary">
 							{style.description}
 						</p>
 
 						<div class="mt-auto flex flex-wrap justify-center gap-2">
 							{#each style.tags as tag}
 								<span
-									class="border border-border-light bg-transparent px-3 py-1 text-xs text-text-muted transition-colors group-hover:border-secondary-light group-hover:text-secondary"
+									class="border border-border-light bg-transparent px-3 py-1 text-xs text-muted transition-colors group-hover:border-secondary-light group-hover:text-secondary"
 								>
 									{tag}
 								</span>
@@ -207,7 +207,7 @@
 	<section class="border-t border-border-light bg-white py-24">
 		<div class="mx-auto max-w-4xl px-4 text-center">
 			<h2 class="mb-6 font-heading text-4xl text-primary md:text-5xl">Поможем с выбором</h2>
-			<p class="mx-auto mb-10 max-w-2xl text-lg font-light text-text-secondary">
+			<p class="mx-auto mb-10 max-w-2xl text-lg font-light text-secondary">
 				Запишитесь на встречу с нашим дизайнером. Мы подберем идеальный стиль, материалы и
 				фурнитуру, учитывая архитектуру вашего пространства.
 			</p>

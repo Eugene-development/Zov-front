@@ -121,7 +121,7 @@
 
 				<!-- Description -->
 				<p
-					class="mt-8 max-w-lg text-base leading-relaxed text-text-secondary opacity-0 md:text-lg"
+					class="mt-8 max-w-lg text-base leading-relaxed text-secondary opacity-0 md:text-lg"
 					class:animate-fade-up={heroVisible}
 					style="animation-delay: 0.7s"
 				>
@@ -230,7 +230,7 @@
 								class="relative mt-4 h-px w-12 bg-accent/30 transition-all duration-500 group-hover:w-24 group-hover:bg-secondary"
 							></div>
 
-							<p class="relative mt-5 text-sm leading-relaxed text-text-secondary lg:text-base">
+							<p class="relative mt-5 text-sm leading-relaxed text-secondary lg:text-base">
 								{step.description}
 							</p>
 						</div>

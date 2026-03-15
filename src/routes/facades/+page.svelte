@@ -237,7 +237,7 @@
 						>
 							{facade.title}
 						</h3>
-						<p class="mt-6 text-base leading-relaxed text-text-secondary">
+						<p class="mt-6 text-base leading-relaxed text-secondary">
 							{facade.description}
 						</p>
 
@@ -245,28 +245,28 @@
 						<div class="mt-10 border-t border-border-light pt-6">
 							<dl class="flex flex-col gap-4">
 								<div class="flex items-center justify-between border-b border-border-light/50 pb-4">
-									<dt class="text-xs tracking-wider text-text-muted uppercase">Материал основы</dt>
+									<dt class="text-xs tracking-wider text-muted uppercase">Материал основы</dt>
 									<dd class="text-right text-sm font-medium text-primary">{facade.details.base}</dd>
 								</div>
 								<div class="flex items-center justify-between border-b border-border-light/50 pb-4">
-									<dt class="text-xs tracking-wider text-text-muted uppercase">Покрытие</dt>
+									<dt class="text-xs tracking-wider text-muted uppercase">Покрытие</dt>
 									<dd class="text-right text-sm font-medium text-primary">
 										{facade.details.coating}
 									</dd>
 								</div>
 								<div class="flex items-center justify-between border-b border-border-light/50 pb-4">
-									<dt class="text-xs tracking-wider text-text-muted uppercase">Толщина</dt>
+									<dt class="text-xs tracking-wider text-muted uppercase">Толщина</dt>
 									<dd class="text-right text-sm font-medium text-primary">
 										{facade.details.thickness}
 									</dd>
 								</div>
 								<div class="flex items-start justify-between pb-2">
-									<dt class="mt-0.5 text-xs tracking-wider text-text-muted uppercase">
+									<dt class="mt-0.5 text-xs tracking-wider text-muted uppercase">
 										Размеры <span class="text-[10px] opacity-70">(мин / макс)</span>
 									</dt>
 									<dd class="text-right text-sm font-medium text-primary">
 										{facade.details.minSize} <br />
-										<span class="mx-1 text-xs text-text-muted">—</span> <br class="sm:hidden" />
+										<span class="mx-1 text-xs text-muted">—</span> <br class="sm:hidden" />
 										{facade.details.maxSize}
 									</dd>
 								</div>
@@ -316,7 +316,7 @@
 			>
 				Посмотрите вживую
 			</h2>
-			<p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-text-secondary">
+			<p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-secondary">
 				Ни одна фотография не передаст тактильных ощущений от текстурного пластика, прохлады
 				глубокого глянца или теплоты натурального дерева. Посетите салон фабрики, чтобы прикоснуться
 				к образцам.
@@ -324,7 +324,7 @@
 			<div class="mt-10 flex justify-center">
 				<a
 					href="/showrooms"
-					class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+					class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 				>
 					Адреса салонов
 				</a>

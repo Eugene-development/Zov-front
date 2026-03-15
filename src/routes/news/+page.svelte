@@ -139,7 +139,7 @@
 			>
 				Новости
 			</h1>
-			<p class="mt-4 max-w-lg text-base leading-relaxed text-text-secondary">
+			<p class="mt-4 max-w-lg text-base leading-relaxed text-secondary">
 				События, обновления и достижения фабрики ЗОВ
 			</p>
 		</div>
@@ -159,7 +159,7 @@
 					class="border px-4 py-1.5 text-xs tracking-wider whitespace-nowrap transition-all duration-300
 						{activeCategory === cat
 						? 'border-primary bg-primary text-white'
-						: 'border-border-light bg-transparent text-text-secondary hover:border-secondary hover:text-secondary'}"
+						: 'border-border-light bg-transparent text-secondary hover:border-secondary hover:text-secondary'}"
 					onclick={() => (activeCategory = cat)}
 					id="filter-{cat}"
 				>
@@ -184,7 +184,7 @@
 					<div
 						class="flex shrink-0 flex-row items-center gap-3 md:w-44 md:flex-col md:items-start md:gap-1.5"
 					>
-						<time class="text-xs text-text-muted tabular-nums">{item.date}</time>
+						<time class="text-xs text-muted tabular-nums">{item.date}</time>
 						<span
 							class="inline-block border border-secondary/30 px-2 py-0.5 text-[10px] tracking-[0.2em] text-secondary uppercase"
 						>
@@ -200,7 +200,7 @@
 						>
 							{item.title}
 						</h2>
-						<p class="mt-2.5 text-sm leading-relaxed text-text-secondary">
+						<p class="mt-2.5 text-sm leading-relaxed text-secondary">
 							{item.excerpt}
 						</p>
 					</div>
@@ -208,7 +208,7 @@
 					<!-- Arrow -->
 					<div class="hidden shrink-0 items-center self-center md:flex">
 						<span
-							class="flex h-9 w-9 items-center justify-center border border-transparent text-text-muted transition-all duration-300 group-hover:border-secondary group-hover:text-secondary"
+							class="flex h-9 w-9 items-center justify-center border border-transparent text-muted transition-all duration-300 group-hover:border-secondary group-hover:text-secondary"
 						>
 							<svg
 								class="h-4 w-4 translate-x-0 transition-transform duration-300 group-hover:translate-x-0.5"
@@ -231,7 +231,7 @@
 
 		{#if filteredNews.length === 0}
 			<div class="py-24 text-center">
-				<p class="text-base text-text-muted">Новостей в этой категории пока нет</p>
+				<p class="text-base text-muted">Новостей в этой категории пока нет</p>
 			</div>
 		{/if}
 	</div>
@@ -258,7 +258,7 @@
 			>
 				Посетите наши салоны
 			</h2>
-			<p class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-text-secondary">
+			<p class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-secondary">
 				Наши дизайнеры всегда в курсе последних новинок и акций. Приходите — расскажем всё лично.
 			</p>
 			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -283,7 +283,7 @@
 				</a>
 				<a
 					href="/promotions"
-					class="inline-flex items-center gap-2 border border-border-medium px-8 py-3.5 text-xs tracking-[0.15em] text-text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
+					class="inline-flex items-center gap-2 border border-border-medium px-8 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
 				>
 					Смотреть акции
 				</a>

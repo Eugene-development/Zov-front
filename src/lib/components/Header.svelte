@@ -64,7 +64,7 @@
 			{#each topLinks as link}
 				<a
 					href={link.href}
-					class="text-xs tracking-wider text-text-secondary transition-colors duration-300 hover:text-secondary"
+					class="text-xs tracking-wider text-secondary transition-colors duration-300 hover:text-secondary"
 				>
 					{link.label}
 				</a>
@@ -73,7 +73,7 @@
 		<div class="flex items-center gap-5">
 			<a
 				href="tel:+375291234567"
-				class="flex items-center gap-1.5 text-xs tracking-wide text-text-secondary transition-colors duration-300 hover:text-secondary"
+				class="flex items-center gap-1.5 text-xs tracking-wide text-secondary transition-colors duration-300 hover:text-secondary"
 			>
 				<svg
 					class="h-3.5 w-3.5"
@@ -93,13 +93,13 @@
 			<span class="h-3 w-px bg-border-medium"></span>
 			<a
 				href="mailto:info@zov.by"
-				class="text-xs tracking-wide text-text-secondary transition-colors duration-300 hover:text-secondary"
+				class="text-xs tracking-wide text-secondary transition-colors duration-300 hover:text-secondary"
 			>
 				info@zov.top
 			</a>
 			<span class="h-3 w-px bg-border-medium"></span>
 			<button
-				class="flex cursor-pointer items-center gap-1.5 text-xs tracking-wide text-text-secondary transition-colors duration-300 hover:text-secondary"
+				class="flex cursor-pointer items-center gap-1.5 text-xs tracking-wide text-secondary transition-colors duration-300 hover:text-secondary"
 				onclick={() => (isCityModalOpen = true)}
 			>
 				<svg
@@ -141,7 +141,7 @@
 			>
 				ЗОВ
 			</span>
-			<span class="hidden text-[10px] tracking-[0.3em] text-text-muted uppercase lg:block">
+			<span class="hidden text-[10px] tracking-[0.3em] text-muted uppercase lg:block">
 				мебельная фабрика
 			</span>
 		</a>
@@ -151,7 +151,7 @@
 			{#each mainNav as item}
 				<a
 					href={item.href}
-					class="group relative px-5 py-2.5 text-sm tracking-wide text-text-primary transition-colors duration-300 hover:text-secondary"
+					class="group relative px-5 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
 				>
 					{item.label}
 					<span
@@ -232,7 +232,7 @@
 		{#each mainNav as item, i}
 			<a
 				href={item.href}
-				class="border-b border-border-light py-4 text-lg tracking-wide text-text-primary transition-colors duration-300 hover:text-secondary"
+				class="border-b border-border-light py-4 text-lg tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
 				style="font-family: var(--font-heading);"
 				onclick={closeMenu}
 			>
@@ -245,7 +245,7 @@
 		{#each topLinks as link}
 			<a
 				href={link.href}
-				class="text-sm text-text-secondary transition-colors duration-300 hover:text-secondary"
+				class="text-sm text-secondary transition-colors duration-300 hover:text-secondary"
 				onclick={closeMenu}
 			>
 				{link.label}
@@ -255,7 +255,7 @@
 
 	<div class="mt-auto border-t border-border-light px-8 py-6">
 		<button
-			class="mb-4 flex w-full cursor-pointer items-center gap-2 text-sm text-text-secondary transition-colors duration-300 hover:text-secondary"
+			class="mb-4 flex w-full cursor-pointer items-center gap-2 text-sm text-secondary transition-colors duration-300 hover:text-secondary"
 			onclick={() => {
 				isCityModalOpen = true;
 				closeMenu();
@@ -275,8 +275,8 @@
 			</svg>
 			{regionState.selectedCity}
 		</button>
-		<a href="tel:+375291234567" class="block text-sm text-text-secondary"> +7 915 400-00-20 </a>
-		<a href="mailto:info@zov.by" class="mt-2 block text-sm text-text-secondary"> info@zov.top </a>
+		<a href="tel:+375291234567" class="block text-sm text-secondary"> +7 915 400-00-20 </a>
+		<a href="mailto:info@zov.by" class="mt-2 block text-sm text-secondary"> info@zov.top </a>
 		<button
 			onclick={() => {
 				isShowroomModalOpen = true;
@@ -315,7 +315,7 @@
 					class="relative text-sm font-medium tracking-wide transition-colors duration-300 {activeCountry ===
 					country
 						? 'text-primary'
-						: 'text-text-muted hover:text-text-secondary'}"
+						: 'text-muted hover:text-secondary'}"
 					onclick={() => (activeCountry = country)}
 				>
 					{country}
@@ -333,7 +333,7 @@
 					class="rounded-lg border border-border-light px-4 py-3 text-sm tracking-wide transition-all duration-300 {regionState.selectedCity ===
 					city
 						? 'border-primary bg-primary text-white'
-						: 'bg-transparent text-text-secondary hover:border-primary hover:text-primary'}"
+						: 'bg-transparent text-secondary hover:border-primary hover:text-primary'}"
 					onclick={() => {
 						regionState.setCity(city);
 						isCityModalOpen = false;

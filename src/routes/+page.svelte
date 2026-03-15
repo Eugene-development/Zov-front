@@ -159,7 +159,7 @@
 				>
 					<button
 						onclick={() => (isDesignerModalOpen = true)}
-						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 					>
 						Дизайнер на дом
 						<svg
@@ -194,7 +194,7 @@
 		style="animation-delay: 1.3s"
 	>
 		<div class="flex flex-col items-center gap-2">
-			<span class="text-[10px] tracking-[0.3em] text-text-muted uppercase">Листайте</span>
+			<span class="text-[10px] tracking-[0.3em] text-muted uppercase">Листайте</span>
 			<div class="h-10 w-px bg-gradient-to-b from-text-muted to-transparent"></div>
 		</div>
 	</div>
@@ -278,15 +278,15 @@
 				</h2>
 
 				<div class="mt-8 space-y-4">
-					<p class="text-base leading-relaxed text-text-secondary">
+					<p class="text-base leading-relaxed text-secondary">
 						Мы вкладываем весь свой опыт и душу в создание мебели, чтобы она приносила уют и комфорт
 						в ваш дом на долгие годы.
 					</p>
-					<p class="text-base leading-relaxed text-text-secondary">
+					<p class="text-base leading-relaxed text-secondary">
 						Каждая кухня, гардероб и любая другая мебель — это результат кропотливого труда нашей
 						команды, где передовые технологии сочетаются с подлинной любовью к своему делу.
 					</p>
-					<p class="text-base leading-relaxed text-text-secondary">
+					<p class="text-base leading-relaxed text-secondary">
 						Мы гордимся тем, что можем стать частью вашей повседневной жизни.
 					</p>
 				</div>
@@ -296,7 +296,7 @@
 				>
 					<div class="flex flex-col items-center lg:items-start">
 						<p class="mt-1.5 text-sm font-medium tracking-[0.1em] text-primary">Зуховицкий О.В.</p>
-						<p class="mt-1 text-[11px] tracking-wider text-text-muted uppercase">
+						<p class="mt-1 text-[11px] tracking-wider text-muted uppercase">
 							Руководитель фабрики ЗОВ
 						</p>
 					</div>
@@ -325,7 +325,7 @@
 			</div>
 			<a
 				href="/styles"
-				class="group flex items-center gap-2 text-sm text-text-secondary transition-colors duration-300 hover:text-secondary"
+				class="group flex items-center gap-2 text-sm text-secondary transition-colors duration-300 hover:text-secondary"
 			>
 				Все стили
 				<svg
@@ -372,7 +372,7 @@
 						>
 							{style.title}
 						</h3>
-						<p class="mt-2 text-sm leading-relaxed text-text-secondary">
+						<p class="mt-2 text-sm leading-relaxed text-secondary">
 							{style.description}
 						</p>
 					</div>
@@ -409,7 +409,7 @@
 					Почему выбирают
 					<span class="text-secondary">ЗОВ</span>
 				</h2>
-				<p class="mt-6 max-w-md text-base leading-relaxed text-text-secondary">
+				<p class="mt-6 max-w-md text-base leading-relaxed text-secondary">
 					Мы объединяем многолетний опыт, передовые технологии и внимание к деталям для создания
 					мебели, которая превосходит ожидания.
 				</p>
@@ -428,7 +428,7 @@
 							>
 								{stat.value}
 							</div>
-							<div class="mt-1 text-sm text-text-muted">{stat.label}</div>
+							<div class="mt-1 text-sm text-muted">{stat.label}</div>
 						</div>
 					{/each}
 				</div>
@@ -449,7 +449,7 @@
 							>
 								{adv.title}
 							</h3>
-							<p class="mt-2 text-sm leading-relaxed text-text-secondary">
+							<p class="mt-2 text-sm leading-relaxed text-secondary">
 								{adv.description}
 							</p>
 						</div>
@@ -557,14 +557,14 @@
 					Внимание к каждой
 					<span class="text-secondary">детали</span>
 				</h2>
-				<p class="mt-6 text-base leading-relaxed text-text-secondary">
+				<p class="mt-6 text-base leading-relaxed text-secondary">
 					Мы используем фурнитуру ведущих мировых производителей: Blum, Hettich, Grass. Каждый
 					механизм работает безупречно тысячи циклов, обеспечивая плавность хода и надёжность на
 					долгие годы.
 				</p>
 				<ul class="mt-8 flex flex-col gap-4">
 					{#each ['Фасады из массива, МДФ, пластика и эмали', 'Петли с плавным закрыванием с доводчиком', 'Выкатные ящики с полным выдвижением', 'Столешницы из акрила, кварца и HPL'] as item}
-						<li class="flex items-start gap-3 text-sm text-text-primary">
+						<li class="flex items-start gap-3 text-sm text-primary">
 							<svg
 								class="mt-0.5 h-4 w-4 flex-shrink-0 text-accent"
 								fill="none"
@@ -581,7 +581,7 @@
 				<div class="mt-10 flex flex-wrap gap-4">
 					<a
 						href="/facades"
-						class="inline-flex items-center gap-2 border border-primary bg-primary px-7 py-3.5 text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+						class="inline-flex items-center gap-2 border border-primary bg-primary px-7 py-3.5 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 					>
 						Фасады
 					</a>

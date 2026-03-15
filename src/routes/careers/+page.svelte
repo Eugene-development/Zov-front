@@ -325,7 +325,7 @@
 					>
 						{perk.title}
 					</h3>
-					<p class="mt-3 text-sm leading-relaxed text-text-secondary">{perk.text}</p>
+					<p class="mt-3 text-sm leading-relaxed text-secondary">{perk.text}</p>
 				</div>
 			{/each}
 		</div>
@@ -349,7 +349,7 @@
 					Вакансии
 				</h2>
 			</div>
-			<p class="text-sm text-text-muted">
+			<p class="text-sm text-muted">
 				{filteredVacancies.length}
 				{filteredVacancies.length === 1
 					? 'вакансия'
@@ -370,7 +370,7 @@
 					class="border px-4 py-2 text-xs tracking-wider uppercase transition-all duration-300
 						{activeDept === dept
 						? 'border-primary bg-primary text-white'
-						: 'border-border-medium bg-white text-text-secondary hover:border-primary hover:text-primary'}"
+						: 'border-border-medium bg-white text-secondary hover:border-primary hover:text-primary'}"
 					onclick={() => {
 						activeDept = dept;
 						expandedId = null;
@@ -409,24 +409,24 @@
 										{vac.title}
 									</h3>
 									<div class="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
-										<span class="text-xs text-text-muted">{vac.city}</span>
+										<span class="text-xs text-muted">{vac.city}</span>
 										<span class="h-1 w-1 rounded-full bg-border-medium"></span>
-										<span class="text-xs text-text-muted">{vac.type}</span>
+										<span class="text-xs text-muted">{vac.type}</span>
 										<span class="h-1 w-1 rounded-full bg-border-medium"></span>
-										<span class="text-xs text-text-muted">Опыт: {vac.experience}</span>
+										<span class="text-xs text-muted">Опыт: {vac.experience}</span>
 									</div>
 								</div>
 								<div class="flex flex-shrink-0 flex-col items-start gap-1.5 sm:items-end">
 									<span class="text-sm font-medium text-primary">{vac.salary}</span>
 									<span
-										class="inline-block border border-border-medium px-2.5 py-0.5 text-[10px] tracking-wider text-text-muted uppercase"
+										class="inline-block border border-border-medium px-2.5 py-0.5 text-[10px] tracking-wider text-muted uppercase"
 										>{vac.dept}</span
 									>
 								</div>
 							</div>
 							<!-- Arrow -->
 							<svg
-								class="h-5 w-5 flex-shrink-0 text-text-muted transition-all duration-300 {expandedId ===
+								class="h-5 w-5 flex-shrink-0 text-muted transition-all duration-300 {expandedId ===
 								vac.id
 									? 'rotate-180 text-secondary'
 									: 'group-hover:text-secondary'}"
@@ -447,12 +447,12 @@
 					<!-- Expanded details -->
 					{#if expandedId === vac.id}
 						<div class="border-t border-border-light bg-surface-warm px-6 pt-6 pb-8 sm:px-8">
-							<p class="max-w-2xl text-sm leading-relaxed text-text-secondary">{vac.description}</p>
+							<p class="max-w-2xl text-sm leading-relaxed text-secondary">{vac.description}</p>
 
 							<div class="mt-5 flex flex-wrap gap-2">
 								{#each vac.tags as tag}
 									<span
-										class="border border-border-medium bg-white px-3 py-1 text-[11px] tracking-wider text-text-muted uppercase"
+										class="border border-border-medium bg-white px-3 py-1 text-[11px] tracking-wider text-muted uppercase"
 										>{tag}</span
 									>
 								{/each}
@@ -478,7 +478,7 @@
 										/>
 									</svg>
 								</a>
-								<span class="text-xs text-text-muted"
+								<span class="text-xs text-muted"
 									>или отправьте резюме на <a
 										href="mailto:hr@zov.by"
 										class="text-secondary underline underline-offset-2">hr@zov.by</a
@@ -491,7 +491,7 @@
 			{/each}
 
 			{#if filteredVacancies.length === 0}
-				<div class="px-8 py-16 text-center text-text-muted">
+				<div class="px-8 py-16 text-center text-muted">
 					<p class="text-sm">Вакансий в этой категории не найдено.</p>
 				</div>
 			{/if}

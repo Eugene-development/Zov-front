@@ -279,7 +279,7 @@
 					>
 						{b.title}
 					</h3>
-					<p class="mt-3 text-sm leading-relaxed text-text-secondary">
+					<p class="mt-3 text-sm leading-relaxed text-secondary">
 						{b.text}
 					</p>
 				</div>
@@ -314,7 +314,7 @@
 			{#each tracks as track}
 				<button
 					class="relative pb-4 text-sm tracking-wide transition-colors duration-300
-						{activeTrack === track.id ? 'text-primary' : 'text-text-muted hover:text-text-secondary'}"
+						{activeTrack === track.id ? 'text-primary' : 'text-muted hover:text-secondary'}"
 					onclick={() => (activeTrack = track.id)}
 					id="tab-{track.id}"
 				>
@@ -342,7 +342,7 @@
 						>
 							{track.title}
 						</h3>
-						<p class="mt-5 text-base leading-relaxed text-text-secondary">
+						<p class="mt-5 text-base leading-relaxed text-secondary">
 							{track.description}
 						</p>
 						<a
@@ -378,7 +378,7 @@
 									<span class="mt-0.5 flex-shrink-0 text-xs font-medium text-accent tabular-nums"
 										>0{j + 1}</span
 									>
-									<span class="text-sm leading-relaxed text-text-primary">{point}</span>
+									<span class="text-sm leading-relaxed text-primary">{point}</span>
 								</li>
 							{/each}
 						</ul>
@@ -428,7 +428,7 @@
 					<h3 class="text-lg font-medium text-primary" style="font-family: var(--font-heading);">
 						{step.title}
 					</h3>
-					<p class="mt-3 text-sm leading-relaxed text-text-secondary">
+					<p class="mt-3 text-sm leading-relaxed text-secondary">
 						{step.text}
 					</p>
 				</div>

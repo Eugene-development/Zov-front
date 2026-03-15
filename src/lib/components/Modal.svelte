@@ -50,7 +50,7 @@
 			<!-- Close Button -->
 			{#if dismissible}
 				<button
-					class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center border border-border-light text-text-muted transition-colors hover:border-text-primary hover:text-text-primary focus:outline-none"
+					class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center border border-border-light text-muted transition-colors hover:border-text-primary hover:text-primary focus:outline-none"
 					onclick={close}
 					aria-label="Закрыть"
 				>

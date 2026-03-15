@@ -228,7 +228,7 @@
 							class="relative text-sm font-medium tracking-wide transition-colors duration-300 {activeCountry ===
 							country
 								? 'text-primary'
-								: 'text-text-muted hover:text-text-secondary'}"
+								: 'text-muted hover:text-secondary'}"
 							onclick={() => {
 								activeCountry = country;
 								activeCity = 'Все';
@@ -252,7 +252,7 @@
 							class="rounded-full border border-border-light px-4 py-1.5 text-xs tracking-wide transition-colors duration-300 {activeCity ===
 							city
 								? 'border-primary bg-primary text-white'
-								: 'bg-transparent text-text-secondary hover:border-text-muted hover:text-primary'}"
+								: 'bg-transparent text-secondary hover:border-text-muted hover:text-primary'}"
 							onclick={() => (activeCity = city)}
 						>
 							{city}
@@ -300,8 +300,8 @@
 											class="group border-l-2 border-border-light pl-6 transition-colors duration-300 hover:border-secondary"
 										>
 											<h4 class="text-base font-medium text-primary">{place.name}</h4>
-											<p class="mt-2 text-sm text-text-secondary">{place.address}</p>
-											<div class="mt-4 flex flex-col gap-1.5 text-xs text-text-muted">
+											<p class="mt-2 text-sm text-secondary">{place.address}</p>
+											<div class="mt-4 flex flex-col gap-1.5 text-xs text-muted">
 												<div class="flex items-center gap-2">
 													<svg
 														class="h-3.5 w-3.5"

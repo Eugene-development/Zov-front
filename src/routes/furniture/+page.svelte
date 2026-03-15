@@ -193,7 +193,7 @@
 			>
 				Надежность, которую вы <span class="text-secondary">чувствуете</span> каждый день
 			</h2>
-			<p class="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-text-secondary">
+			<p class="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-secondary">
 				Фурнитура — это невидимое сердце любой мебели. От нее зависит, насколько плавно будут
 				открываться дверцы, как тихо будут закрываться ящики и сколько лет мебель прослужит без
 				единого скрипа. Мы подобрали для вас лучшее оборудование от мировых лидеров мебельной
@@ -228,7 +228,7 @@
 							{brand.name}
 						</h3>
 						<div class="bg-border-strong mt-6 mb-8 h-px w-12"></div>
-						<p class="text-base leading-relaxed text-text-secondary">
+						<p class="text-base leading-relaxed text-secondary">
 							{brand.description}
 						</p>
 						<ul class="mt-8 flex flex-col gap-5">
@@ -239,7 +239,7 @@
 									>
 										<div class="h-1 w-1 bg-secondary"></div>
 									</div>
-									<span class="text-sm text-text-primary">{feature}</span>
+									<span class="text-sm text-primary">{feature}</span>
 								</li>
 							{/each}
 						</ul>

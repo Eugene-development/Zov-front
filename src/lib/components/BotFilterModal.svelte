@@ -43,7 +43,7 @@
 
 <Modal bind:showModal={isBotFilterModalOpen} title="Выберите ваш город" dismissible={false}>
 	<div class="flex flex-col gap-6">
-		<p class="text-sm text-text-secondary">
+		<p class="text-sm text-secondary">
 			Добро пожаловать на сайт фабрики! Для продолжения работы с сайтом выберите ваш город.
 		</p>
 
@@ -63,7 +63,7 @@
 					class="relative text-sm font-medium tracking-wide transition-colors duration-300 {activeCountry ===
 					country
 						? 'text-primary'
-						: 'text-text-muted hover:text-text-secondary'}"
+						: 'text-muted hover:text-secondary'}"
 					onclick={() => (activeCountry = country)}
 				>
 					{country}
@@ -81,7 +81,7 @@
 					class="rounded-lg border border-border-light px-4 py-3 text-sm tracking-wide transition-all duration-300 {regionState.selectedCity ===
 					city
 						? 'border-primary bg-primary text-white'
-						: 'bg-transparent text-text-secondary hover:border-primary hover:text-primary'}"
+						: 'bg-transparent text-secondary hover:border-primary hover:text-primary'}"
 					onclick={() => handleCitySelect(city)}
 				>
 					{city}

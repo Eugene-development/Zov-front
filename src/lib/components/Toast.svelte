@@ -56,11 +56,11 @@
 		{#if toast.title}
 			<h4 class="text-sm font-medium text-primary">{toast.title}</h4>
 		{/if}
-		<p class="mt-1 text-xs leading-relaxed text-text-secondary">{toast.message}</p>
+		<p class="mt-1 text-xs leading-relaxed text-secondary">{toast.message}</p>
 	</div>
 
 	<button
-		class="ml-4 flex-shrink-0 text-text-muted hover:text-text-primary focus:outline-none"
+		class="ml-4 flex-shrink-0 text-muted hover:text-primary focus:outline-none"
 		onclick={close}
 		aria-label="Закрыть уведомление"
 	>

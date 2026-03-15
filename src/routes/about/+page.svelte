@@ -115,7 +115,7 @@
 
 				<!-- Description -->
 				<p
-					class="mt-8 max-w-lg text-base leading-relaxed text-text-secondary opacity-0 md:text-lg"
+					class="mt-8 max-w-lg text-base leading-relaxed text-secondary opacity-0 md:text-lg"
 					class:animate-fade-up={heroVisible}
 					style="animation-delay: 0.7s"
 				>
@@ -131,7 +131,7 @@
 				>
 					<a
 						href="/showrooms"
-						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 					>
 						Найти ближайший салон
 						<svg
@@ -179,7 +179,7 @@
 		style="animation-delay: 1.3s"
 	>
 		<div class="flex flex-col items-center gap-2">
-			<span class="text-[10px] tracking-[0.3em] text-text-muted uppercase">Листайте</span>
+			<span class="text-[10px] tracking-[0.3em] text-muted uppercase">Листайте</span>
 			<div class="h-10 w-px bg-gradient-to-b from-text-muted to-transparent"></div>
 		</div>
 	</div>
@@ -213,18 +213,18 @@
 					<span class="text-secondary">которая дарит радость</span>
 				</h2>
 				<div class="mt-8 space-y-5">
-					<p class="text-base leading-relaxed text-text-secondary">
+					<p class="text-base leading-relaxed text-secondary">
 						Миссия нашей компании заключается в том, чтобы предоставлять клиентам высококачественную
 						мебель, которая не только удовлетворяет функциональные потребности, но и приносит
 						радость и комфорт в их жизни.
 					</p>
-					<p class="text-base leading-relaxed text-text-secondary">
+					<p class="text-base leading-relaxed text-secondary">
 						Мы уделяем особое внимание каждой детали — от выбора материалов до конечного
 						производства. Тщательно подбираем только самые лучшие материалы: натуральное дерево,
 						металл и стекло, — чтобы наша мебель была долговечной и выглядела прекрасно на
 						протяжении многих лет.
 					</p>
-					<p class="text-base leading-relaxed text-text-secondary">
+					<p class="text-base leading-relaxed text-secondary">
 						Кухня и гардероб — это не просто функциональные помещения, а места, где люди проводят
 						много времени. Мы учитываем потребности каждого клиента, чтобы создать мебель, которая
 						идеально подходит его индивидуальному стилю.
@@ -247,7 +247,7 @@
 							>
 								{stat.value}
 							</div>
-							<div class="mt-1 text-sm text-text-muted">{stat.label}</div>
+							<div class="mt-1 text-sm text-muted">{stat.label}</div>
 						</div>
 					</div>
 				{/each}
@@ -298,7 +298,7 @@
 				>
 					Принципы компании
 				</h2>
-				<p class="mt-4 max-w-xl text-base leading-relaxed text-text-secondary">
+				<p class="mt-4 max-w-xl text-base leading-relaxed text-secondary">
 					Компания основывается на принципах индивидуального подхода, высокого качества материалов и
 					соблюдения сроков.
 				</p>
@@ -321,7 +321,7 @@
 					>
 						{principle.title}
 					</h3>
-					<p class="mt-3 text-sm leading-relaxed text-text-secondary">
+					<p class="mt-3 text-sm leading-relaxed text-secondary">
 						{principle.text}
 					</p>
 				</div>

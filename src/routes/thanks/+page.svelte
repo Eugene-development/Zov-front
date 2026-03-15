@@ -49,7 +49,7 @@
 
 		<!-- Description -->
 		<p
-			class="mx-auto mt-8 max-w-lg text-base leading-relaxed text-text-secondary opacity-0 md:text-lg"
+			class="mx-auto mt-8 max-w-lg text-base leading-relaxed text-secondary opacity-0 md:text-lg"
 			class:animate-fade-up={visible}
 			style="animation-delay: 0.7s"
 		>
@@ -65,7 +65,7 @@
 		>
 			<a
 				href="/"
-				class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+				class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 			>
 				<svg
 					class="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1"

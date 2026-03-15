@@ -53,7 +53,7 @@
 	];
 </script>
 
-<footer class="relative bg-primary text-text-inverse">
+<footer class="relative bg-primary text-inverse">
 	<!-- Decorative Top Line -->
 	<div class="h-px w-full bg-gradient-to-r from-transparent via-accent to-transparent"></div>
 

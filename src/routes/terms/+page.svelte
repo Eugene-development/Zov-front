@@ -27,7 +27,7 @@
 			>
 				Пользовательское <br class="md:hidden" /><span class="text-secondary">соглашение</span>
 			</h1>
-			<p class="mt-6 text-sm text-text-muted">Последнее обновление: 15 марта 2026</p>
+			<p class="mt-6 text-sm text-muted">Последнее обновление: 15 марта 2026</p>
 		</div>
 	</div>
 </section>
@@ -43,18 +43,18 @@
 				<h2 class="text-2xl font-medium text-primary" style="font-family: var(--font-heading);">
 					1. Общие положения
 				</h2>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					1.1. Настоящее Пользовательское соглашение (далее — Соглашение) относится к сайту компании
 					(далее — Сайт). Настоящее Соглашение регулирует отношения между Администрацией сайта и
 					Пользователем данного Сайта.
 				</p>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					1.2. Использование Сайта означает согласие Пользователя с настоящим Соглашением и
 					условиями использования сервисов, предоставляемых на сайте. В случае несогласия с
 					условиями Пользовательского соглашения, Пользователь должен немедленно прекратить
 					использование Сайта.
 				</p>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					1.3. Администрация сайта оставляет за собой право в любое время изменять, добавлять или
 					удалять пункты настоящего Соглашения без предварительного уведомления Пользователя.
 				</p>
@@ -64,12 +64,12 @@
 				<h2 class="text-2xl font-medium text-primary" style="font-family: var(--font-heading);">
 					2. Предмет соглашения
 				</h2>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					2.1. Предметом настоящего Соглашения является предоставление Пользователю доступа к
 					информации о товарах (мебели, кухнях и сопутствующих товарах), услугах, специальных
 					предложениях и сервисах (запись на дизайн-проект, подбор мебели), представленных на Сайте.
 				</p>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					2.2. Сайт предоставляет Пользователю следующие виды сервисов (услуг): доступ к
 					электронному каталогу, предоставление контактной информации, доступ к средствам поиска и
 					навигации, предоставление возможности заказа обратной связи и иных форм взаимодействия.
@@ -82,7 +82,7 @@
 				</h2>
 				<h3 class="mt-2 text-lg font-medium text-primary">3.1. Администрация сайта вправе:</h3>
 				<ul
-					class="list-disc space-y-2 pl-5 text-base leading-relaxed text-text-secondary marker:text-secondary"
+					class="list-disc space-y-2 pl-5 text-base leading-relaxed text-secondary marker:text-secondary"
 				>
 					<li>Изменять правила пользования Сайтом, а также изменять содержание данного Сайта.</li>
 					<li>Ограничить доступ к Сайту в случае нарушения Пользователем условий Соглашения.</li>
@@ -94,7 +94,7 @@
 
 				<h3 class="mt-4 text-lg font-medium text-primary">3.2. Пользователь обязан:</h3>
 				<ul
-					class="list-disc space-y-2 pl-5 text-base leading-relaxed text-text-secondary marker:text-secondary"
+					class="list-disc space-y-2 pl-5 text-base leading-relaxed text-secondary marker:text-secondary"
 				>
 					<li>
 						Предоставлять по запросу Администрации сайта дополнительную информацию, которая имеет
@@ -116,12 +116,12 @@
 				<h2 class="text-2xl font-medium text-primary" style="font-family: var(--font-heading);">
 					4. Использование материалов сайта
 				</h2>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					4.1. Все объекты, доступные при помощи сервисов Сайта, в том числе элементы дизайна,
 					текст, графические изображения, иллюстрации, видео, являются объектами исключительных
 					прав.
 				</p>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					4.2. Использование материалов, размещенных на сайте, допускается только с предварительного
 					письменного согласия правообладателя (представителей компании).
 				</p>
@@ -131,11 +131,11 @@
 				<h2 class="text-2xl font-medium text-primary" style="font-family: var(--font-heading);">
 					5. Ответственность
 				</h2>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					5.1. Администрация не несет ответственности за любые прямые или косвенные убытки,
 					возникшие в результате использования или невозможности использования данного Сайта.
 				</p>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					5.2. Информация о товарах, материалах и ценах, представленная на сайте, носит
 					ознакомительный (информационный) характер и ни при каких условиях не является публичной
 					офертой. Для получения подробной информации о характеристиках, наличии и стоимости товаров
@@ -147,11 +147,11 @@
 				<h2 class="text-2xl font-medium text-primary" style="font-family: var(--font-heading);">
 					6. Нарушение условий соглашения
 				</h2>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					6.1. Администрация сайта вправе раскрыть любую информацию о Пользователе, которую
 					посчитает необходимой для выполнения положений действующего законодательства.
 				</p>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					6.2. Администрация сайта имеет право прекратить и/или заблокировать доступ к Сайту, если
 					Пользователь нарушил настоящее Соглашение или другие условия пользования Сайтом.
 				</p>
@@ -161,11 +161,11 @@
 				<h2 class="text-2xl font-medium text-primary" style="font-family: var(--font-heading);">
 					7. Прочие условия
 				</h2>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					7.1. Администрация сайта не принимает встречные предложения от Пользователя относительно
 					изменений настоящего Пользовательского соглашения.
 				</p>
-				<p class="text-base leading-relaxed text-text-secondary">
+				<p class="text-base leading-relaxed text-secondary">
 					7.2. Отзывы Пользователя, размещенные на Сайте, не являются конфиденциальной информацией и
 					могут быть использованы Администрацией сайта без ограничений.
 				</p>
