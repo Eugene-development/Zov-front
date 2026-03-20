@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { toastState } from '$lib/state/toast.svelte';
+	import { getAuthApiUrl } from '$lib/utils/config.js';
 	let { onSuccess } = $props();
 
 	let name = $state('');
@@ -31,7 +32,6 @@
 		let rawValue = value;
 
 		if (rawValue.length > 0) {
-			// Начинаем с +7 или +X (если первая цифра не 7 и не 8)
 			if (rawValue[0] === '7' || rawValue[0] === '8') {
 				formatted = '+7 ';
 				rawValue = rawValue.slice(1);
@@ -72,7 +72,6 @@
 		const target = e.target as HTMLInputElement;
 		const key = e.key;
 
-		// Разрешаем: backspace, delete, стрелки, tab, ctrl/cmd+a, ctrl/cmd+c, ctrl/cmd+v, ctrl/cmd+x
 		const isControlKey =
 			key === 'Backspace' ||
 			key === 'Delete' ||
@@ -86,13 +85,11 @@
 
 		if (isControlKey) return;
 
-		// Блокируем всё, что не является цифрой на уровне нажатия клавиши
 		if (!/\d/.test(key)) {
 			e.preventDefault();
 			return;
 		}
 
-		// Блокируем ввод, если уже достигли максимальной длины 11 цифр (без учёта выделенного текста)
 		const cleanPhone = target.value.replace(/\D/g, '');
 		const hasSelection =
 			target.selectionStart !== null && target.selectionStart !== target.selectionEnd;
@@ -102,10 +99,9 @@
 		}
 	}
 
-	function handleSubmit(e: Event) {
+	async function handleSubmit(e: Event) {
 		e.preventDefault();
 
-		// Validate phone numbers: must contain 11 digits to submit (if started with 7/8/9)
 		const cleanPhone = phone.replace(/\D/g, '');
 		if (cleanPhone.length < 11) {
 			phoneError = 'Некорректный номер телефона';
@@ -116,27 +112,50 @@
 
 		isSubmitting = true;
 
-		// Simulate API call
-		setTimeout(() => {
-			isSubmitting = false;
+		try {
+			const sourceUrl = typeof window !== 'undefined' ? window.location.href : '';
 
-			// Для демонстрации: С вероятностью 80% — успех, 20% — ошибка
-			if (Math.random() > 0.2) {
-				toastState.add({
-					type: 'success',
-					title: 'Заявка успешно отправлена',
-					message: 'Наш дизайнер свяжется с вами в течение 15 минут.'
-				});
-				onSuccess?.();
-			} else {
-				toastState.add({
-					type: 'error',
-					title: 'Ошибка отправки',
-					message: 'Не удалось отправить заявку. Пожалуйста, попробуйте позже или позвоните нам.',
-					duration: 7000
-				});
+			const requestData = {
+				form_type: 'designer',
+				name: name.trim(),
+				phone: phone,
+				message: details.trim() || null,
+				source_url: sourceUrl
+			};
+
+			const authApiUrl = getAuthApiUrl();
+			const response = await fetch(`${authApiUrl}/notify/service-request`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json'
+				},
+				body: JSON.stringify(requestData)
+			});
+
+			const result = await response.json();
+
+			if (!response.ok || !result.success) {
+				throw new Error(result.message || 'Ошибка отправки');
 			}
-		}, 1500);
+
+			toastState.add({
+				type: 'success',
+				title: 'Заявка успешно отправлена',
+				message: 'Наш дизайнер свяжется с вами в течение 15 минут.'
+			});
+			onSuccess?.();
+		} catch (err) {
+			console.error('DesignerForm submit error:', err);
+			toastState.add({
+				type: 'error',
+				title: 'Ошибка отправки',
+				message: 'Не удалось отправить заявку. Пожалуйста, попробуйте позже или позвоните нам.',
+				duration: 7000
+			});
+		} finally {
+			isSubmitting = false;
+		}
 	}
 </script>
 

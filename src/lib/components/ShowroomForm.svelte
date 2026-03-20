@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { toastState } from '$lib/state/toast.svelte';
+	import { getAuthApiUrl } from '$lib/utils/config.js';
 	let { onSuccess } = $props();
 
 	let name = $state('');
@@ -94,7 +95,7 @@
 		}
 	}
 
-	function handleSubmit(e: Event) {
+	async function handleSubmit(e: Event) {
 		e.preventDefault();
 
 		const cleanPhone = phone.replace(/\D/g, '');
@@ -107,24 +108,49 @@
 
 		isSubmitting = true;
 
-		setTimeout(() => {
-			isSubmitting = false;
+		try {
+			const sourceUrl = typeof window !== 'undefined' ? window.location.href : '';
 
-			if (Math.random() > 0.1) {
-				toastState.add({
-					type: 'success',
-					title: 'Вы успешно записаны',
-					message: 'Менеджер салона свяжется с вами для подтверждения времени.'
-				});
-				onSuccess?.();
-			} else {
-				toastState.add({
-					type: 'error',
-					title: 'Ошибка отправки',
-					message: 'Не удалось отправить заявку. Попробуйте еще раз.'
-				});
+			const requestData = {
+				form_type: 'showroom',
+				name: name.trim(),
+				phone: phone,
+				message: showroom.trim() || null,
+				source_url: sourceUrl
+			};
+
+			const authApiUrl = getAuthApiUrl();
+			const response = await fetch(`${authApiUrl}/notify/service-request`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json'
+				},
+				body: JSON.stringify(requestData)
+			});
+
+			const result = await response.json();
+
+			if (!response.ok || !result.success) {
+				throw new Error(result.message || 'Ошибка отправки');
 			}
-		}, 1500);
+
+			toastState.add({
+				type: 'success',
+				title: 'Вы успешно записаны',
+				message: 'Менеджер салона свяжется с вами для подтверждения времени.'
+			});
+			onSuccess?.();
+		} catch (err) {
+			console.error('ShowroomForm submit error:', err);
+			toastState.add({
+				type: 'error',
+				title: 'Ошибка отправки',
+				message: 'Не удалось отправить заявку. Попробуйте еще раз.'
+			});
+		} finally {
+			isSubmitting = false;
+		}
 	}
 </script>
 

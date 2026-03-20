@@ -75,7 +75,7 @@
 				</p>
 
 				<!-- Social Links -->
-				<div class="mt-8 flex items-center gap-4">
+				<!-- <div class="mt-8 flex items-center gap-4">
 					{#each socials as social (social.label)}
 						<a
 							href={social.href}
@@ -87,7 +87,7 @@
 							</svg>
 						</a>
 					{/each}
-				</div>
+				</div> -->
 			</div>
 
 			<!-- Navigation Columns -->

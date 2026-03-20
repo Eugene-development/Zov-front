@@ -2,9 +2,11 @@
 	import { onMount } from 'svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import DesignerForm from '$lib/components/DesignerForm.svelte';
+	import ShowroomForm from '$lib/components/ShowroomForm.svelte';
 
 	let heroVisible = $state(false);
 	let isDesignerModalOpen = $state(false);
+	let isShowroomModalOpen = $state(false);
 	let sections = $state({});
 	let activeCountry = $state('Беларусь');
 	let activeCity = $state('Все');
@@ -223,7 +225,7 @@
 
 				<!-- Country Toggle -->
 				<div class="mt-8 flex items-center gap-4 border-b border-border-light pb-4">
-					{#each Object.keys(showrooms) as country}
+					{#each Object.keys(showrooms) as country (country)}
 						<button
 							class="relative text-sm font-medium tracking-wide transition-colors duration-300 {activeCountry ===
 							country
@@ -247,7 +249,7 @@
 
 				<!-- City Filter -->
 				<div class="mt-6 flex flex-wrap gap-2">
-					{#each availableCities as city}
+					{#each availableCities as city (city)}
 						<button
 							class="rounded-full border border-border-light px-4 py-1.5 text-xs tracking-wide transition-colors duration-300 {activeCity ===
 							city
@@ -267,7 +269,7 @@
 							? 'max-h-[550px] overflow-y-auto pr-4 pb-10 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border-light/80 hover:[&::-webkit-scrollbar-thumb]:bg-border-light [&::-webkit-scrollbar-track]:bg-transparent'
 							: ''}"
 					>
-						{#each filteredShowrooms as data}
+						{#each filteredShowrooms as data (data.city)}
 							<div>
 								<h3
 									class="flex items-center gap-3 text-xl font-medium text-primary"
@@ -295,7 +297,7 @@
 								</h3>
 
 								<div class="mt-6 flex flex-col gap-6">
-									{#each data.places as place}
+									{#each data.places as place, i (place.name + i)}
 										<div
 											class="group border-l-2 border-border-light pl-6 transition-colors duration-300 hover:border-secondary"
 										>
@@ -333,11 +335,11 @@
 				</div>
 
 				<div class="mt-10 flex">
-					<a
-						href="/how-to-order"
-						class="group inline-flex items-center gap-3 border border-border-medium px-6 py-3 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
+					<button
+						onclick={() => (isShowroomModalOpen = true)}
+						class="group inline-flex cursor-pointer items-center gap-3 border border-border-medium px-6 py-3 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
 					>
-						Как сделать заказ
+						Запись в салон
 						<svg
 							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
 							fill="none"
@@ -351,7 +353,7 @@
 								d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
 							/>
 						</svg>
-					</a>
+					</button>
 				</div>
 			</div>
 
@@ -430,4 +432,8 @@
 <!-- Modals -->
 <Modal bind:showModal={isDesignerModalOpen} title="Вызов дизайнера">
 	<DesignerForm onSuccess={() => (isDesignerModalOpen = false)} />
+</Modal>
+
+<Modal bind:showModal={isShowroomModalOpen} title="Запись в салон">
+	<ShowroomForm onSuccess={() => (isShowroomModalOpen = false)} />
 </Modal>

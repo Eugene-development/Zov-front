@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { toastState } from '$lib/state/toast.svelte';
+	import { getAuthApiUrl } from '$lib/utils/config.js';
 	let { onSuccess } = $props();
 
 	let step = $state(1);
@@ -120,7 +121,7 @@
 		}
 	}
 
-	function handleSubmit(e: Event) {
+	async function handleSubmit(e: Event) {
 		e.preventDefault();
 
 		const cleanPhone = phone.replace(/\D/g, '');
@@ -133,25 +134,54 @@
 
 		isSubmitting = true;
 
-		setTimeout(() => {
-			isSubmitting = false;
+		try {
+			const sourceUrl = typeof window !== 'undefined' ? window.location.href : '';
 
-			if (Math.random() > 0.2) {
-				toastState.add({
-					type: 'success',
-					title: 'Тест успешно пройден',
-					message: 'Наш дизайнер свяжется с вами для обсуждения цены и деталей проекта.'
-				});
-				onSuccess?.();
-			} else {
-				toastState.add({
-					type: 'error',
-					title: 'Ошибка отправки',
-					message: 'Не удалось отправить заявку. Пожалуйста, попробуйте позже.',
-					duration: 7000
-				});
+			const requestData = {
+				form_type: 'quiz',
+				name: name.trim(),
+				phone: phone,
+				source_url: sourceUrl,
+				extra: {
+					'Планировка кухни': answers.layout,
+					'Предпочтительный стиль': answers.style,
+					'Планируемые сроки': answers.timeframe
+				}
+			};
+
+			const authApiUrl = getAuthApiUrl();
+			const response = await fetch(`${authApiUrl}/notify/service-request`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json'
+				},
+				body: JSON.stringify(requestData)
+			});
+
+			const result = await response.json();
+
+			if (!response.ok || !result.success) {
+				throw new Error(result.message || 'Ошибка отправки');
 			}
-		}, 1500);
+
+			toastState.add({
+				type: 'success',
+				title: 'Тест успешно пройден',
+				message: 'Наш дизайнер свяжется с вами для обсуждения цены и деталей проекта.'
+			});
+			onSuccess?.();
+		} catch (err) {
+			console.error('QuizForm submit error:', err);
+			toastState.add({
+				type: 'error',
+				title: 'Ошибка отправки',
+				message: 'Не удалось отправить заявку. Пожалуйста, попробуйте позже.',
+				duration: 7000
+			});
+		} finally {
+			isSubmitting = false;
+		}
 	}
 </script>
 

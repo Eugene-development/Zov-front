@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { toastState } from '$lib/state/toast.svelte';
+	import { getAuthApiUrl } from '$lib/utils/config.js';
 	let { onSuccess } = $props();
 
 	let name = $state('');
@@ -102,7 +103,7 @@
 		}
 	}
 
-	function handleSubmit(e: Event) {
+	async function handleSubmit(e: Event) {
 		e.preventDefault();
 
 		// Validate phone numbers: must contain 11 digits to submit (if started with 7/8/9)
@@ -116,27 +117,50 @@
 
 		isSubmitting = true;
 
-		// Simulate API call
-		setTimeout(() => {
-			isSubmitting = false;
+		try {
+			const sourceUrl = typeof window !== 'undefined' ? window.location.href : '';
 
-			// Для демонстрации: С вероятностью 80% — успех, 20% — ошибка
-			if (Math.random() > 0.2) {
-				toastState.add({
-					type: 'success',
-					title: 'Заявка успешно отправлена',
-					message: 'Наш дизайнер свяжется с вами в течение 15 минут для консультации по стилю.'
-				});
-				onSuccess?.();
-			} else {
-				toastState.add({
-					type: 'error',
-					title: 'Ошибка отправки',
-					message: 'Не удалось отправить заявку. Пожалуйста, попробуйте позже или позвоните нам.',
-					duration: 7000
-				});
+			const requestData = {
+				form_type: 'style-consultation',
+				name: name.trim(),
+				phone: phone,
+				message: details.trim() || null,
+				source_url: sourceUrl
+			};
+
+			const authApiUrl = getAuthApiUrl();
+			const response = await fetch(`${authApiUrl}/notify/service-request`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json'
+				},
+				body: JSON.stringify(requestData)
+			});
+
+			const result = await response.json();
+
+			if (!response.ok || !result.success) {
+				throw new Error(result.message || 'Ошибка отправки');
 			}
-		}, 1500);
+
+			toastState.add({
+				type: 'success',
+				title: 'Заявка успешно отправлена',
+				message: 'Наш дизайнер свяжется с вами в течение 15 минут для консультации по стилю.'
+			});
+			onSuccess?.();
+		} catch (err) {
+			console.error('StyleConsultationForm submit error:', err);
+			toastState.add({
+				type: 'error',
+				title: 'Ошибка отправки',
+				message: 'Не удалось отправить заявку. Пожалуйста, попробуйте позже или позвоните нам.',
+				duration: 7000
+			});
+		} finally {
+			isSubmitting = false;
+		}
 	}
 </script>
 
