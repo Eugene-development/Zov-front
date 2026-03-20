@@ -29,11 +29,11 @@
 	const news = [
 		{
 			id: 1,
-			date: '5 марта 2026',
+			date: '30 января 2026',
 			category: 'Производство',
-			title: 'Запуск новой линейки кухонных фасадов «Арктика»',
+			title: 'ДИЗАЙН-ПРОФИЛЬ С АКЦЕНТНОЙ ПОДСВЕТКОЙ ДЛЯ ЯЩИКА AVANTECH YOU',
 			excerpt:
-				'Фабрика ЗОВ представляет коллекцию матовых фасадов в холодных оттенках — от жемчужно-белого до серо-стального. Новинка уже доступна к заказу во всех салонах.'
+				'У нас новинка! Дизайн-профиль со встроенной светодиодной подсветкой для ящика AvanTech YOU обеспечивает премиальный внешний вид мебели без лишних деталей.'
 		},
 		{
 			id: 2,
@@ -206,7 +206,7 @@
 					</div>
 
 					<!-- Arrow -->
-					<div class="hidden shrink-0 items-center self-center md:flex">
+					<!-- <div class="hidden shrink-0 items-center self-center md:flex">
 						<span
 							class="flex h-9 w-9 items-center justify-center border border-transparent text-muted transition-all duration-300 group-hover:border-secondary group-hover:text-secondary"
 						>
@@ -224,7 +224,7 @@
 								/>
 							</svg>
 						</span>
-					</div>
+					</div> -->
 				</article>
 			{/each}
 		</div>

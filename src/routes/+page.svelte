@@ -3,11 +3,13 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import DesignerForm from '$lib/components/DesignerForm.svelte';
 	import StyleConsultationForm from '$lib/components/StyleConsultationForm.svelte';
+	import QuizForm from '$lib/components/QuizForm.svelte';
 	import { regionState } from '$lib/state/region.svelte';
 
 	let heroVisible = $state(false);
 	let isDesignerModalOpen = $state(false);
 	let isStyleModalOpen = $state(false);
+	let isQuizModalOpen = $state(false);
 	let sections = $state({});
 
 	onMount(() => {
@@ -382,6 +384,8 @@
 	</div>
 </section>
 
+
+
 <!-- ==================== ADVANTAGES SECTION ==================== -->
 <section
 	class="relative overflow-hidden py-section-sm lg:py-section"
@@ -460,65 +464,62 @@
 	</div>
 </section>
 
-<!-- ==================== FEATURED IMAGE SECTION ==================== -->
-<!-- This section overlaps with the next section -->
-<section class="relative z-10 px-6" id="featured-section" data-animate>
-	<div class="mx-auto max-w-7xl">
+<!-- ==================== QUIZ SECTION ==================== -->
+<section
+	class="relative overflow-hidden bg-surface py-20 lg:py-24"
+	id="quiz-section"
+	data-animate
+>
+	<!-- Decorative pattern map or just minimal lines -->
+	<div
+		class="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-border-light to-transparent"
+	></div>
+	
+	<div class="relative mx-auto max-w-4xl px-6 text-center">
 		<div
-			class="relative overflow-hidden opacity-0"
-			class:animate-scale-in={sections['featured-section']}
+			class="opacity-0 transition-all duration-700"
+			class:animate-fade-up={sections['quiz-section']}
 		>
-			<img
-				src="/images/showroom.png"
-				alt="Салон мебели ЗОВ"
-				class="h-[400px] w-full object-cover lg:h-[550px]"
-			/>
-			<div
-				class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"
-			></div>
-
-			<!-- Overlay Content -->
-			<div class="absolute inset-0 flex items-end p-8 lg:p-14">
-				<div class="max-w-xl">
-					<h2
-						class="text-3xl font-light text-white lg:text-5xl"
-						style="font-family: var(--font-heading);"
+			<span class="text-[11px] tracking-[0.3em] text-secondary uppercase">Калькулятор проекта</span>
+			<h2
+				class="mt-4 text-4xl font-light text-primary lg:text-5xl"
+				style="font-family: var(--font-heading);"
+			>
+				Узнайте стоимость <span class="text-secondary italic">за 1 минуту</span>
+			</h2>
+			<p class="mx-auto mt-6 max-w-lg text-base leading-relaxed text-secondary border-l border-r border-accent/20 px-4">
+				Ответьте на несколько простых вопросов о вашей будущей кухне, и мы рассчитаем ее примерную стоимость и дадим вам подарок - скидку 15% на мебель или холодильник
+			</p>
+			<div class="mt-10 flex flex-col items-center justify-center gap-4">
+				<button
+					onclick={() => (isQuizModalOpen = true)}
+					class="group inline-flex cursor-pointer items-center justify-center gap-3 bg-primary px-10 py-5 text-xs font-medium tracking-[0.2em] text-inverse uppercase shadow-xl shadow-primary/10 transition-all duration-500 hover:-translate-y-1 hover:bg-secondary hover:shadow-2xl hover:shadow-secondary/20"
+				>
+					Пройти тест и узнать цену
+					<svg
+						class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						stroke-width="1.5"
 					>
-						Посетите наши салоны
-					</h2>
-					<p class="mt-4 text-sm leading-relaxed text-white/75 lg:text-base">
-						Более 120 салонов по всей стране. Оцените качество материалов, прикоснитесь к текстурам
-						и получите бесплатную консультацию дизайнера.
-					</p>
-					<a
-						href="/showrooms"
-						class="group mt-6 inline-flex items-center gap-3 border border-white/30 bg-white/10 px-8 py-3.5 text-xs tracking-[0.15em] text-white uppercase backdrop-blur-sm transition-all duration-500 hover:bg-white hover:text-primary"
-					>
-						Найти ближайший салон
-						<svg
-							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="1.5"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-							/>
-						</svg>
-					</a>
-				</div>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+						/>
+					</svg>
+				</button>
 			</div>
 		</div>
 	</div>
 </section>
 
+
 <!-- ==================== HARDWARE & FACADES SECTION ==================== -->
 <!-- Overlapping with previous section -->
 <section
-	class="relative -mt-12 bg-surface-warm pt-28 pb-section-sm lg:-mt-20 lg:pt-40 lg:pb-section"
+	class="relative mt-12 bg-surface-warm pt-28 pb-section-sm lg:mt-20 lg:pt-40 lg:pb-section"
 	id="details-section"
 	data-animate
 >
@@ -597,13 +598,68 @@
 	</div>
 </section>
 
+
+<!-- ==================== FEATURED IMAGE SECTION ==================== -->
+<!-- This section overlaps with the next section -->
+<!-- <section class="relative z-10 px-6" id="featured-section" data-animate>
+	<div class="mx-auto max-w-7xl">
+		<div
+			class="relative overflow-hidden opacity-0"
+			class:animate-scale-in={sections['featured-section']}
+		>
+			<img
+				src="/images/showroom.png"
+				alt="Салон мебели ЗОВ"
+				class="h-[400px] w-full object-cover lg:h-[550px]"
+			/>
+			<div
+				class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"
+			></div>
+
+			<div class="absolute inset-0 flex items-end p-8 lg:p-14">
+				<div class="max-w-xl">
+					<h2
+						class="text-3xl font-light text-white lg:text-5xl"
+						style="font-family: var(--font-heading);"
+					>
+						Посетите наши салоны
+					</h2>
+					<p class="mt-4 text-sm leading-relaxed text-white/75 lg:text-base">
+						Более 120 салонов по всей стране. Оцените качество материалов, прикоснитесь к текстурам
+						и получите бесплатную консультацию дизайнера.
+					</p>
+					<a
+						href="/showrooms"
+						class="group mt-6 inline-flex items-center gap-3 border border-white/30 bg-white/10 px-8 py-3.5 text-xs tracking-[0.15em] text-white uppercase backdrop-blur-sm transition-all duration-500 hover:bg-white hover:text-primary"
+					>
+						Найти ближайший салон
+						<svg
+							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							stroke-width="1.5"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+							/>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> -->
+
+
 <!-- ==================== CTA SECTION ==================== -->
 <section
 	class="relative overflow-hidden bg-primary py-section-sm lg:py-section"
 	id="cta-section"
 	data-animate
 >
-	<!-- Decorative Elements -->
 	<div class="absolute top-0 left-0 h-32 w-32 border border-white/5 lg:h-64 lg:w-64"></div>
 	<div class="absolute right-0 bottom-0 h-48 w-48 border border-white/5 lg:h-80 lg:w-80"></div>
 
@@ -654,4 +710,8 @@
 
 <Modal bind:showModal={isStyleModalOpen} title="Бесплатная консультация">
 	<StyleConsultationForm onSuccess={() => (isStyleModalOpen = false)} />
+</Modal>
+
+<Modal bind:showModal={isQuizModalOpen} title="Расчет стоимости">
+	<QuizForm onSuccess={() => (isQuizModalOpen = false)} />
 </Modal>

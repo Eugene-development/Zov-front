@@ -28,6 +28,9 @@
 	--color-text-secondary: #5c5c5c;
 	--color-text-muted: #9a9a9a;
 	--color-text-inverse: #ffffff;
+	
+	--color-muted: var(--color-text-muted);
+	--color-inverse: var(--color-text-inverse);
 
 	--color-border-light: #e8e4de;
 	--color-border-medium: #d4cfc7;
@@ -38,7 +41,7 @@
 
 	/* Spacing */
 	--spacing-section: 120px;
-	--spacing-section-sm: 80px;
+	--spacing-section-sm: 100px;
 
 	/* Animations */
 	--animate-fade-up: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
