@@ -1,12 +1,14 @@
 <script>
 	import Modal from '$lib/components/Modal.svelte';
 	import ShowroomForm from '$lib/components/ShowroomForm.svelte';
+	import QuizForm from '$lib/components/QuizForm.svelte';
 	import { regionState } from '$lib/state/region.svelte';
 
 	let scrolled = $state(false);
 	let mobileMenuOpen = $state(false);
 	let isShowroomModalOpen = $state(false);
 	let isCityModalOpen = $state(false);
+	let isQuizModalOpen = $state(false);
 	let activeCountry = $state('Россия');
 
 	const showroomsData = {
@@ -18,8 +20,8 @@
 		{ label: 'О фабрике', href: '/about' },
 		{ label: 'Новости', href: '/news' },
 		{ label: 'Акции', href: '/promotions' },
-		{ label: 'Кухни', href: '/' },
-		{ label: 'Шкафы', href: '/' }
+		{ label: 'Кухни', href: '/kitchens' },
+		{ label: 'Шкафы', href: '/wardrobes' }
 	];
 
 	const mainNav = [
@@ -164,12 +166,10 @@
 		<!-- CTA Desktop -->
 		<div class="hidden items-center gap-4 lg:flex">
 			<button
-				onclick={() => {
-					isShowroomModalOpen = true;
-				}}
-				class="group relative flex items-center gap-2 px-2 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
+				onclick={() => (isQuizModalOpen = true)}
+				class="group relative flex cursor-pointer items-center gap-2 px-2 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
 			>
-				Запись в салон
+				Расчёт проекта
 				<svg
 					class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1"
 					fill="none"
@@ -279,12 +279,12 @@
 		<a href="mailto:info@zov.by" class="mt-2 block text-sm text-secondary"> info@zov.top </a>
 		<button
 			onclick={() => {
-				isShowroomModalOpen = true;
+				isQuizModalOpen = true;
 				closeMenu();
 			}}
 			class="group relative mt-5 flex w-full cursor-pointer items-center justify-between border-t border-border-light pt-5 text-left text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
 		>
-			Запись в салон
+			Расчёт проекта
 			<svg
 				class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1"
 				fill="none"
@@ -344,4 +344,8 @@
 			{/each}
 		</div>
 	</div>
+</Modal>
+
+<Modal bind:showModal={isQuizModalOpen} title="Узнайте стоимость вашей мебели">
+	<QuizForm onSuccess={() => (isQuizModalOpen = false)} />
 </Modal>

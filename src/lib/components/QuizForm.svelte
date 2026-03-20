@@ -3,7 +3,7 @@
 	import { getAuthApiUrl } from '$lib/utils/config.js';
 	let { onSuccess } = $props();
 
-	let step = $state(1);
+	let step = $state(0);
 	let answers = $state({
 		layout: '',
 		style: '',
@@ -186,7 +186,36 @@
 </script>
 
 <div class="flex flex-col gap-5">
-	{#if step <= questions.length}
+	{#if step === 0}
+		<div class="text-center py-2">
+			<p class="mx-auto mb-6 text-sm leading-relaxed text-secondary">
+				Ответьте на несколько простых вопросов о вашей будущей кухне, и мы рассчитаем ее примерную стоимость
+			</p>
+			<p class="mx-auto mb-8 text-sm leading-relaxed text-secondary">
+				А также подарим гарантированный бонус — промокод на скидку 10% на любую корпусную мебель, комплект сантехники, столешницу или бытовую технику
+			</p>
+			<button
+				type="button"
+				onclick={() => (step = 1)}
+				class="group inline-flex w-full cursor-pointer items-center justify-center gap-3 bg-primary px-10 py-5 text-xs font-medium tracking-[0.2em] text-inverse uppercase shadow-xl shadow-primary/10 transition-all duration-500 hover:-translate-y-1 hover:bg-secondary hover:shadow-2xl hover:shadow-secondary/20"
+			>
+				Начать расчет
+				<svg
+					class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="1.5"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+					/>
+				</svg>
+			</button>
+		</div>
+	{:else if step <= questions.length}
 		<!-- Quiz step -->
 		<div class="mb-4">
 			<h3 class="text-xl font-light text-primary mb-6" style="font-family: var(--font-heading);">

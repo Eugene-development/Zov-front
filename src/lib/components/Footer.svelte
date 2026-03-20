@@ -8,8 +8,8 @@
 				{ label: 'Стили', href: '/styles' },
 				{ label: 'Фасады', href: '/facades' },
 				{ label: 'Фурнитура', href: '/furniture' },
-				{ label: 'Кухни', href: '/' },
-				{ label: 'Шкафы', href: '/' }
+				{ label: 'Кухни', href: '/kitchens' },
+				{ label: 'Шкафы', href: '/wardrobes' }
 			]
 		},
 		{

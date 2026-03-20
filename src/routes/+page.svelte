@@ -3,13 +3,11 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import DesignerForm from '$lib/components/DesignerForm.svelte';
 	import StyleConsultationForm from '$lib/components/StyleConsultationForm.svelte';
-	import QuizForm from '$lib/components/QuizForm.svelte';
 	import { regionState } from '$lib/state/region.svelte';
 
 	let heroVisible = $state(false);
 	let isDesignerModalOpen = $state(false);
 	let isStyleModalOpen = $state(false);
-	let isQuizModalOpen = $state(false);
 	let sections = $state({});
 
 	onMount(() => {
@@ -79,8 +77,10 @@
 	const stats = [
 		{ value: '25+', label: 'лет опыта' },
 		{ value: '50 000+', label: 'реализованных проектов' },
-		{ value: '120+', label: 'салонов по всей стране' },
-		{ value: '500+', label: 'оттенков фасадов' }
+		{ value: '180+', label: 'всего салонов' },
+		{ value: '400+', label: 'дизайнеров' },
+		{ value: '30+', label: 'материалов для мебели' },
+		{ value: '200+', label: 'оттенков фасадов' }
 	];
 </script>
 
@@ -294,8 +294,13 @@
 				</div>
 
 				<div
-					class="mt-10 flex w-full flex-col items-center border-t border-border-light pt-8 lg:flex-row lg:items-center lg:justify-between lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8"
+					class="mt-10 flex w-full flex-col items-center gap-6 border-t border-border-light pt-8 lg:flex-row lg:items-center lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8"
 				>
+					<img
+						src="/images/logo-rus.png"
+						alt="ЗОВ — мебельная фабрика"
+						class="h-10 w-auto object-contain opacity-90 lg:h-12"
+					/>
 					<div class="flex flex-col items-center lg:items-start">
 						<p class="mt-1.5 text-sm font-medium tracking-[0.1em] text-primary">Зуховицкий О.В.</p>
 						<p class="mt-1 text-[11px] tracking-wider text-muted uppercase">
@@ -309,7 +314,7 @@
 </section>
 
 <!-- ==================== STYLES SECTION ==================== -->
-<section class="relative z-10 mt-16 px-6 lg:mt-24" id="styles-section" data-animate>
+<section class="relative z-10 mt-16 px-6 lg:mt-48" id="styles-section" data-animate>
 	<div class="mx-auto max-w-7xl">
 		<!-- Section Header -->
 		<div class="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
@@ -383,8 +388,6 @@
 		</div>
 	</div>
 </section>
-
-
 
 <!-- ==================== ADVANTAGES SECTION ==================== -->
 <section
@@ -463,58 +466,6 @@
 		</div>
 	</div>
 </section>
-
-<!-- ==================== QUIZ SECTION ==================== -->
-<section
-	class="relative overflow-hidden bg-surface py-20 lg:py-24"
-	id="quiz-section"
-	data-animate
->
-	<!-- Decorative pattern map or just minimal lines -->
-	<div
-		class="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-border-light to-transparent"
-	></div>
-	
-	<div class="relative mx-auto max-w-4xl px-6 text-center">
-		<div
-			class="opacity-0 transition-all duration-700"
-			class:animate-fade-up={sections['quiz-section']}
-		>
-			<span class="text-[11px] tracking-[0.3em] text-secondary uppercase">Калькулятор проекта</span>
-			<h2
-				class="mt-4 text-4xl font-light text-primary lg:text-5xl"
-				style="font-family: var(--font-heading);"
-			>
-				Узнайте стоимость <span class="text-secondary italic">за 1 минуту</span>
-			</h2>
-			<p class="mx-auto mt-6 max-w-lg text-base leading-relaxed text-secondary border-l border-r border-accent/20 px-4">
-				Ответьте на несколько простых вопросов о вашей будущей кухне, и мы рассчитаем ее примерную стоимость и дадим вам подарок - скидку 15% на мебель или холодильник
-			</p>
-			<div class="mt-10 flex flex-col items-center justify-center gap-4">
-				<button
-					onclick={() => (isQuizModalOpen = true)}
-					class="group inline-flex cursor-pointer items-center justify-center gap-3 bg-primary px-10 py-5 text-xs font-medium tracking-[0.2em] text-inverse uppercase shadow-xl shadow-primary/10 transition-all duration-500 hover:-translate-y-1 hover:bg-secondary hover:shadow-2xl hover:shadow-secondary/20"
-				>
-					Пройти тест и узнать цену
-					<svg
-						class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						stroke-width="1.5"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-						/>
-					</svg>
-				</button>
-			</div>
-		</div>
-	</div>
-</section>
-
 
 <!-- ==================== HARDWARE & FACADES SECTION ==================== -->
 <!-- Overlapping with previous section -->
@@ -598,7 +549,6 @@
 	</div>
 </section>
 
-
 <!-- ==================== FEATURED IMAGE SECTION ==================== -->
 <!-- This section overlaps with the next section -->
 <!-- <section class="relative z-10 px-6" id="featured-section" data-animate>
@@ -653,7 +603,6 @@
 	</div>
 </section> -->
 
-
 <!-- ==================== CTA SECTION ==================== -->
 <section
 	class="relative overflow-hidden bg-primary py-section-sm lg:py-section"
@@ -680,7 +629,7 @@
 			<div class="mt-10 flex flex-col items-center justify-center gap-4">
 				<button
 					onclick={() => (isStyleModalOpen = true)}
-					class="group w-full sm:w-auto inline-flex cursor-pointer justify-center items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
+					class="group inline-flex w-full cursor-pointer items-center justify-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light sm:w-auto"
 				>
 					Бесплатная консультация
 					<svg
@@ -710,8 +659,4 @@
 
 <Modal bind:showModal={isStyleModalOpen} title="Бесплатная консультация">
 	<StyleConsultationForm onSuccess={() => (isStyleModalOpen = false)} />
-</Modal>
-
-<Modal bind:showModal={isQuizModalOpen} title="Расчет стоимости">
-	<QuizForm onSuccess={() => (isQuizModalOpen = false)} />
 </Modal>
