@@ -150,7 +150,8 @@
 			class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 md:flex-row"
 		>
 			<p class="text-xs text-white/35">
-				© {currentYear} ЗОВ. Все права защищены.
+				© {currentYear} Представительство в РФ ООО "КУХНИ ЗОВ" ИНН 7722382665 ОГРН 5167746346191 Все права
+				защищены.
 			</p>
 			<div class="flex items-center gap-6">
 				<a
