@@ -37,25 +37,25 @@
 			id: 'minimalist',
 			name: 'Минимализм',
 			description:
-				'Индустриальный шик: бетон, кирпич, металл и брутальные формы, создающие стильное современное пространство.',
+				'Лаконичность, строгая геометрия форм, нейтральная палитра и отсутствие лишних деталей для создания просторного интерьера.',
 			image: 'https://storage.yandexcloud.net/zovtop/stiles/minimkjfvnfsjnvk.jpg',
-			tags: []
+			tags: ['Лаконичность', 'Геометрия', 'Пространство']
 		},
 		{
 			id: 'modern',
 			name: 'Модерн',
 			description:
-				'Индустриальный шик: бетон, кирпич, металл и брутальные формы, создающие стильное современное пространство.',
+				'Плавные линии, элегантная асимметрия, сочетание природных мотивов и современных материалов в каждой детали.',
 			image: 'https://storage.yandexcloud.net/zovtop/stiles/modernlkthetrlkmjkdrythk.jpg',
-			tags: []
+			tags: ['Плавные линии', 'Элегантность', 'Природа']
 		},
 		{
 			id: 'retro',
 			name: 'Ретро',
 			description:
-				'Индустриальный шик: бетон, кирпич, металл и брутальные формы, создающие стильное современное пространство.',
+				'Винтажный шарм, смелые цветовые акценты, стилизованная техника и эстетика, отсылающая к ярким эпохам прошлого.',
 			image: 'https://storage.yandexcloud.net/zovtop/stiles/retrofmsjvbjksdfvbnjksdjds.jpg',
-			tags: []
+			tags: ['Винтаж', 'Акценты', 'Стилизация']
 		},
 		{
 			id: 'neoclassic',
@@ -190,7 +190,7 @@
 						>
 							{style.name}
 						</h2>
-						<p class="mb-6 line-clamp-3 text-sm leading-relaxed text-secondary">
+						<p class="mb-6 line-clamp-3 text-lg leading-relaxed text-secondary">
 							{style.description}
 						</p>
 

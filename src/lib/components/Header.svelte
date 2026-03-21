@@ -5,6 +5,9 @@
 	import { regionState } from '$lib/state/region.svelte';
 
 	let scrolled = $state(false);
+	let showTopBar = $state(true);
+	let lastScrollY = $state(0);
+	
 	let mobileMenuOpen = $state(false);
 	let isShowroomModalOpen = $state(false);
 	let isCityModalOpen = $state(false);
@@ -33,7 +36,20 @@
 	];
 
 	function handleScroll() {
-		scrolled = window.scrollY > 50;
+		const currentScrollY = Math.max(0, window.scrollY);
+		scrolled = currentScrollY > 50;
+
+		if (currentScrollY > 50) {
+			if (currentScrollY < lastScrollY - 2) {
+				showTopBar = true;
+			} else if (currentScrollY > lastScrollY + 2) {
+				showTopBar = false;
+			}
+		} else {
+			showTopBar = true;
+		}
+
+		lastScrollY = currentScrollY;
 	}
 
 	function toggleMenu() {
@@ -53,15 +69,18 @@
 
 <svelte:window onscroll={handleScroll} />
 
-<!-- Top Info Bar -->
-<div
-	class="relative z-50 hidden border-b border-border-light bg-surface-warm transition-all duration-500 lg:block"
-	class:opacity-0={scrolled}
-	class:h-0={scrolled}
-	class:overflow-hidden={scrolled}
-	class:h-10={!scrolled}
->
-	<div class="mx-auto flex h-10 max-w-7xl items-center justify-between px-6">
+<div class="sticky top-0 z-50 flex w-full flex-col">
+	<!-- Top Info Bar -->
+	<div
+		class="relative hidden border-b border-border-light bg-surface-warm transition-all duration-500 lg:block overflow-hidden"
+		class:h-0={!showTopBar}
+		class:h-10={showTopBar}
+	>
+		<div
+			class="mx-auto flex h-10 max-w-7xl items-center justify-between px-6 transition-opacity duration-300"
+			class:opacity-0={!showTopBar}
+			class:opacity-100={showTopBar}
+		>
 		<div class="flex items-center gap-6">
 			{#each topLinks as link}
 				<a
@@ -74,7 +93,7 @@
 		</div>
 		<div class="flex items-center gap-5">
 			<a
-				href="tel:+375291234567"
+				href="tel:+79154000020"
 				class="flex items-center gap-1.5 text-xs tracking-wide text-secondary transition-colors duration-300 hover:text-secondary"
 			>
 				<svg
@@ -128,13 +147,13 @@
 	</div>
 </div>
 
-<!-- Main Header -->
-<header
-	class="sticky top-0 z-40 transition-all duration-500 {scrolled
-		? 'bg-white/95 shadow-soft backdrop-blur-lg'
-		: 'border-b border-border-light bg-white'}"
->
-	<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20">
+	<!-- Main Header -->
+	<header
+		class="w-full transition-all duration-500 {scrolled
+			? 'bg-white/95 shadow-soft backdrop-blur-lg'
+			: 'border-b border-border-light bg-white'}"
+	>
+		<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20">
 		<!-- Logo -->
 		<a href="/" class="group flex items-center gap-3" onclick={closeMenu}>
 			<span
@@ -153,7 +172,7 @@
 			{#each mainNav as item}
 				<a
 					href={item.href}
-					class="group relative px-5 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary rounded-sm"
+					class="group relative rounded-sm px-5 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
 				>
 					{item.label}
 					<span
@@ -167,7 +186,7 @@
 		<div class="hidden items-center gap-4 lg:flex">
 			<button
 				onclick={() => (isQuizModalOpen = true)}
-				class="group relative flex cursor-pointer items-center gap-2 px-2 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary rounded-sm"
+				class="group relative flex cursor-pointer items-center gap-2 rounded-sm px-2 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
 			>
 				Расчёт проекта
 				<svg
@@ -211,7 +230,8 @@
 			></span>
 		</button>
 	</div>
-</header>
+	</header>
+</div>
 
 <!-- Mobile Menu Overlay -->
 {#if mobileMenuOpen}

@@ -5,6 +5,7 @@
 
 	let heroVisible = $state(false);
 	let isStyleModalOpen = $state(false);
+	let isPromoConditionsModalOpen = $state(false);
 	let sections = $state({});
 	let activeFilter = $state('all');
 	let timeLeft = $state({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -12,7 +13,7 @@
 
 	// Countdown timer — до конца сезонной акции
 	function calcTimeLeft() {
-		const target = new Date('2026-04-15T00:00:00');
+		const target = new Date('2026-05-31T00:00:00');
 		const now = new Date();
 		const diff = target - now;
 		if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
@@ -204,9 +205,7 @@
 		/>
 		<!-- Strengthened gradient: left side is almost white, right stays transparent -->
 		<div class="absolute inset-0 bg-linear-to-r from-white/95 via-white/75 to-white/5"></div>
-		<div
-			class="absolute inset-0 bg-linear-to-t from-white/60 via-transparent to-transparent"
-		></div>
+		<div class="absolute inset-0 bg-linear-to-t from-white/60 via-transparent to-transparent"></div>
 	</div>
 
 	<!-- Decorative vertical accent line -->
@@ -322,7 +321,7 @@
 				>
 					<a
 						href="#promo-grid"
-						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
+						class="group inline-flex items-center gap-3 rounded-sm border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 					>
 						Смотреть акции
 						<svg
@@ -341,7 +340,7 @@
 					</a>
 					<button
 						onclick={() => (isStyleModalOpen = true)}
-						class="group inline-flex cursor-pointer items-center gap-3 border border-border-medium bg-white/70 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary rounded-sm"
+						class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-border-medium bg-white/70 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary"
 					>
 						Бесплатная консультация
 					</button>
@@ -378,7 +377,7 @@
 						class="inline-flex items-center gap-2 border border-secondary/30 bg-transparent px-4 py-2 text-[10px] tracking-[0.3em] text-secondary uppercase"
 					>
 						<span class="h-1.5 w-1.5 rounded-full bg-secondary"></span>
-						Главная акция сезона
+						Главные акции сезона
 					</span>
 				</div>
 				<h2
@@ -389,15 +388,15 @@
 					<span class="text-secondary italic">акция</span>
 				</h2>
 				<p class="mx-auto mt-6 max-w-md text-base leading-relaxed text-secondary lg:mx-0">
-					Успейте оформить заказ премиальной мебели до 15 апреля. Бесплатный дизайн-проект и скидки
-					до 30%.
+					Успейте оформить заказ мебели и техники до 31 мая и получите одну из предложенных ниже
+					акций
 				</p>
 				<div class="mt-10">
-					<a
-						href="/showrooms"
-						class="group inline-flex items-center gap-3 bg-primary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-secondary rounded-sm"
+					<button
+						onclick={() => (isStyleModalOpen = true)}
+						class="group inline-flex cursor-pointer items-center gap-3 rounded-sm bg-primary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-secondary"
 					>
-						Успеть получить скидку
+						Консультация по акциям
 						<svg
 							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
 							fill="none"
@@ -411,7 +410,7 @@
 								d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
 							/>
 						</svg>
-					</a>
+					</button>
 				</div>
 			</div>
 
@@ -602,7 +601,7 @@
 							<!-- CTA -->
 							<a
 								href="/showrooms"
-								class="group/btn mt-4 flex w-full items-center justify-center gap-2 border border-primary bg-transparent px-6 py-3 text-xs tracking-[0.12em] text-primary uppercase transition-all duration-300 hover:bg-primary hover:text-white rounded-sm"
+								class="group/btn mt-4 flex w-full items-center justify-center gap-2 rounded-sm border border-primary bg-transparent px-6 py-3 text-xs tracking-[0.12em] text-primary uppercase transition-all duration-300 hover:bg-primary hover:text-white"
 							>
 								Узнать подробнее
 								<svg
@@ -678,16 +677,16 @@
 						Кухня мечты
 						<span class="text-accent-light"> −30%</span>
 					</h2>
-					<p class="mt-4 max-w-sm text-sm leading-relaxed text-white/75 lg:text-base">
-						Закажите кухонный гарнитур серии «Модерн» до 15 апреля и получите скидку 30%, бесплатную
-						установку и фурнитуру Blum в подарок.
+					<p class="mt-4 max-w-md text-sm leading-relaxed text-white/75 lg:text-base">
+						Закажите кухонный гарнитур в крашенных фасадах с каменной столешницей и комплектом
+						техники и получите скидку 30% на мебель
 					</p>
 					<div class="mt-8 flex flex-wrap gap-4">
-						<a
-							href="/showrooms"
-							class="group inline-flex items-center gap-3 border border-accent bg-accent px-7 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:bg-accent-light rounded-sm"
+						<button
+							onclick={() => (isStyleModalOpen = true)}
+							class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-accent bg-accent px-7 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:bg-accent-light"
 						>
-							Заказать со скидкой
+							Консультация по акции
 							<svg
 								class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
 								fill="none"
@@ -701,13 +700,13 @@
 									d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
 								/>
 							</svg>
-						</a>
-						<a
-							href="/showrooms"
-							class="inline-flex items-center gap-3 border border-white/30 bg-white/10 px-7 py-3.5 text-xs tracking-[0.15em] text-white uppercase backdrop-blur-sm transition-all duration-500 hover:bg-white hover:text-primary rounded-sm"
+						</button>
+						<button
+							onclick={() => (isPromoConditionsModalOpen = true)}
+							class="inline-flex cursor-pointer items-center gap-3 rounded-sm border border-white/30 bg-white/10 px-7 py-3.5 text-xs tracking-[0.15em] text-white uppercase backdrop-blur-sm transition-all duration-500 hover:bg-white hover:text-primary"
 						>
 							Условия акции
-						</a>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -818,12 +817,12 @@
 			</h2>
 			<p class="mx-auto mt-6 max-w-lg text-base leading-relaxed text-white/60">
 				Наш дизайнер поможет выбрать подходящую акцию, разработает проект и рассчитает точную
-				стоимость с учётом скидок.
+				стоимость с учётом скидок
 			</p>
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
 				<button
 					onclick={() => (isStyleModalOpen = true)}
-					class="group inline-flex cursor-pointer items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light rounded-sm"
+					class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
 				>
 					Записаться на консультацию
 					<svg
@@ -842,7 +841,7 @@
 				</button>
 				<a
 					href="tel:+375291234567"
-					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 rounded-sm"
+					class="inline-flex items-center gap-2 rounded-sm border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50"
 				>
 					<svg
 						class="h-4 w-4"
@@ -867,4 +866,65 @@
 <!-- Modals -->
 <Modal bind:showModal={isStyleModalOpen} title="Бесплатная консультация">
 	<StyleConsultationForm onSuccess={() => (isStyleModalOpen = false)} />
+</Modal>
+
+<Modal bind:showModal={isPromoConditionsModalOpen} title="Условия акции">
+	<div class="flex flex-col gap-4 text-secondary">
+		<ul class="list-none space-y-3">
+			<li class="flex items-start gap-3">
+				<svg
+					class="mt-1 h-4 w-4 shrink-0 text-accent"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+				</svg>
+				<span class="text-sm leading-relaxed"
+					>Стоимость заказа составляет <strong>от 500 000 рублей</strong></span
+				>
+			</li>
+			<li class="flex items-start gap-3">
+				<svg
+					class="mt-1 h-4 w-4 shrink-0 text-accent"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+				</svg>
+				<span class="text-sm leading-relaxed">В заказе присутствует каменная столешница</span>
+			</li>
+			<li class="flex items-start gap-3">
+				<svg
+					class="mt-1 h-4 w-4 shrink-0 text-accent"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+				</svg>
+				<span class="text-sm leading-relaxed"
+					>В комплекте бытовой техники <strong>не менее 5 предметов</strong></span
+				>
+			</li>
+			<li class="flex items-start gap-3">
+				<svg
+					class="mt-1 h-4 w-4 shrink-0 text-accent"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+				</svg>
+				<span class="text-sm leading-relaxed"
+					>В заказе обязательно присутствуют мойка и смеситель</span
+				>
+			</li>
+		</ul>
+	</div>
 </Modal>
