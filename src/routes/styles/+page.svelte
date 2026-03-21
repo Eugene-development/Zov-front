@@ -121,7 +121,7 @@
 			<div class="mt-12">
 				<a
 					href="#styles-grid"
-					class="group inline-flex items-center justify-center gap-3 border border-border-medium bg-transparent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:border-secondary hover:text-secondary rounded-sm"
+					class="group inline-flex items-center justify-center gap-3 rounded-sm border border-border-medium bg-transparent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:border-secondary hover:text-secondary"
 				>
 					Выбрать стиль
 					<svg
@@ -159,22 +159,28 @@
 		id="styles-grid"
 		class="mx-auto max-w-7xl scroll-mt-24 px-4 py-20 sm:px-6 lg:scroll-mt-32 lg:px-8"
 	>
-		<div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-16">
+		<div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 lg:gap-16">
 			{#each styles as style}
 				<div class="group flex cursor-pointer flex-col">
 					<!-- Image container -->
 					<div
-						class="relative mb-6 aspect-[4/3] overflow-hidden bg-surface-muted transition-shadow duration-500 group-hover:shadow-medium"
+						class="relative mb-6 aspect-[4/3] overflow-hidden rounded-xs bg-surface-muted transition-shadow duration-500 group-hover:shadow-medium"
 					>
 						<img
 							src={style.image}
 							alt={style.name}
-							class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+							class="h-full w-full object-cover transition-transform duration-700 ease-out"
 						/>
 						<!-- Subtle Hover Overlay -->
 						<div
 							class="absolute inset-0 bg-black/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
 						></div>
+						<!-- Factory Logo -->
+						<img
+							src="/images/logo-rus.png"
+							alt="ЗОВ"
+							class="pointer-events-none absolute right-3 bottom-3 z-10 h-10 w-auto opacity-80 brightness-0 drop-shadow-md invert transition-opacity duration-500 group-hover:opacity-100"
+						/>
 					</div>
 
 					<!-- Content -->
@@ -191,7 +197,7 @@
 						<div class="mt-auto flex flex-wrap justify-center gap-2">
 							{#each style.tags as tag}
 								<span
-									class="border border-border-light bg-transparent px-3 py-1 text-xs text-muted transition-colors group-hover:border-secondary-light group-hover:text-secondary rounded-sm"
+									class="rounded-sm border border-border-light bg-transparent px-3 py-1 text-xs text-muted transition-colors group-hover:border-secondary-light group-hover:text-secondary"
 								>
 									{tag}
 								</span>
@@ -216,7 +222,7 @@
 				onclick={() => {
 					isShowroomModalOpen = true;
 				}}
-				class="group relative inline-flex items-center justify-center gap-3 overflow-hidden border border-primary bg-primary px-8 py-4 text-sm tracking-wider text-white uppercase transition-all hover:bg-white hover:text-primary active:scale-95 rounded-sm"
+				class="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-sm border border-primary bg-primary px-8 py-4 text-sm tracking-wider text-white uppercase transition-all hover:bg-white hover:text-primary active:scale-95"
 			>
 				<span>Записаться в салон</span>
 				<svg
@@ -238,7 +244,7 @@
 				onclick={() => {
 					isStyleModalOpen = true;
 				}}
-				class="group relative ml-4 inline-flex items-center justify-center gap-3 overflow-hidden border border-primary bg-transparent px-8 py-4 text-sm tracking-wider text-primary uppercase transition-all hover:bg-primary-light hover:text-secondary active:scale-95 rounded-sm"
+				class="group relative ml-4 inline-flex items-center justify-center gap-3 overflow-hidden rounded-sm border border-primary bg-transparent px-8 py-4 text-sm tracking-wider text-primary uppercase transition-all hover:bg-primary-light hover:text-secondary active:scale-95"
 			>
 				<span>Консультация по стилю</span>
 			</button>
