@@ -143,7 +143,7 @@
 				>
 					<a
 						href="#intro-section"
-						class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent"
+						class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent rounded-sm"
 					>
 						Узнать больше
 						<svg
@@ -293,7 +293,7 @@
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
 				<a
 					href="/showrooms"
-					class="group inline-flex items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
+					class="group inline-flex items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light rounded-sm"
 				>
 					Записаться в салон
 					<svg

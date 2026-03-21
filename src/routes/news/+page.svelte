@@ -159,7 +159,7 @@
 					class="border px-4 py-1.5 text-xs tracking-wider whitespace-nowrap transition-all duration-300
 						{activeCategory === cat
 						? 'border-primary bg-primary text-white'
-						: 'border-border-light bg-transparent text-secondary hover:border-secondary hover:text-secondary'}"
+						: 'border-border-light bg-transparent text-secondary hover:border-secondary hover:text-secondary'} rounded-sm"
 					onclick={() => (activeCategory = cat)}
 					id="filter-{cat}"
 				>
@@ -176,7 +176,7 @@
 		<div class="divide-y divide-border-light">
 			{#each filteredNews as item, i (item.id)}
 				<article
-					class="group flex flex-col gap-3 py-8 opacity-0 transition-all duration-500 hover:bg-surface-warm/40 md:flex-row md:items-start md:gap-10 lg:px-4"
+					class="group flex flex-col gap-3 py-8 opacity-0 transition-all duration-500 hover:bg-surface-warm/40 md:flex-row md:items-start md:gap-10 lg:px-4 rounded-sm"
 					class:animate-fade-up={sections['news-section']}
 					style="animation-delay: {0.05 + i * 0.07}s"
 				>
@@ -264,7 +264,7 @@
 			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
 				<a
 					href="/showrooms"
-					class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-3.5 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+					class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-3.5 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
 				>
 					Найти ближайший салон
 					<svg
@@ -283,7 +283,7 @@
 				</a>
 				<a
 					href="/promotions"
-					class="inline-flex items-center gap-2 border border-border-medium px-8 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
+					class="inline-flex items-center gap-2 border border-border-medium px-8 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary rounded-sm"
 				>
 					Смотреть акции
 				</a>

@@ -204,7 +204,7 @@
 	<button
 		type="submit"
 		disabled={isSubmitting}
-		class="group mt-4 inline-flex items-center justify-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary disabled:opacity-70"
+		class="group mt-4 inline-flex items-center justify-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary disabled:opacity-70 rounded-sm"
 	>
 		{#if isSubmitting}
 			<span

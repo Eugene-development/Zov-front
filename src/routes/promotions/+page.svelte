@@ -322,7 +322,7 @@
 				>
 					<a
 						href="#promo-grid"
-						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
 					>
 						Смотреть акции
 						<svg
@@ -341,7 +341,7 @@
 					</a>
 					<button
 						onclick={() => (isStyleModalOpen = true)}
-						class="group inline-flex cursor-pointer items-center gap-3 border border-border-medium bg-white/70 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary"
+						class="group inline-flex cursor-pointer items-center gap-3 border border-border-medium bg-white/70 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary rounded-sm"
 					>
 						Бесплатная консультация
 					</button>
@@ -395,7 +395,7 @@
 				<div class="mt-10">
 					<a
 						href="/showrooms"
-						class="group inline-flex items-center gap-3 bg-primary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-secondary"
+						class="group inline-flex items-center gap-3 bg-primary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-secondary rounded-sm"
 					>
 						Успеть получить скидку
 						<svg
@@ -602,7 +602,7 @@
 							<!-- CTA -->
 							<a
 								href="/showrooms"
-								class="group/btn mt-4 flex w-full items-center justify-center gap-2 border border-primary bg-transparent px-6 py-3 text-xs tracking-[0.12em] text-primary uppercase transition-all duration-300 hover:bg-primary hover:text-white"
+								class="group/btn mt-4 flex w-full items-center justify-center gap-2 border border-primary bg-transparent px-6 py-3 text-xs tracking-[0.12em] text-primary uppercase transition-all duration-300 hover:bg-primary hover:text-white rounded-sm"
 							>
 								Узнать подробнее
 								<svg
@@ -685,7 +685,7 @@
 					<div class="mt-8 flex flex-wrap gap-4">
 						<a
 							href="/showrooms"
-							class="group inline-flex items-center gap-3 border border-accent bg-accent px-7 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:bg-accent-light"
+							class="group inline-flex items-center gap-3 border border-accent bg-accent px-7 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:bg-accent-light rounded-sm"
 						>
 							Заказать со скидкой
 							<svg
@@ -704,7 +704,7 @@
 						</a>
 						<a
 							href="/showrooms"
-							class="inline-flex items-center gap-3 border border-white/30 bg-white/10 px-7 py-3.5 text-xs tracking-[0.15em] text-white uppercase backdrop-blur-sm transition-all duration-500 hover:bg-white hover:text-primary"
+							class="inline-flex items-center gap-3 border border-white/30 bg-white/10 px-7 py-3.5 text-xs tracking-[0.15em] text-white uppercase backdrop-blur-sm transition-all duration-500 hover:bg-white hover:text-primary rounded-sm"
 						>
 							Условия акции
 						</a>
@@ -823,7 +823,7 @@
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
 				<button
 					onclick={() => (isStyleModalOpen = true)}
-					class="group inline-flex cursor-pointer items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
+					class="group inline-flex cursor-pointer items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light rounded-sm"
 				>
 					Записаться на консультацию
 					<svg
@@ -842,7 +842,7 @@
 				</button>
 				<a
 					href="tel:+375291234567"
-					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50"
+					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 rounded-sm"
 				>
 					<svg
 						class="h-4 w-4"

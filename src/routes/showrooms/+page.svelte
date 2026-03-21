@@ -168,7 +168,7 @@
 				>
 					<a
 						href="#network-section"
-						class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent"
+						class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent rounded-sm"
 					>
 						Посмотреть карту
 						<svg
@@ -251,7 +251,7 @@
 				<div class="mt-6 flex flex-wrap gap-2">
 					{#each availableCities as city (city)}
 						<button
-							class="rounded-full border border-border-light px-4 py-1.5 text-xs tracking-wide transition-colors duration-300 {activeCity ===
+							class="rounded-sm border border-border-light px-4 py-1.5 text-xs tracking-wide transition-colors duration-300 {activeCity ===
 							city
 								? 'border-primary bg-primary text-white'
 								: 'bg-transparent text-secondary hover:border-text-muted hover:text-primary'}"
@@ -337,7 +337,7 @@
 				<div class="mt-10 flex">
 					<button
 						onclick={() => (isShowroomModalOpen = true)}
-						class="group inline-flex cursor-pointer items-center gap-3 border border-border-medium px-6 py-3 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
+						class="group inline-flex cursor-pointer items-center gap-3 border border-border-medium px-6 py-3 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary rounded-sm"
 					>
 						Запись в салон
 						<svg
@@ -407,7 +407,7 @@
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
 				<button
 					onclick={() => (isDesignerModalOpen = true)}
-					class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-secondary"
+					class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-secondary rounded-sm"
 				>
 					Вызвать дизайнера
 					<svg

@@ -153,7 +153,7 @@
 			{#each mainNav as item}
 				<a
 					href={item.href}
-					class="group relative px-5 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
+					class="group relative px-5 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary rounded-sm"
 				>
 					{item.label}
 					<span
@@ -167,7 +167,7 @@
 		<div class="hidden items-center gap-4 lg:flex">
 			<button
 				onclick={() => (isQuizModalOpen = true)}
-				class="group relative flex cursor-pointer items-center gap-2 px-2 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
+				class="group relative flex cursor-pointer items-center gap-2 px-2 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary rounded-sm"
 			>
 				Расчёт проекта
 				<svg

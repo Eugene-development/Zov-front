@@ -65,7 +65,7 @@
 		>
 			<a
 				href="/"
-				class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+				class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
 			>
 				<svg
 					class="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1"

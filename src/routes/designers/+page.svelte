@@ -190,7 +190,7 @@
 			>
 				<a
 					href="#application"
-					class="group inline-flex items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
+					class="group inline-flex items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light rounded-sm"
 				>
 					Стать партнёром
 					<svg
@@ -209,7 +209,7 @@
 				</a>
 				<a
 					href="#how-it-works"
-					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white/80 uppercase transition-all duration-500 hover:border-white/50 hover:text-white"
+					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white/80 uppercase transition-all duration-500 hover:border-white/50 hover:text-white rounded-sm"
 				>
 					Как это работает
 				</a>
@@ -347,7 +347,7 @@
 						</p>
 						<a
 							href="#application"
-							class="group mt-8 inline-flex items-center gap-3 border border-primary bg-primary px-7 py-3.5 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+							class="group mt-8 inline-flex items-center gap-3 border border-primary bg-primary px-7 py-3.5 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
 						>
 							Оставить заявку
 							<svg
@@ -536,7 +536,7 @@
 							<div class="flex gap-3">
 								<label
 									class="flex flex-1 cursor-pointer items-center gap-3 border px-4 py-3 transition-colors duration-300
-									{formType === 'studio' ? 'border-accent bg-accent/10' : 'border-white/10 hover:border-white/25'}"
+									{formType === 'studio' ? 'border-accent bg-accent/10' : 'border-white/10 hover:border-white/25'} rounded-sm"
 								>
 									<input type="radio" bind:group={formType} value="studio" class="sr-only" />
 									<span
@@ -553,7 +553,7 @@
 								</label>
 								<label
 									class="flex flex-1 cursor-pointer items-center gap-3 border px-4 py-3 transition-colors duration-300
-									{formType === 'freelance' ? 'border-accent bg-accent/10' : 'border-white/10 hover:border-white/25'}"
+									{formType === 'freelance' ? 'border-accent bg-accent/10' : 'border-white/10 hover:border-white/25'} rounded-sm"
 								>
 									<input type="radio" bind:group={formType} value="freelance" class="sr-only" />
 									<span

@@ -131,7 +131,7 @@
 				>
 					<a
 						href="/showrooms"
-						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
 					>
 						Найти ближайший салон
 						<svg
@@ -150,7 +150,7 @@
 					</a>
 					<a
 						href="tel:+375291234567"
-						class="group inline-flex items-center gap-3 border border-border-medium bg-white/60 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary"
+						class="group inline-flex items-center gap-3 border border-border-medium bg-white/60 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary rounded-sm"
 					>
 						<svg
 							class="h-4 w-4"
@@ -236,7 +236,7 @@
 			<div class="flex flex-col justify-center">
 				{#each stats as stat, i}
 					<div
-						class="group flex gap-6 border-b border-border-light py-8 opacity-0 transition-colors duration-300 first:border-t hover:bg-surface-warm/50 lg:px-6"
+						class="group flex gap-6 border-b border-border-light py-8 opacity-0 transition-colors duration-300 first:border-t hover:bg-surface-warm/50 lg:px-6 rounded-sm"
 						class:animate-slide-right={sections['mission-section']}
 						style="animation-delay: {0.2 + i * 0.15}s"
 					>
@@ -357,7 +357,7 @@
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
 				<button
 					onclick={() => (isDesignerModalOpen = true)}
-					class="group inline-flex cursor-pointer items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
+					class="group inline-flex cursor-pointer items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light rounded-sm"
 				>
 					Заказать дизайн-проект
 					<svg
@@ -376,7 +376,7 @@
 				</button>
 				<a
 					href="tel:+375291234567"
-					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50"
+					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 rounded-sm"
 				>
 					<svg
 						class="h-4 w-4"

@@ -161,7 +161,7 @@
 				>
 					<button
 						onclick={() => (isDesignerModalOpen = true)}
-						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
 					>
 						Дизайнер на дом
 						<svg
@@ -180,7 +180,7 @@
 					</button>
 					<a
 						href="/about"
-						class="group inline-flex items-center gap-3 border border-border-medium bg-white/60 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary"
+						class="group inline-flex items-center gap-3 border border-border-medium bg-white/60 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary rounded-sm"
 					>
 						О фабрике
 					</a>
@@ -445,7 +445,7 @@
 			<div class="flex flex-col gap-0">
 				{#each advantages as adv, i}
 					<div
-						class="group flex gap-6 border-b border-border-light py-8 opacity-0 transition-colors duration-300 first:border-t hover:bg-surface-warm/50 lg:px-6"
+						class="group flex gap-6 border-b border-border-light py-8 opacity-0 transition-colors duration-300 first:border-t hover:bg-surface-warm/50 lg:px-6 rounded-sm"
 						class:animate-slide-right={sections['advantages-section']}
 						style="animation-delay: {0.2 + i * 0.15}s"
 					>
@@ -533,13 +533,13 @@
 				<div class="mt-10 flex flex-wrap gap-4">
 					<a
 						href="/facades"
-						class="inline-flex items-center gap-2 border border-primary bg-primary px-7 py-3.5 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+						class="inline-flex items-center gap-2 border border-primary bg-primary px-7 py-3.5 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
 					>
 						Фасады
 					</a>
 					<a
 						href="/furniture"
-						class="inline-flex items-center gap-2 border border-border-medium px-7 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
+						class="inline-flex items-center gap-2 border border-border-medium px-7 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary rounded-sm"
 					>
 						Фурнитура
 					</a>
@@ -580,7 +580,7 @@
 					</p>
 					<a
 						href="/showrooms"
-						class="group mt-6 inline-flex items-center gap-3 border border-white/30 bg-white/10 px-8 py-3.5 text-xs tracking-[0.15em] text-white uppercase backdrop-blur-sm transition-all duration-500 hover:bg-white hover:text-primary"
+						class="group mt-6 inline-flex items-center gap-3 border border-white/30 bg-white/10 px-8 py-3.5 text-xs tracking-[0.15em] text-white uppercase backdrop-blur-sm transition-all duration-500 hover:bg-white hover:text-primary rounded-sm"
 					>
 						Найти ближайший салон
 						<svg
@@ -629,7 +629,7 @@
 			<div class="mt-10 flex flex-col items-center justify-center gap-4">
 				<button
 					onclick={() => (isStyleModalOpen = true)}
-					class="group inline-flex w-full cursor-pointer items-center justify-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light sm:w-auto"
+					class="group inline-flex w-full cursor-pointer items-center justify-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light sm:w-auto rounded-sm"
 				>
 					Бесплатная консультация
 					<svg

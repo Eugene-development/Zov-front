@@ -1,140 +1,261 @@
 <script>
 	import { fade, fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import Modal from '$lib/components/Modal.svelte';
+	import ShowroomForm from '$lib/components/ShowroomForm.svelte';
 
 	let isVisible = $state(false);
+	let isShowroomModalOpen = $state(false);
 
 	onMount(() => {
 		isVisible = true;
 	});
 
 	const features = [
-		{ title: 'Точные замеры', desc: 'Лазерное 3D-сканирование помещения для идеального встраивания.', colSpan: 'col-span-1 md:col-span-2' },
-		{ title: 'Премиум фурнитура', desc: 'Бесшумное скольжение и доводчики от ведущих брендов.', colSpan: 'col-span-1 md:col-span-1' },
-		{ title: 'Надежные материалы', desc: 'Экологичные плиты европейского стандарта с высокой плотностью.', colSpan: 'col-span-1 md:col-span-1' },
-		{ title: 'Сложная архитектура', desc: 'Проектируем наполнение, учитывая ваш гардероб и обувь до мелочей.', colSpan: 'col-span-1 md:col-span-2' },
+		{
+			title: 'Точные замеры',
+			desc: 'Лазерное 3D-сканирование помещения для идеального встраивания',
+			colSpan: 'col-span-1 md:col-span-2'
+		},
+		{
+			title: 'Премиум фурнитура',
+			desc: 'Бесшумное скольжение и доводчики от ведущих брендов',
+			colSpan: 'col-span-1 md:col-span-1'
+		},
+		{
+			title: 'Надежные материалы',
+			desc: 'Экологичные плиты европейского стандарта высокой плотности',
+			colSpan: 'col-span-1 md:col-span-1'
+		},
+		{
+			title: 'Сложная архитектура',
+			desc: 'Проектируем наполнение, учитывая ваш гардероб и обувь до мелочей',
+			colSpan: 'col-span-1 md:col-span-2'
+		}
 	];
 </script>
 
 <svelte:head>
 	<title>Шкафы и гардеробные | ЗОВ</title>
-	<meta name="description" content="Премиальные шкафы и гардеробные системы фабрики ЗОВ. Индивидуальные проекты, идеальная геометрия и долговечность." />
+	<meta
+		name="description"
+		content="Премиальные шкафы и гардеробные системы фабрики ЗОВ. Индивидуальные проекты, идеальная геометрия и долговечность."
+	/>
 </svelte:head>
 
-<main class="bg-surface-warm min-h-screen">
+<main class="min-h-screen bg-surface-warm">
 	<!-- Hero: Split Layout -->
-	<section class="grid lg:grid-cols-2 min-h-[70vh]">
-		<div class="flex flex-col justify-center px-8 lg:px-20 py-16 bg-white shrink-0">
+	<section class="grid min-h-[70vh] lg:grid-cols-2">
+		<div class="flex shrink-0 flex-col justify-center bg-white px-8 py-16 lg:px-20">
 			{#if isVisible}
 				<div in:fly={{ x: -30, duration: 1000, delay: 100 }}>
-					<span class="text-sm font-medium uppercase tracking-[0.3em] text-accent mb-6 block">Системы хранения</span>
-					<h1 class="text-4xl lg:text-6xl font-light tracking-wide text-primary mb-8 leading-tight" style="font-family: var(--font-heading);">
-						Идеальный порядок 
+					<span class="mb-6 block text-sm font-medium tracking-[0.3em] text-accent uppercase"
+						>Системы хранения</span
+					>
+					<h1
+						class="mb-8 text-4xl leading-tight font-light tracking-wide text-primary lg:text-6xl"
+						style="font-family: var(--font-heading);"
+					>
+						Идеальный порядок
 						<br />
 						<span class="text-secondary">в каждой детали</span>
 					</h1>
-					<p class="text-lg text-secondary leading-relaxed max-w-lg mb-12">
-						Мы создаем уникальные встроенные и корпусные шкафы, которые становятся органичным продолжением вашей квартиры. Максимальная вместимость и премиальная эстетика.
+					<p class="mb-12 max-w-lg text-lg leading-relaxed text-secondary">
+						Мы создаем уникальные встроенные и корпусные шкафы, которые становятся органичным
+						продолжением вашей квартиры. Максимальная вместимость и премиальная эстетика внутреннего
+						пространства.
 					</p>
-					<a href="/showrooms" class="inline-flex items-center gap-2 bg-primary text-white hover:bg-secondary px-8 py-4 rounded-full transition-colors duration-300 tracking-wider text-sm">
+					<a
+						href="/showrooms"
+						class="group inline-flex cursor-pointer items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-primary rounded-sm"
+					>
 						Спроектировать шкаф
-						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+						<svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1.5"
+								d="M14 5l7 7m0 0l-7 7m7-7H3"
+							/>
 						</svg>
 					</a>
 				</div>
 			{/if}
 		</div>
-		<div class="relative bg-border-light hidden lg:block overflow-hidden">
+		<div class="relative hidden overflow-hidden bg-border-light lg:block">
 			<!-- Hero Placeholder Diagram inside -->
 			<div class="absolute inset-0 flex flex-col items-center justify-center text-primary/30">
-				<svg class="w-32 h-32 mb-6 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 12h16M12 4v16"/>
+				<svg
+					class="mb-6 h-32 w-32 opacity-30"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="1"
+						d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 12h16M12 4v16"
+					/>
 				</svg>
-				<span class="text-sm uppercase tracking-[0.2em] font-medium">Заглушка: Большое фото роскошного шкафа</span>
+				<span class="text-sm font-medium tracking-[0.2em] uppercase"
+					>Заглушка: Большое фото роскошного шкафа</span
+				>
 			</div>
 		</div>
 	</section>
 
 	<!-- Bento Box Features (Difference in structure from Kitchens) -->
-	<section class="py-24 px-6 max-w-7xl mx-auto">
-		<div class="text-center mb-16">
-			<h2 class="text-3xl lg:text-4xl font-light tracking-wide text-primary" style="font-family: var(--font-heading);">
+	<section class="mx-auto max-w-7xl px-6 py-24">
+		<div class="mb-16 text-center">
+			<h2
+				class="text-3xl font-light tracking-wide text-primary lg:text-4xl"
+				style="font-family: var(--font-heading);"
+			>
 				Безупречное качество от замера до установки
 			</h2>
 		</div>
 
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+		<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
 			{#each features as feature, i}
-				<div class="bg-white p-10 rounded-3xl shadow-soft hover:shadow-elevated transition-shadow duration-300 flex flex-col justify-end min-h-[250px] relative overflow-hidden {feature.colSpan}">
-					<div class="absolute top-8 right-8 text-6xl font-light text-border-medium/30 transition-colors duration-500 group-hover:text-border-medium/60" style="font-family: var(--font-heading);">
-						0{i+1}
+				<div
+					class="relative flex min-h-[250px] flex-col justify-end overflow-hidden rounded-3xl bg-white p-10 shadow-soft transition-shadow duration-300 hover:shadow-elevated {feature.colSpan}"
+				>
+					<div
+						class="absolute top-8 right-8 text-6xl font-light text-border-medium/30 transition-colors duration-500 group-hover:text-border-medium/60"
+						style="font-family: var(--font-heading);"
+					>
+						0{i + 1}
 					</div>
-					<h3 class="text-2xl font-light text-primary mb-3" style="font-family: var(--font-heading);">{feature.title}</h3>
-					<p class="text-secondary leading-relaxed">{feature.desc}</p>
+					<h3
+						class="mb-3 text-2xl font-light text-primary"
+						style="font-family: var(--font-heading);"
+					>
+						{feature.title}
+					</h3>
+					<p class="leading-relaxed text-secondary">{feature.desc}</p>
 				</div>
 			{/each}
 		</div>
 	</section>
 
 	<!-- Types of Wardrobes: Horizontal/Masonry visual approach -->
-	<section class="py-24 px-6 bg-white overflow-hidden">
-		<div class="max-w-7xl mx-auto">
-			<div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
+	<section class="overflow-hidden bg-white px-6 py-24">
+		<div class="mx-auto max-w-7xl">
+			<div class="mb-16 flex flex-col items-end justify-between gap-8 lg:flex-row">
 				<div class="max-w-2xl">
-					<span class="text-sm font-medium uppercase tracking-[0.2em] text-accent mb-4 block">Варианты решений</span>
-					<h2 class="text-3xl lg:text-4xl font-light tracking-wide text-primary" style="font-family: var(--font-heading);">
+					<span class="mb-4 block text-sm font-medium tracking-[0.2em] text-accent uppercase"
+						>Варианты решений</span
+					>
+					<h2
+						class="text-3xl font-light tracking-wide text-primary lg:text-4xl"
+						style="font-family: var(--font-heading);"
+					>
 						Виды систем
 					</h2>
 				</div>
 			</div>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-				
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 				<!-- Card 1 -->
 				<div class="group cursor-pointer">
-					<div class="aspect-[3/4] rounded-2xl bg-[#F0F0F0] mb-6 flex items-center justify-center relative overflow-hidden transition-all duration-500 group-hover:bg-[#E5E5E5]">
-						<div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-primary/10 to-transparent"></div>
-						<span class="text-xs uppercase tracking-[0.2em] font-medium text-primary/40 relative z-10">Заглушка: Встроенный шкаф</span>
+					<div
+						class="relative mb-6 flex aspect-[3/4] items-center justify-center overflow-hidden rounded-2xl bg-[#F0F0F0] transition-all duration-500 group-hover:bg-[#E5E5E5]"
+					>
+						<div
+							class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-primary/10 to-transparent"
+						></div>
+						<span
+							class="relative z-10 text-xs font-medium tracking-[0.2em] text-primary/40 uppercase"
+							>Заглушка: Встроенный шкаф</span
+						>
 					</div>
-					<h3 class="text-xl font-light tracking-wide text-primary mb-2" style="font-family: var(--font-heading);">Встроенные шкафы</h3>
-					<p class="text-secondary text-sm leading-relaxed">Монтируются напрямую от пола до потолка, скрывая неровности стен и максимально эффективно используя ниши.</p>
+					<h3
+						class="mb-2 text-xl font-light tracking-wide text-primary"
+						style="font-family: var(--font-heading);"
+					>
+						Встроенные шкафы
+					</h3>
+					<p class="text-sm leading-relaxed text-secondary">
+						Монтируются от пола до потолка, скрывая неровности стен и максимально эффективно
+						используя ниши
+					</p>
 				</div>
 
 				<!-- Card 2 -->
 				<div class="group cursor-pointer lg:-translate-y-8">
-					<div class="aspect-[3/4] rounded-2xl bg-[#E8E8E8] mb-6 flex items-center justify-center relative overflow-hidden transition-all duration-500 group-hover:bg-[#DDDDDD]">
-						<div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-primary/10 to-transparent"></div>
-						<span class="text-xs uppercase tracking-[0.2em] font-medium text-primary/40 relative z-10">Заглушка: Корпусный шкаф</span>
+					<div
+						class="relative mb-6 flex aspect-[3/4] items-center justify-center overflow-hidden rounded-2xl bg-[#E8E8E8] transition-all duration-500 group-hover:bg-[#DDDDDD]"
+					>
+						<div
+							class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-primary/10 to-transparent"
+						></div>
+						<span
+							class="relative z-10 text-xs font-medium tracking-[0.2em] text-primary/40 uppercase"
+							>Заглушка: Корпусный шкаф</span
+						>
 					</div>
-					<h3 class="text-xl font-light tracking-wide text-primary mb-2" style="font-family: var(--font-heading);">Корпусные решения</h3>
-					<p class="text-secondary text-sm leading-relaxed">Самостоятельные модули, которые можно перемещать. Акцентные фасады и витринные стеклянные элементы.</p>
+					<h3
+						class="mb-2 text-xl font-light tracking-wide text-primary"
+						style="font-family: var(--font-heading);"
+					>
+						Корпусные решения
+					</h3>
+					<p class="text-sm leading-relaxed text-secondary">
+						Самостоятельные модули, которые можно перемещать. Акцентные фасады и витринные
+						стеклянные элементы
+					</p>
 				</div>
 
 				<!-- Card 3 -->
 				<div class="group cursor-pointer lg:-translate-y-16">
-					<div class="aspect-[3/4] rounded-2xl bg-[#F0F0F0] mb-6 flex items-center justify-center relative overflow-hidden transition-all duration-500 group-hover:bg-[#E5E5E5]">
-						<div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-primary/10 to-transparent"></div>
-						<span class="text-xs uppercase tracking-[0.2em] font-medium text-primary/40 relative z-10">Заглушка: Гардеробная</span>
+					<div
+						class="relative mb-6 flex aspect-[3/4] items-center justify-center overflow-hidden rounded-2xl bg-[#F0F0F0] transition-all duration-500 group-hover:bg-[#E5E5E5]"
+					>
+						<div
+							class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-primary/10 to-transparent"
+						></div>
+						<span
+							class="relative z-10 text-xs font-medium tracking-[0.2em] text-primary/40 uppercase"
+							>Заглушка: Гардеробная</span
+						>
 					</div>
-					<h3 class="text-xl font-light tracking-wide text-primary mb-2" style="font-family: var(--font-heading);">Гардеробные комнаты</h3>
-					<p class="text-secondary text-sm leading-relaxed">Открытые и закрытые модульные системы премиум-класса с умной подсветкой и организаторами.</p>
+					<h3
+						class="mb-2 text-xl font-light tracking-wide text-primary"
+						style="font-family: var(--font-heading);"
+					>
+						Гардеробные комнаты
+					</h3>
+					<p class="text-sm leading-relaxed text-secondary">
+						Открытые и закрытые модульные системы премиум-класса с умной подсветкой и организаторами
+					</p>
 				</div>
-
 			</div>
 		</div>
 	</section>
 
 	<!-- Minimal Footer CTA -->
-	<section class="border-t border-border-light px-6 py-24 bg-surface-warm">
-		<div class="max-w-4xl mx-auto text-center">
-			<h2 class="text-3xl lg:text-5xl font-light tracking-wide text-primary mb-8" style="font-family: var(--font-heading);">
+	<section class="border-t border-border-light bg-surface-warm px-6 py-24">
+		<div class="mx-auto max-w-4xl text-center">
+			<h2
+				class="mb-8 text-3xl font-light tracking-wide text-primary lg:text-5xl"
+				style="font-family: var(--font-heading);"
+			>
 				Закажите расчет стоимости
 			</h2>
-			<a href="/showrooms" class="inline-block relative group">
-				<span class="relative z-10 text-lg tracking-widest text-primary uppercase font-medium">Связаться с дизайнером</span>
-				<span class="absolute bottom-0 left-0 w-full h-px bg-primary transform scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
-			</a>
+			<button
+				class="group inline-flex cursor-pointer items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-primary rounded-sm"
+				onclick={() => (isShowroomModalOpen = true)}
+			>
+				Запись в салон
+				<svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+				</svg>
+			</button>
 		</div>
 	</section>
 </main>
+
+<Modal bind:showModal={isShowroomModalOpen} title="Запись в салон">
+	<ShowroomForm onSuccess={() => (isShowroomModalOpen = false)} />
+</Modal>

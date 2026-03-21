@@ -121,7 +121,7 @@
 			<div class="mt-12">
 				<a
 					href="#styles-grid"
-					class="group inline-flex items-center justify-center gap-3 border border-border-medium bg-transparent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:border-secondary hover:text-secondary"
+					class="group inline-flex items-center justify-center gap-3 border border-border-medium bg-transparent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:border-secondary hover:text-secondary rounded-sm"
 				>
 					Выбрать стиль
 					<svg
@@ -191,7 +191,7 @@
 						<div class="mt-auto flex flex-wrap justify-center gap-2">
 							{#each style.tags as tag}
 								<span
-									class="border border-border-light bg-transparent px-3 py-1 text-xs text-muted transition-colors group-hover:border-secondary-light group-hover:text-secondary"
+									class="border border-border-light bg-transparent px-3 py-1 text-xs text-muted transition-colors group-hover:border-secondary-light group-hover:text-secondary rounded-sm"
 								>
 									{tag}
 								</span>
@@ -216,7 +216,7 @@
 				onclick={() => {
 					isShowroomModalOpen = true;
 				}}
-				class="group relative inline-flex items-center justify-center gap-3 overflow-hidden border border-primary bg-primary px-8 py-4 text-sm tracking-wider text-white uppercase transition-all hover:bg-white hover:text-primary active:scale-95"
+				class="group relative inline-flex items-center justify-center gap-3 overflow-hidden border border-primary bg-primary px-8 py-4 text-sm tracking-wider text-white uppercase transition-all hover:bg-white hover:text-primary active:scale-95 rounded-sm"
 			>
 				<span>Записаться в салон</span>
 				<svg
@@ -238,7 +238,7 @@
 				onclick={() => {
 					isStyleModalOpen = true;
 				}}
-				class="group relative ml-4 inline-flex items-center justify-center gap-3 overflow-hidden border border-primary bg-transparent px-8 py-4 text-sm tracking-wider text-primary uppercase transition-all hover:bg-primary-light hover:text-secondary active:scale-95"
+				class="group relative ml-4 inline-flex items-center justify-center gap-3 overflow-hidden border border-primary bg-transparent px-8 py-4 text-sm tracking-wider text-primary uppercase transition-all hover:bg-primary-light hover:text-secondary active:scale-95 rounded-sm"
 			>
 				<span>Консультация по стилю</span>
 			</button>

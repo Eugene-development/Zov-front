@@ -267,20 +267,20 @@
 			<div class="mt-10 flex flex-col items-center justify-center gap-4">
 				<button
 					onclick={() => (isStyleModalOpen = true)}
-					class="inline-flex w-full cursor-pointer items-center justify-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 sm:w-auto"
+					class="inline-flex w-full cursor-pointer items-center justify-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 sm:w-auto rounded-sm"
 				>
 					Бесплатная консультация
 				</button>
 				<div class="flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
 					<a
 						href="/showrooms"
-						class="inline-flex w-full cursor-pointer items-center justify-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 sm:w-auto"
+						class="inline-flex w-full cursor-pointer items-center justify-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 sm:w-auto rounded-sm"
 					>
 						Записаться в салон
 					</a>
 					<button
 						onclick={() => (isDesignerModalOpen = true)}
-						class="inline-flex w-full cursor-pointer items-center justify-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 sm:w-auto"
+						class="inline-flex w-full cursor-pointer items-center justify-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 sm:w-auto rounded-sm"
 					>
 						Вызвать дизайнера
 					</button>

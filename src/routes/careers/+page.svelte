@@ -238,7 +238,7 @@
 			>
 				<a
 					href="#vacancies"
-					class="group inline-flex items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
+					class="group inline-flex items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light rounded-sm"
 				>
 					Смотреть вакансии
 					<svg
@@ -257,7 +257,7 @@
 				</a>
 				<a
 					href="#open-resume"
-					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white/80 uppercase transition-all duration-500 hover:border-white/50 hover:text-white"
+					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white/80 uppercase transition-all duration-500 hover:border-white/50 hover:text-white rounded-sm"
 				>
 					Отправить резюме
 				</a>
@@ -370,7 +370,7 @@
 					class="border px-4 py-2 text-xs tracking-wider uppercase transition-all duration-300
 						{activeDept === dept
 						? 'border-primary bg-primary text-white'
-						: 'border-border-medium bg-white text-secondary hover:border-primary hover:text-primary'}"
+						: 'border-border-medium bg-white text-secondary hover:border-primary hover:text-primary'} rounded-sm"
 					onclick={() => {
 						activeDept = dept;
 						expandedId = null;
@@ -397,7 +397,7 @@
 						id="vacancy-{vac.id}"
 					>
 						<div
-							class="flex items-start gap-6 px-6 py-6 transition-colors duration-300 hover:bg-surface-warm sm:items-center sm:px-8"
+							class="flex items-start gap-6 px-6 py-6 transition-colors duration-300 hover:bg-surface-warm sm:items-center sm:px-8 rounded-sm"
 						>
 							<!-- Info -->
 							<div class="flex flex-1 flex-col gap-1 sm:flex-row sm:items-center sm:gap-8">
@@ -461,7 +461,7 @@
 							<div class="mt-6 flex flex-wrap items-center gap-4">
 								<a
 									href="#open-resume"
-									class="group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+									class="group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
 								>
 									Откликнуться
 									<svg
