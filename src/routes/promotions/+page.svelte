@@ -71,13 +71,7 @@
 			oldPrice: '600 000',
 			newPrice: '420 000',
 			image: '/images/promo-kitchen-painted.png',
-			until: '31 мая 2026',
-			features: [
-				'Стоимость до вычета более 500 000 руб.',
-				'Фасады из ЛДСП в акции не учавствуют',
-				'Столешница в акции не учавствует',
-				'Скидки не ссумируются'
-			]
+			until: '31 мая 2026'
 		}
 		// {
 		// 	id: 2,
@@ -585,7 +579,9 @@
 						<div class="mt-6 border-t border-border-light pt-5">
 							<div class="flex items-end justify-between">
 								<div>
-									<p class="mb-1 text-[10px] tracking-wider text-muted uppercase">Пример расчёта</p>
+									<p class="mb-1 text-[10px] tracking-wider text-muted uppercase">
+										Пример расчёта:
+									</p>
 									{#if promo.oldPrice}
 										<p class="text-xs text-muted line-through">{promo.oldPrice} ₽</p>
 									{/if}
@@ -608,25 +604,39 @@
 							</div>
 
 							<!-- CTA -->
-							<button
-								onclick={() => (isStyleModalOpen = true)}
-								class="group/btn mt-4 flex w-full cursor-pointer items-center justify-center gap-2 rounded-sm border border-primary bg-primary px-6 py-3 text-xs tracking-[0.12em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
-							>
-								Подробнее
-								<svg
-									class="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									stroke-width="2"
+							<div class="mt-4 flex gap-2">
+								<button
+									onclick={(e) => {
+										e.stopPropagation();
+										isPromoConditionsModalOpen = true;
+									}}
+									class="inline-flex flex-1 cursor-pointer items-center justify-center rounded-sm border border-border-medium bg-transparent px-4 py-3 text-[10px] tracking-[0.12em] text-secondary uppercase transition-all duration-300 hover:border-primary hover:text-primary"
 								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-									/>
-								</svg>
-							</button>
+									Условия
+								</button>
+								<button
+									onclick={(e) => {
+										e.stopPropagation();
+										isStyleModalOpen = true;
+									}}
+									class="group/btn flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-sm border border-primary bg-primary px-4 py-3 text-[10px] tracking-[0.12em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+								>
+									Подробнее
+									<svg
+										class="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+										stroke-width="2"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+										/>
+									</svg>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -891,7 +901,7 @@
 					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
 				</svg>
 				<span class="text-sm leading-relaxed"
-					>Стоимость заказа составляет <strong>от 500 000 рублей</strong></span
+					>Стоимость до вычета скидки <strong>более 500 000 рублей</strong></span
 				>
 			</li>
 			<li class="flex items-start gap-3">
@@ -904,7 +914,7 @@
 				>
 					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
 				</svg>
-				<span class="text-sm leading-relaxed">В заказе присутствует каменная столешница</span>
+				<span class="text-sm leading-relaxed">Дополнительно заказывается каменная столешница</span>
 			</li>
 			<li class="flex items-start gap-3">
 				<svg
@@ -917,7 +927,8 @@
 					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
 				</svg>
 				<span class="text-sm leading-relaxed"
-					>В комплекте бытовой техники <strong>не менее 5 предметов</strong></span
+					>Так же в заказ входит комплект бытовой техники <strong>не менее 4 предметов</strong
+					></span
 				>
 			</li>
 			<li class="flex items-start gap-3">
@@ -933,6 +944,18 @@
 				<span class="text-sm leading-relaxed"
 					>В заказе обязательно присутствуют мойка и смеситель</span
 				>
+			</li>
+			<li class="flex items-start gap-3">
+				<svg
+					class="mt-1 h-4 w-4 shrink-0 text-accent"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+				</svg>
+				<span class="text-sm leading-relaxed">Фасады ЛДСП в акции не учавствуют</span>
 			</li>
 		</ul>
 	</div>
