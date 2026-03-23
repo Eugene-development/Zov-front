@@ -44,46 +44,6 @@
 				'Встречайте новинку! Расширение ассортимента фасадов ЛДСП Egger. Теперь в нашем каталоге представлено 10 новых декоров, которые позволят реализовать ваши идеи с минимальным бюджетом и в короткие сроки.'
 		},
 		{
-			id: 3,
-			date: '18 февраля 2026',
-			category: 'Технологии',
-			title: 'Внедрение 3D-визуализации в онлайн-конструктор',
-			excerpt:
-				'Обновлённый конструктор кухни на сайте ЗОВ получил фотореалистичный рендер в реальном времени. Теперь клиенты могут видеть итоговый проект ещё до обращения к дизайнеру.'
-		},
-		{
-			id: 4,
-			date: '10 февраля 2026',
-			category: 'Награды',
-			title: 'ЗОВ — лауреат премии «Мебель года 2025» в номинации «Лучший производитель кухонь»',
-			excerpt:
-				'На ежегодном отраслевом форуме в Санкт-Петербурге фабрика ЗОВ получила главную награду по итогам независимого голосования среди 120 тысяч покупателей по всей России.'
-		},
-		{
-			id: 5,
-			date: '2 февраля 2026',
-			category: 'Партнёрство',
-			title: 'Соглашение о сотрудничестве с ведущими европейскими поставщиками фурнитуры',
-			excerpt:
-				'ЗОВ подписал долгосрочные контракты с Blum и Grass. Вся новая мебель премиального сегмента оснащается немецкими и австрийскими механизмами с расширенной гарантией 10 лет.'
-		},
-		{
-			id: 6,
-			date: '24 января 2026',
-			category: 'Акции',
-			title: 'Специальные условия для проектировщиков и дизайнеров интерьеров',
-			excerpt:
-				'Фабрика запустила профессиональную программу для дизайнеров: персональный менеджер, приоритетный доступ к образцам материалов, расширенная партнёрская скидка и отсрочка платежа.'
-		},
-		{
-			id: 7,
-			date: '15 января 2026',
-			category: 'Производство',
-			title: 'Расширение цеха покраски: +2 000 м² и новый парк оборудования',
-			excerpt:
-				'Завершилась реконструкция главного производственного корпуса в Барановичах. Проектная мощность окрасочного цеха увеличилась на 35%, что позволит сократить сроки исполнения заказов.'
-		},
-		{
 			id: 8,
 			date: '7 января 2026',
 			category: 'Компания',
@@ -96,11 +56,11 @@
 	const categories = [
 		'Все',
 		'Производство',
-		'Компания',
-		'Технологии',
-		'Награды',
-		'Партнёрство',
-		'Акции'
+		'Компания'
+		// 'Технологии',
+		// 'Награды',
+		// 'Партнёрство',
+		// 'Акции'
 	];
 	let activeCategory = $state('Все');
 
@@ -176,7 +136,7 @@
 		<div class="divide-y divide-border-light">
 			{#each filteredNews as item, i (item.id)}
 				<article
-					class="group flex flex-col gap-3 py-8 opacity-0 transition-all duration-500 hover:bg-surface-warm/40 md:flex-row md:items-start md:gap-10 lg:px-4 rounded-sm"
+					class="group flex flex-col gap-3 rounded-sm py-8 opacity-0 transition-all duration-500 hover:bg-surface-warm/40 md:flex-row md:items-start md:gap-10 lg:px-4"
 					class:animate-fade-up={sections['news-section']}
 					style="animation-delay: {0.05 + i * 0.07}s"
 				>
@@ -264,7 +224,7 @@
 			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
 				<a
 					href="/showrooms"
-					class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-3.5 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
+					class="group inline-flex items-center gap-3 rounded-sm border border-primary bg-primary px-8 py-3.5 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 				>
 					Найти ближайший салон
 					<svg
@@ -283,7 +243,7 @@
 				</a>
 				<a
 					href="/promotions"
-					class="inline-flex items-center gap-2 border border-border-medium px-8 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary rounded-sm"
+					class="inline-flex items-center gap-2 rounded-sm border border-border-medium px-8 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
 				>
 					Смотреть акции
 				</a>

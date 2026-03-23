@@ -150,7 +150,7 @@
 					</a>
 					<a
 						href="tel:+375291234567"
-						class="group inline-flex items-center gap-3 border border-border-medium bg-white/60 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary rounded-sm"
+						class="group inline-flex md:hidden items-center gap-3 border border-border-medium bg-white/60 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary rounded-sm"
 					>
 						<svg
 							class="h-4 w-4"
@@ -376,7 +376,7 @@
 				</button>
 				<a
 					href="tel:+375291234567"
-					class="inline-flex items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 rounded-sm"
+					class="inline-flex md:hidden items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 rounded-sm"
 				>
 					<svg
 						class="h-4 w-4"

@@ -56,101 +56,100 @@
 	const filters = [
 		{ key: 'all', label: 'Все акции' },
 		{ key: 'kitchen', label: 'Кухни' },
-		{ key: 'wardrobe', label: 'Гардеробные' },
-		{ key: 'living', label: 'Гостиная' }
+		{ key: 'wardrobe', label: 'Гардеробные' }
 	];
 
 	const promotions = [
 		{
 			id: 1,
 			category: 'kitchen',
-			tag: 'Хит сезона',
+			tag: 'Главная акция',
 			tagColor: 'accent',
 			discount: '−30%',
-			title: 'Кухни серии «Модерн»',
+			title: 'Кухня мечты',
 			description:
 				'Полный комплект кухонного гарнитура с фасадами из матовой эмали. Столешница из искусственного камня и фурнитура Blum в подарок.',
 			oldPrice: '320 000',
 			newPrice: '224 000',
 			image: '/images/promo-kitchen.png',
-			until: '15 апреля 2026',
-			features: ['Фасады из матовой эмали', 'Столешница из камня', 'Фурнитура Blum']
-		},
-		{
-			id: 2,
-			category: 'wardrobe',
-			tag: 'Бесплатно',
-			tagColor: 'secondary',
-			discount: 'Дизайн-проект',
-			title: 'Гардеробные системы',
-			description:
-				'При заказе гардеробной от 150 000 руб. — бесплатный выезд дизайнера и разработка 3D-проекта. Уникальная система хранения под ваши нужды.',
-			oldPrice: null,
-			newPrice: 'от 150 000',
-			image: '/images/promo-wardrobe.png',
-			until: '30 апреля 2026',
-			features: ['Бесплатный 3D-проект', 'Выезд дизайнера', 'Установка за 1 день']
-		},
-		{
-			id: 3,
-			category: 'living',
-			tag: 'Лимитировано',
-			tagColor: 'primary',
-			discount: '−25%',
-			title: 'Гостиные «Эксклюзив»',
-			description:
-				'Мебельные комплекты для гостиной из коллекции «Эксклюзив»: TV-панели, открытые стеллажи, закрытые тумбы. Шпон натурального ореха.',
-			oldPrice: '480 000',
-			newPrice: '360 000',
-			image: '/images/promo-living.png',
-			until: '28 апреля 2026',
-			features: ['Шпон натурального ореха', 'Интегрированная подсветка', 'Сборка в подарок']
-		},
-		{
-			id: 4,
-			category: 'kitchen',
-			tag: 'Рассрочка',
-			tagColor: 'accent',
-			discount: '0%',
-			title: 'Кухни в рассрочку',
-			description:
-				'Оформите любую кухню в рассрочку на 24 месяца без переплаты. Первый взнос от 20%. Быстрое одобрение за 15 минут.',
-			oldPrice: null,
-			newPrice: 'от 5 000/мес',
-			image: '/images/hero-kitchen.png',
 			until: '31 мая 2026',
-			features: ['24 месяца без %', 'Первый взнос от 20%', 'Одобрение за 15 мин']
-		},
-		{
-			id: 5,
-			category: 'wardrobe',
-			tag: 'Новинка',
-			tagColor: 'secondary',
-			discount: '−15%',
-			title: 'Walk-in гардероб',
-			description:
-				'Гардеробные комнаты полного цикла: проектирование, изготовление, монтаж. Системы с подсветкой, зеркальными панелями и ящиками с мягким закрыванием.',
-			oldPrice: '280 000',
-			newPrice: '238 000',
-			image: '/images/promo-wardrobe.png',
-			until: '20 апреля 2026',
-			features: ['LED-подсветка', 'Зеркальные панели', 'Мягкое закрывание']
-		},
-		{
-			id: 6,
-			category: 'kitchen',
-			tag: 'Trade-in',
-			tagColor: 'primary',
-			discount: 'до −50 000 ₽',
-			title: 'Обмен старой кухни',
-			description:
-				'Сдайте вашу старую кухню и получите скидку до 50 000 рублей на новый премиальный гарнитур. Мы вывезем старую мебель бесплатно.',
-			oldPrice: null,
-			newPrice: 'Оценка бесплатно',
-			image: '/images/showroom.png',
-			until: '15 мая 2026',
-			features: ['Бесплатный вывоз', 'Оценка за 1 день', 'Скидка до 50 000 ₽']
+			features: ['Фасады из матовой эмали', 'Столешница из камня', 'Фурнитура Blum']
 		}
+		// {
+		// 	id: 2,
+		// 	category: 'wardrobe',
+		// 	tag: 'Бесплатно',
+		// 	tagColor: 'secondary',
+		// 	discount: 'Дизайн-проект',
+		// 	title: 'Гардеробные системы',
+		// 	description:
+		// 		'При заказе гардеробной от 150 000 руб. — бесплатный выезд дизайнера и разработка 3D-проекта. Уникальная система хранения под ваши нужды.',
+		// 	oldPrice: null,
+		// 	newPrice: 'от 150 000',
+		// 	image: '/images/promo-wardrobe.png',
+		// 	until: '30 апреля 2026',
+		// 	features: ['Бесплатный 3D-проект', 'Выезд дизайнера', 'Установка за 1 день']
+		// },
+		// {
+		// 	id: 3,
+		// 	category: 'living',
+		// 	tag: 'Лимитировано',
+		// 	tagColor: 'primary',
+		// 	discount: '−25%',
+		// 	title: 'Гостиные «Эксклюзив»',
+		// 	description:
+		// 		'Мебельные комплекты для гостиной из коллекции «Эксклюзив»: TV-панели, открытые стеллажи, закрытые тумбы. Шпон натурального ореха.',
+		// 	oldPrice: '480 000',
+		// 	newPrice: '360 000',
+		// 	image: '/images/promo-living.png',
+		// 	until: '28 апреля 2026',
+		// 	features: ['Шпон натурального ореха', 'Интегрированная подсветка', 'Сборка в подарок']
+		// },
+		// {
+		// 	id: 4,
+		// 	category: 'kitchen',
+		// 	tag: 'Рассрочка',
+		// 	tagColor: 'accent',
+		// 	discount: '0%',
+		// 	title: 'Кухни в рассрочку',
+		// 	description:
+		// 		'Оформите любую кухню в рассрочку на 24 месяца без переплаты. Первый взнос от 20%. Быстрое одобрение за 15 минут.',
+		// 	oldPrice: null,
+		// 	newPrice: 'от 5 000/мес',
+		// 	image: '/images/hero-kitchen.png',
+		// 	until: '31 мая 2026',
+		// 	features: ['24 месяца без %', 'Первый взнос от 20%', 'Одобрение за 15 мин']
+		// },
+		// {
+		// 	id: 5,
+		// 	category: 'wardrobe',
+		// 	tag: 'Новинка',
+		// 	tagColor: 'secondary',
+		// 	discount: '−15%',
+		// 	title: 'Walk-in гардероб',
+		// 	description:
+		// 		'Гардеробные комнаты полного цикла: проектирование, изготовление, монтаж. Системы с подсветкой, зеркальными панелями и ящиками с мягким закрыванием.',
+		// 	oldPrice: '280 000',
+		// 	newPrice: '238 000',
+		// 	image: '/images/promo-wardrobe.png',
+		// 	until: '20 апреля 2026',
+		// 	features: ['LED-подсветка', 'Зеркальные панели', 'Мягкое закрывание']
+		// },
+		// {
+		// 	id: 6,
+		// 	category: 'kitchen',
+		// 	tag: 'Trade-in',
+		// 	tagColor: 'primary',
+		// 	discount: 'до −50 000 ₽',
+		// 	title: 'Обмен старой кухни',
+		// 	description:
+		// 		'Сдайте вашу старую кухню и получите скидку до 50 000 рублей на новый премиальный гарнитур. Мы вывезем старую мебель бесплатно.',
+		// 	oldPrice: null,
+		// 	newPrice: 'Оценка бесплатно',
+		// 	image: '/images/showroom.png',
+		// 	until: '15 мая 2026',
+		// 	features: ['Бесплатный вывоз', 'Оценка за 1 день', 'Скидка до 50 000 ₽']
+		// }
 	];
 
 	const benefits = [
@@ -841,7 +840,7 @@
 				</button>
 				<a
 					href="tel:+375291234567"
-					class="inline-flex items-center gap-2 rounded-sm border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50"
+					class="inline-flex items-center gap-2 rounded-sm border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 md:hidden"
 				>
 					<svg
 						class="h-4 w-4"
