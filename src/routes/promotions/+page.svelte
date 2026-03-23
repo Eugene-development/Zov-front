@@ -55,14 +55,15 @@
 
 	const filters = [
 		{ key: 'all', label: 'Все акции' },
-		{ key: 'kitchen', label: 'Кухни' },
-		{ key: 'wardrobe', label: 'Гардеробные' }
+		{ key: 'furniture', label: 'Мебель' },
+		{ key: 'service', label: 'Услуги' },
+		{ key: 'tech', label: 'Техника' }
 	];
 
 	const promotions = [
 		{
 			id: 1,
-			category: 'kitchen',
+			category: 'furniture',
 			tag: 'Главная акция',
 			tagColor: 'accent',
 			discount: '−30%',
@@ -267,9 +268,8 @@
 					style="font-family: var(--font-heading); animation-delay: 0.5s"
 					class:animate-fade-up={heroVisible}
 				>
-					Акции &
-					<br />
-					<span class="font-normal text-secondary">спецпредложения</span>
+					Скидки &
+					<span class="font-normal text-secondary">акции</span>
 				</h1>
 
 				<!-- Stats row -->
@@ -412,9 +412,9 @@
 			</div>
 
 			<!-- Timer display -->
-			<div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:justify-end">
+			<div class="flex flex-wrap items-center justify-center gap-2 sm:gap-6 lg:justify-end">
 				{#each [{ v: timeLeft.days, l: 'Дней' }, { v: timeLeft.hours, l: 'Часов' }, { v: timeLeft.minutes, l: 'Минут' }, { v: timeLeft.seconds, l: 'Секунд' }] as unit, i}
-					<div class="flex w-[70px] flex-col items-center gap-4 sm:w-[90px] lg:w-[110px]">
+					<div class="flex w-[64px] flex-col items-center gap-2 sm:w-[90px] sm:gap-4 lg:w-[110px]">
 						<div
 							class="group relative flex aspect-square w-full items-center justify-center border border-border-light bg-white shadow-soft"
 						>
@@ -424,7 +424,7 @@
 							></div>
 
 							<span
-								class="text-4xl font-light tracking-tighter text-primary tabular-nums sm:text-5xl lg:text-6xl"
+								class="text-3xl font-light tracking-tighter text-primary tabular-nums sm:text-5xl lg:text-6xl"
 								style="font-family: var(--font-heading);"
 							>
 								{pad(unit.v)}
@@ -436,7 +436,7 @@
 					</div>
 					{#if i < 3}
 						<div
-							class="flex flex-col items-center pb-8 text-3xl font-light text-border-medium sm:text-4xl lg:pb-10 lg:text-5xl"
+							class="flex flex-col items-center px-1 pb-6 text-2xl font-light text-border-medium sm:px-0 sm:pb-8 sm:text-4xl lg:pb-10 lg:text-5xl"
 						>
 							:
 						</div>
@@ -621,7 +621,7 @@
 									}}
 									class="group/btn flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-sm border border-primary bg-primary px-4 py-3 text-[10px] tracking-[0.12em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 								>
-									Подробнее
+									Менеджер
 									<svg
 										class="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1"
 										fill="none"
@@ -754,7 +754,7 @@
 				Как получить скидку
 			</h2>
 			<p class="mx-auto mt-4 max-w-lg text-base leading-relaxed text-secondary">
-				Воспользоваться акцией легко — всего 3 шага до новой мебели по выгодной цене
+				Воспользоваться акцией легко — всего 3 шага до вашей новой мебели по выгодной цене
 			</p>
 		</div>
 
