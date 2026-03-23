@@ -40,7 +40,7 @@
 		<!-- Modal Dialog -->
 		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 		<div
-			class="relative w-full max-w-lg overflow-hidden bg-surface p-8 shadow-2xl"
+			class="relative w-full max-w-2xl max-h-[calc(100dvh-2rem)] overflow-y-auto overflow-x-hidden bg-surface p-6 shadow-2xl sm:p-8"
 			transition:fly={{ y: 50, duration: 400, easing: backOut }}
 			onclick={(e) => e.stopPropagation()}
 			role="dialog"

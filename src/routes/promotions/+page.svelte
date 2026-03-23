@@ -67,13 +67,17 @@
 			tagColor: 'accent',
 			discount: '−30%',
 			title: 'Кухня мечты',
-			description:
-				'Полный комплект кухонного гарнитура с фасадами из матовой эмали. Столешница из искусственного камня и фурнитура Blum в подарок.',
-			oldPrice: '320 000',
-			newPrice: '224 000',
-			image: '/images/promo-kitchen.png',
+			description: 'Наша самая популярная акция. Кухонный гарнитур с премиум скидкой 30%.',
+			oldPrice: '600 000',
+			newPrice: '420 000',
+			image: '/images/promo-kitchen-painted.png',
 			until: '31 мая 2026',
-			features: ['Фасады из матовой эмали', 'Столешница из камня', 'Фурнитура Blum']
+			features: [
+				'Стоимость до вычета более 500 000 руб.',
+				'Фасады из ЛДСП в акции не учавствуют',
+				'Столешница в акции не учавствует',
+				'Скидки не ссумируются'
+			]
 		}
 		// {
 		// 	id: 2,
@@ -383,8 +387,8 @@
 					class="text-4xl leading-[1.1] font-light text-primary md:text-5xl lg:text-6xl"
 					style="font-family: var(--font-heading);"
 				>
-					Весенняя
-					<span class="text-secondary italic">акция</span>
+					Весенние
+					<span class="text-secondary italic">акции</span>
 				</h2>
 				<p class="mx-auto mt-6 max-w-md text-base leading-relaxed text-secondary lg:mx-0">
 					Успейте оформить заказ мебели и техники до 31 мая и получите одну из предложенных ниже
@@ -498,8 +502,13 @@
 		<!-- Promo Cards Grid -->
 		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 			{#each filteredPromos as promo, i (promo.id)}
-				<article
-					class="group relative flex flex-col overflow-hidden bg-white shadow-card transition-all duration-500 hover:-translate-y-2 hover:shadow-elevated"
+				<div
+					role="button"
+					tabindex="0"
+					onclick={() => (isStyleModalOpen = true)}
+					aria-label="Открыть подробности акции {promo.title}"
+					onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && (isStyleModalOpen = true)}
+					class="group relative flex cursor-pointer flex-col overflow-hidden bg-white shadow-card transition-all duration-500 hover:-translate-y-2 hover:shadow-elevated"
 					class:opacity-0={!sections['promo-grid']}
 					class:animate-fade-up={sections['promo-grid']}
 					style="animation-delay: {0.15 + i * 0.1}s"
@@ -551,7 +560,7 @@
 						<p class="mt-3 text-sm leading-relaxed text-secondary">{promo.description}</p>
 
 						<!-- Features -->
-						<ul class="mt-4 flex flex-col gap-2">
+						<!-- <ul class="mt-4 flex flex-col gap-2">
 							{#each promo.features as feat}
 								<li class="flex items-center gap-2 text-xs text-secondary">
 									<svg
@@ -570,12 +579,13 @@
 									{feat}
 								</li>
 							{/each}
-						</ul>
+						</ul> -->
 
 						<!-- Price -->
 						<div class="mt-6 border-t border-border-light pt-5">
 							<div class="flex items-end justify-between">
 								<div>
+									<p class="mb-1 text-[10px] tracking-wider text-muted uppercase">Пример расчёта</p>
 									{#if promo.oldPrice}
 										<p class="text-xs text-muted line-through">{promo.oldPrice} ₽</p>
 									{/if}
@@ -598,11 +608,11 @@
 							</div>
 
 							<!-- CTA -->
-							<a
-								href="/showrooms"
-								class="group/btn mt-4 flex w-full items-center justify-center gap-2 rounded-sm border border-primary bg-transparent px-6 py-3 text-xs tracking-[0.12em] text-primary uppercase transition-all duration-300 hover:bg-primary hover:text-white"
+							<button
+								onclick={() => (isStyleModalOpen = true)}
+								class="group/btn mt-4 flex w-full cursor-pointer items-center justify-center gap-2 rounded-sm border border-primary bg-primary px-6 py-3 text-xs tracking-[0.12em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 							>
-								Узнать подробнее
+								Подробнее
 								<svg
 									class="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1"
 									fill="none"
@@ -616,10 +626,10 @@
 										d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
 									/>
 								</svg>
-							</a>
+							</button>
 						</div>
 					</div>
-				</article>
+				</div>
 			{/each}
 		</div>
 
@@ -655,7 +665,7 @@
 			class:animate-scale-in={sections['featured-banner']}
 		>
 			<img
-				src="/images/promo-kitchen.png"
+				src="/images/promo-kitchen-painted.png"
 				alt="Премиальные кухни со скидкой"
 				class="h-[400px] w-full object-cover lg:h-[520px]"
 			/>

@@ -9,8 +9,26 @@
 	let activeCountry = $state('Россия');
 
 	const showroomsData = {
-		Беларусь: ['Минск', 'Гродно'],
-		Россия: ['Москва', 'Санкт-Петербург']
+		Беларусь: ['Минск', 'Гродно', 'Брест', 'Витебск', 'Гомель', 'Могилёв'],
+		Россия: [
+			'Москва',
+			'Санкт-Петербург',
+			'Нижний Новгород',
+			'Казань',
+			'Екатеринбург',
+			'Новосибирск',
+			'Омск',
+			'Тюмень',
+			'Челябинск',
+			'Уфа',
+			'Самара',
+			'Воронеж',
+			'Краснодар',
+			'Ростов-на-Дону',
+			'Волгоград',
+			'Пермь',
+			'Красноярск'
+		]
 	};
 
 	function handleCitySelect(city) {
@@ -44,7 +62,8 @@
 <Modal bind:showModal={isBotFilterModalOpen} title="Выберите ваш город" dismissible={false}>
 	<div class="flex flex-col gap-6">
 		<p class="text-sm text-secondary">
-			Добро пожаловать на сайт фабрики! Для продолжения работы с сайтом выберите ваш город.
+			Добро пожаловать на сайт мебельной фабрики ЗОВ! Для продолжения работы с сайтом выберите ваш
+			город.
 		</p>
 
 		<!-- Honeypot -->
@@ -75,7 +94,7 @@
 			{/each}
 		</div>
 
-		<div class="grid grid-cols-2 gap-3 sm:grid-cols-2">
+		<div class="grid max-h-[50vh] grid-cols-1 gap-3 overflow-y-auto pr-1 sm:max-h-none sm:grid-cols-3 sm:overflow-visible sm:pr-0">
 			{#each showroomsData[activeCountry] as city}
 				<button
 					class="rounded-lg border border-border-light px-4 py-3 text-sm tracking-wide transition-all duration-300 {regionState.selectedCity ===

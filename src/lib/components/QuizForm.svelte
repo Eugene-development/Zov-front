@@ -187,17 +187,19 @@
 
 <div class="flex flex-col gap-5">
 	{#if step === 0}
-		<div class="text-center py-2">
+		<div class="py-2 text-center">
 			<p class="mx-auto mb-6 text-sm leading-relaxed text-secondary">
-				Ответьте на несколько простых вопросов о вашей будущей кухне, и мы рассчитаем ее примерную стоимость
+				Ответьте на несколько простых вопросов о вашей будущей кухне, и мы рассчитаем ее примерную
+				стоимость
 			</p>
 			<p class="mx-auto mb-8 text-sm leading-relaxed text-secondary">
-				А также подарим гарантированный бонус — промокод на скидку 10% на любую корпусную мебель, комплект сантехники, столешницу или бытовую технику
+				А также подарим гарантированный бонус — промокод на скидку 10% на любую корпусную мебель,
+				комплект сантехники, столешницу или бытовую технику
 			</p>
 			<button
 				type="button"
 				onclick={() => (step = 1)}
-				class="group inline-flex w-full cursor-pointer items-center justify-center gap-3 bg-primary px-10 py-5 text-xs font-medium tracking-[0.2em] text-inverse uppercase shadow-xl shadow-primary/10 transition-all duration-500 hover:-translate-y-1 hover:bg-secondary hover:shadow-2xl hover:shadow-secondary/20 rounded-sm"
+				class="group inline-flex w-full cursor-pointer items-center justify-center gap-3 rounded-sm bg-primary px-10 py-5 text-xs font-medium tracking-[0.2em] text-inverse uppercase shadow-xl shadow-primary/10 transition-all duration-500 hover:-translate-y-1 hover:bg-secondary hover:shadow-2xl hover:shadow-secondary/20"
 			>
 				Начать расчет
 				<svg
@@ -218,15 +220,15 @@
 	{:else if step <= questions.length}
 		<!-- Quiz step -->
 		<div class="mb-4">
-			<h3 class="text-xl font-light text-primary mb-6" style="font-family: var(--font-heading);">
+			<h3 class="mb-6 text-xl font-light text-primary" style="font-family: var(--font-heading);">
 				Шаг {step} из {questions.length}
 			</h3>
-			<p class="text-base text-secondary mb-6">{questions[step - 1].title}</p>
-			
+			<p class="mb-6 text-base text-secondary">{questions[step - 1].title}</p>
+
 			<div class="flex flex-col gap-3">
 				{#each questions[step - 1].options as option}
 					<button
-						class="text-left w-full border border-border-light hover:border-secondary p-4 transition-colors duration-300 text-sm"
+						class="w-full border border-border-light p-4 text-left text-sm transition-colors duration-300 hover:border-secondary"
 						onclick={() => nextStep(option, questions[step - 1].id)}
 					>
 						{option}
@@ -237,11 +239,13 @@
 	{:else}
 		<!-- Final step (Contact form) -->
 		<div class="mb-4">
-			<h3 class="text-xl font-light text-primary mb-2" style="font-family: var(--font-heading);">
-				Отлично! Тест пройден.
+			<h3 class="mb-2 text-xl font-light text-primary" style="font-family: var(--font-heading);">
+				Отлично! Информация получена.
 			</h3>
-			<p class="text-sm text-secondary mb-6">
-				Оставьте свои контакты, чтобы мы рассчитали примерную стоимость и связались с вами.
+			<p class="mb-6 text-sm text-secondary">
+				Оставьте свои контакты, чтобы мы могли отправить вам итоги расчета и ваш бонусный промокод
+				на скидку 10% на любую корпусную мебель, комплект сантехники, столешницу или бытовую
+				технику.
 			</p>
 
 			<form onsubmit={handleSubmit} class="flex flex-col gap-5">
@@ -253,7 +257,7 @@
 						bind:value={name}
 						class="border-b border-border-light bg-transparent py-3 text-primary transition-colors outline-none focus:border-secondary focus:ring-0"
 						required
-						placeholder="Иван Иванов"
+						placeholder=""
 					/>
 				</div>
 
@@ -281,7 +285,7 @@
 				<button
 					type="submit"
 					disabled={isSubmitting}
-					class="group mt-6 inline-flex items-center justify-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary disabled:opacity-70 rounded-sm"
+					class="group mt-6 inline-flex items-center justify-center gap-3 rounded-sm border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary disabled:opacity-70"
 				>
 					{#if isSubmitting}
 						<span
@@ -289,7 +293,7 @@
 						></span>
 						Отправка...
 					{:else}
-						Получить расчет
+						Получить расчет и промокод
 						<svg
 							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
 							fill="none"
