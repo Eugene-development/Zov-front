@@ -90,12 +90,6 @@
 		name="description"
 		content="Фабрика ЗОВ — производитель кухонь и мебели премиального качества. Более 20 лет создаём пространства, о которых вы мечтаете."
 	/>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-		rel="stylesheet"
-	/>
 </svelte:head>
 
 <!-- ==================== HERO SECTION ==================== -->
