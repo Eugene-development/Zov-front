@@ -216,7 +216,7 @@
 					onclick={() => (isQuizModalOpen = true)}
 					class="group relative flex cursor-pointer items-center gap-2 rounded-sm px-2 py-2.5 text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
 				>
-					Расчёт проекта
+					Расчёт проекта за час
 					<svg
 						class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1"
 						fill="none"
@@ -334,7 +334,7 @@
 			}}
 			class="group relative mt-5 flex w-full cursor-pointer items-center justify-between border-t border-border-light pt-5 text-left text-sm tracking-wide text-primary transition-colors duration-300 hover:text-secondary"
 		>
-			Расчёт проекта
+			Расчёт проекта за час
 			<svg
 				class="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1"
 				fill="none"
