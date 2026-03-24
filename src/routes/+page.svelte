@@ -501,21 +501,22 @@
 				class:animate-fade-up={sections['details-section']}
 				style="animation-delay: 0.4s"
 			>
-				<span class="text-[11px] tracking-[0.3em] text-secondary uppercase">Детали</span>
+				<span class="text-[11px] tracking-[0.3em] text-secondary uppercase"
+					>Мебельная фабрика ЗОВ</span
+				>
 				<h2
 					class="mt-3 text-4xl font-light text-primary lg:text-5xl"
 					style="font-family: var(--font-heading);"
 				>
-					Внимание к каждой
-					<span class="text-secondary">детали</span>
+					Мебель для
+					<span class="text-secondary">жизни</span>
 				</h2>
 				<p class="mt-6 text-base leading-relaxed text-secondary">
-					Мы используем фурнитуру ведущих мировых производителей: Blum, Hettich, Grass. Каждый
-					механизм работает безупречно тысячи циклов, обеспечивая плавность хода и надёжность на
-					долгие годы.
+					Мебель ЗОВ — это сочетание безупречного дизайна, функциональности и долговечности. Мы
+					используем только качественные материалы и фурнитуру от ведущих мировых производителей.
 				</p>
 				<ul class="mt-8 flex flex-col gap-4">
-					{#each ['Фасады из массива, МДФ, пластика и эмали', 'Петли с плавным закрыванием с доводчиком', 'Выкатные ящики с полным выдвижением', 'Столешницы из акрила, кварца и HPL'] as item}
+					{#each ['Гарантия на всю продукцию', 'Самый широкий выбор фасадов', 'Фурнитура BLUM, Hettich, GTV', 'Столешницы из акрила, кварца и HPL', 'Конкурентные цены'] as item}
 						<li class="flex items-start gap-3 text-sm text-primary">
 							<svg
 								class="mt-0.5 h-4 w-4 flex-shrink-0 text-accent"
@@ -530,78 +531,10 @@
 						</li>
 					{/each}
 				</ul>
-				<div class="mt-10 flex flex-wrap gap-4">
-					<a
-						href="/facades"
-						class="inline-flex items-center gap-2 rounded-sm border border-primary bg-primary px-7 py-3.5 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
-					>
-						Фасады
-					</a>
-					<a
-						href="/furniture"
-						class="inline-flex items-center gap-2 rounded-sm border border-border-medium px-7 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
-					>
-						Фурнитура
-					</a>
-				</div>
 			</div>
 		</div>
 	</div>
 </section>
-
-<!-- ==================== FEATURED IMAGE SECTION ==================== -->
-<!-- This section overlaps with the next section -->
-<!-- <section class="relative z-10 px-6" id="featured-section" data-animate>
-	<div class="mx-auto max-w-7xl">
-		<div
-			class="relative overflow-hidden opacity-0"
-			class:animate-scale-in={sections['featured-section']}
-		>
-			<img
-				src="/images/showroom.png"
-				alt="Салон мебели ЗОВ"
-				class="h-[400px] w-full object-cover lg:h-[550px]"
-			/>
-			<div
-				class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"
-			></div>
-
-			<div class="absolute inset-0 flex items-end p-8 lg:p-14">
-				<div class="max-w-xl">
-					<h2
-						class="text-3xl font-light text-white lg:text-5xl"
-						style="font-family: var(--font-heading);"
-					>
-						Посетите наши салоны
-					</h2>
-					<p class="mt-4 text-sm leading-relaxed text-white/75 lg:text-base">
-						Более 120 салонов по всей стране. Оцените качество материалов, прикоснитесь к текстурам
-						и получите бесплатную консультацию дизайнера.
-					</p>
-					<a
-						href="/showrooms"
-						class="group mt-6 inline-flex items-center gap-3 border border-white/30 bg-white/10 px-8 py-3.5 text-xs tracking-[0.15em] text-white uppercase backdrop-blur-sm transition-all duration-500 hover:bg-white hover:text-primary rounded-sm"
-					>
-						Найти ближайший салон
-						<svg
-							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="1.5"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-							/>
-						</svg>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
 
 <!-- ==================== CTA SECTION ==================== -->
 <section

@@ -34,7 +34,8 @@
 			title: 'Эмаль (Крашеный МДФ)',
 			description:
 				'Гладкие матовые или глянцевые поверхности любого оттенка. Эмаль наносится в несколько слоев, что создает идеальное покрытие без швов по кромке. Идеально для современных, минималистичных и неоклассических интерьеров.',
-			image: '/images/facade_enamel.png',
+			image:
+				'https://zovofficial.com/image/cache/wp/lj/products/fasadnye-materialy/mdf-2023-2024/fasady-kv-ruchka/kv-1_fon.webp',
 			details: {
 				base: 'Плита МДФ',
 				coating: 'Многослойная эмаль (матовая / глянцевая)',
@@ -152,7 +153,7 @@
 				>
 					<a
 						href="#facades-catalog"
-						class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent rounded-sm"
+						class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent"
 					>
 						Узнать больше
 						<svg
@@ -279,7 +280,7 @@
 						<div class="mt-10">
 							<a
 								href="/call-designer"
-								class="group inline-flex items-center gap-3 border border-border-medium px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:border-secondary hover:text-secondary rounded-sm"
+								class="group inline-flex items-center gap-3 rounded-sm border border-border-medium px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:border-secondary hover:text-secondary"
 							>
 								Заказать с этим фасадом
 								<svg
@@ -326,7 +327,7 @@
 			</p>
 			<div class="mt-10 flex justify-center">
 				<button
-					class="group inline-flex cursor-pointer items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
+					class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 					onclick={() => (isShowroomModalOpen = true)}
 				>
 					Запись в салон
