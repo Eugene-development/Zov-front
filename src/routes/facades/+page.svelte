@@ -34,8 +34,7 @@
 			title: 'Эмаль (Крашеный МДФ)',
 			description:
 				'Гладкие матовые или глянцевые поверхности любого оттенка. Эмаль наносится в несколько слоев, что создает идеальное покрытие без швов по кромке. Идеально для современных, минималистичных и неоклассических интерьеров.',
-			image:
-				'https://zovofficial.com/image/cache/wp/lj/products/fasadnye-materialy/mdf-2023-2024/fasady-kv-ruchka/kv-1_fon.webp',
+			image: 'https://storage.yandexcloud.net/zovtop/foto/kv-1_fonjfgnbisfn.webp',
 			details: {
 				base: 'Плита МДФ',
 				coating: 'Многослойная эмаль (матовая / глянцевая)',
@@ -275,28 +274,6 @@
 									</dd>
 								</div>
 							</dl>
-						</div>
-
-						<div class="mt-10">
-							<a
-								href="/call-designer"
-								class="group inline-flex items-center gap-3 rounded-sm border border-border-medium px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:border-secondary hover:text-secondary"
-							>
-								Заказать с этим фасадом
-								<svg
-									class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									stroke-width="1.5"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-									/>
-								</svg>
-							</a>
 						</div>
 					</div>
 				</div>

@@ -10,6 +10,8 @@
 	let sections = $state({});
 	let activeCountry = $state('Беларусь');
 	let activeCity = $state('Все');
+	let mapContainer = $state(null);
+	let mapInstance = $state(null);
 
 	onMount(() => {
 		heroVisible = true;
@@ -25,11 +27,40 @@
 			{ threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
 		);
 
+		// Initialize Map
+		function initMap() {
+			if (!mapContainer || typeof window.ymaps === 'undefined') return;
+			mapInstance = new window.ymaps.Map(mapContainer, {
+				center: [54.5, 31.0],
+				zoom: 5,
+				controls: ['zoomControl', 'fullscreenControl']
+			});
+		}
+
+		if (window.ymaps) {
+			window.ymaps.ready(initMap);
+		} else {
+			let script = document.querySelector('script[src*="api-maps.yandex.ru"]');
+			if (!script) {
+				script = document.createElement('script');
+				script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+				document.head.appendChild(script);
+			}
+			script.addEventListener('load', () => {
+				window.ymaps.ready(initMap);
+			});
+		}
+
 		document.querySelectorAll('[data-animate]').forEach((el) => {
 			observer.observe(el);
 		});
 
-		return () => observer.disconnect();
+		return () => {
+			observer.disconnect();
+			if (mapInstance) {
+				mapInstance.destroy();
+			}
+		};
 	});
 
 	const showrooms = {
@@ -40,8 +71,8 @@
 					{
 						name: 'Флагманский салон ЗОВ',
 						address: 'ул. Индустриальная, 9',
-						phone: '+375 (152) 12-34-56',
-						hours: 'Пн-Вс: 10:00 – 20:00'
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: [53.649, 23.823]
 					}
 				]
 			},
@@ -51,14 +82,14 @@
 					{
 						name: 'ТЦ «Замок Home»',
 						address: 'пр-т Победителей, 65, 4 этаж',
-						phone: '+375 (29) 111-22-33',
-						hours: 'Пн-Вс: 10:00 – 22:00'
+						hours: 'Пн-Вс: 10:00 – 22:00',
+						coords: [53.926, 27.518]
 					},
 					{
 						name: 'ТЦ «Камелот»',
 						address: 'ул. Мазурова, 1',
-						phone: '+375 (29) 444-55-66',
-						hours: 'Пн-Вс: 10:00 – 20:00'
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: [53.890632, 27.433431]
 					}
 				]
 			}
@@ -68,22 +99,14 @@
 				city: 'Москва',
 				places: [
 					{
-						name: 'МЦ «Roomer»',
-						address: 'ул. Ленинская Слобода, 26',
-						phone: '+7 (495) 123-45-67',
-						hours: 'Пн-Вс: 10:00 – 22:00'
+						address: 'Подольское ш., д. 8, корп. 5',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: [55.709324, 37.653457]
 					},
 					{
-						name: 'МЦ «Roomer»',
-						address: 'ул. Ленинская Слобода, 26',
-						phone: '+7 (495) 123-45-67',
-						hours: 'Пн-Вс: 10:00 – 22:00'
-					},
-					{
-						name: 'Дизайн-центр «Artplay»',
-						address: 'ул. Нижняя Сыромятническая, 10',
-						phone: '+7 (495) 765-43-21',
-						hours: 'Пн-Вс: 10:00 – 21:00'
+						address: 'Ленинградский пр-т, д. 74, корп. 1',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: [55.805133, 37.516952]
 					}
 				]
 			},
@@ -93,8 +116,8 @@
 					{
 						name: 'ТЦ «Мебельный Континент»',
 						address: 'ул. Варшавская, 3',
-						phone: '+7 (812) 987-65-43',
-						hours: 'Пн-Вс: 10:00 – 20:00'
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: [59.882, 30.312]
 					}
 				]
 			}
@@ -109,6 +132,46 @@
 	);
 
 	let totalPlaces = $derived(filteredShowrooms.reduce((acc, curr) => acc + curr.places.length, 0));
+
+	$effect(() => {
+		if (!mapInstance || typeof window.ymaps === 'undefined') return;
+		
+		mapInstance.geoObjects.removeAll();
+		
+		filteredShowrooms.forEach((city) => {
+			city.places.forEach((place) => {
+				if (place.coords) {
+					const placemark = new window.ymaps.Placemark(
+						place.coords,
+						{
+							balloonContentHeader: place.name || 'Салон ЗОВ',
+							balloonContentBody: place.address,
+							balloonContentFooter: place.hours
+						},
+						{
+							preset: 'islands#blueIcon'
+						}
+					);
+					mapInstance.geoObjects.add(placemark);
+				}
+			});
+		});
+
+		const bounds = mapInstance.geoObjects.getBounds();
+		if (bounds) {
+			mapInstance.setBounds(bounds, {
+				checkZoomRange: true,
+				zoomMargin: 50,
+				duration: 400
+			}).then(() => {
+				if (mapInstance.getZoom() > 15) {
+					mapInstance.setZoom(15);
+				}
+			});
+		} else {
+            mapInstance.setCenter([54.5, 31.0], 5);
+        }
+	});
 </script>
 
 <svelte:head>
@@ -168,7 +231,7 @@
 				>
 					<a
 						href="#network-section"
-						class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent rounded-sm"
+						class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent"
 					>
 						Посмотреть карту
 						<svg
@@ -297,12 +360,16 @@
 								</h3>
 
 								<div class="mt-6 flex flex-col gap-6">
-									{#each data.places as place, i (place.name + i)}
+									{#each data.places as place, i ((place.name ?? place.address) + i)}
 										<div
 											class="group border-l-2 border-border-light pl-6 transition-colors duration-300 hover:border-secondary"
 										>
-											<h4 class="text-base font-medium text-primary">{place.name}</h4>
-											<p class="mt-2 text-sm text-secondary">{place.address}</p>
+											{#if place.name}
+												<h4 class="text-base font-medium text-primary">{place.name}</h4>
+											{/if}
+											<p class="{place.name ? 'mt-2' : ''} text-sm text-secondary">
+												{place.address}
+											</p>
 											<div class="mt-4 flex flex-col gap-1.5 text-xs text-muted">
 												<div class="flex items-center gap-2">
 													<svg
@@ -337,7 +404,7 @@
 				<div class="mt-10 flex">
 					<button
 						onclick={() => (isShowroomModalOpen = true)}
-						class="group inline-flex cursor-pointer items-center gap-3 border border-border-medium px-6 py-3 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary rounded-sm"
+						class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-border-medium px-6 py-3 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
 					>
 						Запись в салон
 						<svg
@@ -364,15 +431,10 @@
 				style="animation-delay: 0.3s"
 			>
 				<div class="relative h-full w-full overflow-hidden bg-surface-warm shadow-soft">
-					<iframe
-						title="ZOV Showrooms Map"
-						src="https://yandex.ru/map-widget/v1/?pt=37.653457,55.709324,pm2blm~37.669044,55.751244,pm2blm~27.518,53.926,pm2blm~23.823,53.649,pm2blm~30.312,59.882,pm2blm&z=5&ll=31.0,54.5"
-						width="100%"
-						height="100%"
-						frameborder="0"
-						allowfullscreen="true"
+					<div
+						bind:this={mapContainer}
 						class="absolute inset-0 contrast-125 grayscale transition-all duration-700 hover:grayscale-0"
-					></iframe>
+					></div>
 				</div>
 			</div>
 		</div>
@@ -407,7 +469,7 @@
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
 				<button
 					onclick={() => (isDesignerModalOpen = true)}
-					class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-secondary rounded-sm"
+					class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-secondary"
 				>
 					Вызвать дизайнера
 					<svg
