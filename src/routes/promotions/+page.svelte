@@ -70,7 +70,7 @@
 			tagColor: 'accent',
 			discount: '−30%',
 			title: 'Кухня мечты',
-			description: 'Наша самая популярная акция. Кухонный гарнитур с премиум скидкой 30%.',
+			description: 'Наша самая популярная акция. Кухонный гарнитур с премиум скидкой 30%',
 			oldPrice: '600 000',
 			newPrice: '420 000',
 			image: '/images/promo-kitchen-painted.png',
@@ -90,7 +90,7 @@
 			tagColor: 'secondary',
 			discount: 'В подарок',
 			title: 'Бесплатная доставка',
-			description: 'Бесплатная доставка и подъём грузчиками на любой заказ в черте города.',
+			description: 'Бесплатная доставка и подъём грузчиками на любой заказ в черте города',
 			oldPrice: '7 000',
 			newPrice: '0',
 			image: '/images/promo-delivery-zov.png',
@@ -100,6 +100,24 @@
 				'В черте города',
 				'С подъёмом на этаж',
 				'Бесплатное ожидание до 1 часа'
+			]
+		},
+		{
+			id: 3,
+			category: 'tech',
+			tag: 'В подарок',
+			tagColor: 'primary',
+			discount: '−100%',
+			title: 'Техника в подарок',
+			description: 'Получите в подарок бытовую технику при заказе кухонного гарнитура',
+			oldPrice: null,
+			newPrice: '0',
+			image: '/images/promo-appliances.png',
+			until: '31 мая 2026',
+			conditions: [
+				'При заказе 4-х позиций техники',
+				'Обязательно духовой шкаф',
+				'Пятая позиция по самой низкой цене в подарок'
 			]
 		}
 		// {
@@ -598,7 +616,7 @@
 						</ul> -->
 
 						<!-- Price -->
-						<div class="mt-6 border-t border-border-light pt-5">
+						<div class="mt-auto pt-5">
 							<div class="flex items-end justify-between">
 								<div>
 									{#if promo.oldPrice}
