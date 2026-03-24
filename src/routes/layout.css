@@ -20,7 +20,7 @@
 	--color-text-secondary: #5c5c5c;
 	--color-text-muted: #9a9a9a;
 	--color-text-inverse: #ffffff;
-	
+
 	--color-muted: var(--color-text-muted);
 	--color-inverse: var(--color-text-inverse);
 
@@ -95,6 +95,7 @@
 }
 
 @keyframes subtle-float {
+
 	0%,
 	100% {
 		transform: translateY(0);

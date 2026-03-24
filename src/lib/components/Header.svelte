@@ -7,6 +7,11 @@
 	let scrolled = $state(false);
 	let showTopBar = $state(true);
 	let lastScrollY = $state(0);
+	// Высота топ бара (px) — должна совпадать с h-10 = 40px
+	const TOP_BAR_HEIGHT = 40;
+	// Пороги гистерезиса: скрыть только после 60px вниз, показать после 40px вверх
+	const HIDE_THRESHOLD = 60;
+	const SHOW_THRESHOLD = 40;
 
 	let mobileMenuOpen = $state(false);
 	let isShowroomModalOpen = $state(false);
@@ -67,17 +72,19 @@
 		const currentScrollY = Math.max(0, window.scrollY);
 		scrolled = currentScrollY > 50;
 
-		if (currentScrollY > 50) {
-			if (currentScrollY < lastScrollY - 2) {
-				showTopBar = true;
-			} else if (currentScrollY > lastScrollY + 2) {
-				showTopBar = false;
-			}
-		} else {
+		if (currentScrollY <= 50) {
+			// В самом верху — всегда показываем
 			showTopBar = true;
+		} else if (currentScrollY > lastScrollY + HIDE_THRESHOLD) {
+			// Скролл вниз на достаточно большое расстояние — скрываем
+			showTopBar = false;
+			lastScrollY = currentScrollY;
+		} else if (currentScrollY < lastScrollY - SHOW_THRESHOLD) {
+			// Скролл вверх на достаточно большое расстояние — показываем
+			showTopBar = true;
+			lastScrollY = currentScrollY;
 		}
-
-		lastScrollY = currentScrollY;
+		// Если изменение маленькое — не меняем ничего, чтобы не дёргалось
 	}
 
 	function toggleMenu() {
@@ -97,17 +104,17 @@
 
 <svelte:window onscroll={handleScroll} />
 
-<div class="sticky top-0 z-50 flex w-full flex-col">
+<div
+	class="sticky top-0 z-50 flex w-full flex-col transition-transform duration-500"
+	style="transform: translateY({showTopBar ? 0 : -TOP_BAR_HEIGHT}px);"
+>
 	<!-- Top Info Bar -->
 	<div
-		class="relative hidden overflow-hidden border-b border-border-light bg-surface-warm transition-all duration-500 lg:block"
-		class:h-0={!showTopBar}
-		class:h-10={showTopBar}
+		class="relative hidden border-b border-border-light bg-surface-warm lg:block"
+		style="height: {TOP_BAR_HEIGHT}px;"
 	>
 		<div
-			class="mx-auto flex h-10 max-w-7xl items-center justify-between px-6 transition-opacity duration-300"
-			class:opacity-0={!showTopBar}
-			class:opacity-100={showTopBar}
+			class="mx-auto flex h-10 max-w-7xl items-center justify-between px-6"
 		>
 			<div class="flex items-center gap-6">
 				{#each topLinks as link}
@@ -185,7 +192,7 @@
 			<!-- Logo -->
 			<a href="/" class="group flex items-center gap-3" onclick={closeMenu}>
 				<span
-					class="text-3xl font-light tracking-[0.2em] text-primary transition-colors duration-300 group-hover:text-secondary lg:text-4xl"
+					class="text-3xl font-medium tracking-[0.2em] text-primary transition-colors duration-300 group-hover:text-secondary lg:text-4xl"
 					style="font-family: var(--font-heading);"
 				>
 					ЗОВ
