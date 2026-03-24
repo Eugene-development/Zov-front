@@ -3,9 +3,11 @@
 	import { onMount } from 'svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import ShowroomForm from '$lib/components/ShowroomForm.svelte';
+	import DesignProjectForm from '$lib/components/DesignProjectForm.svelte';
 
 	let isVisible = $state(false);
 	let isShowroomModalOpen = $state(false);
+	let isDesignProjectModalOpen = $state(false);
 
 	onMount(() => {
 		isVisible = true;
@@ -49,8 +51,29 @@
 					class="mx-auto max-w-3xl text-lg leading-relaxed font-light text-white/80 lg:text-xl"
 				>
 					От детального проектирования до бережной сборки — каждый этап контролируется нашими
-					специалистами для достижения безупречного премиального качества.
+					специалистами для достижения безупречного премиального качества
 				</p>
+				<div in:fly={{ y: 30, duration: 1000, delay: 500 }} class="mt-10">
+					<button
+						onclick={() => (isDesignProjectModalOpen = true)}
+						class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-white bg-white px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:bg-transparent hover:text-white"
+					>
+						Спроектировать кухню
+						<svg
+							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1.5"
+								d="M14 5l7 7m0 0l-7 7m7-7H3"
+							/>
+						</svg>
+					</button>
+				</div>
 			{/if}
 		</div>
 	</section>
@@ -81,8 +104,8 @@
 				<div class="order-1 lg:order-2 lg:w-1/2">
 					<div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-elevated">
 						<img
-							src="/images/kitchen_design.png"
-							alt="Проектирование кухни"
+							src="/images/kitchen_design_pro.png"
+							alt="Проектирование кухни технологами"
 							class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
 						/>
 					</div>
@@ -94,7 +117,7 @@
 				<div class="lg:w-1/2">
 					<div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-elevated">
 						<img
-							src="/images/kitchen_production.png"
+							src="https://storage.yandexcloud.net/zovtop/foto/proizvodlkfegbmrgbm.jpg"
 							alt="Производственный процесс"
 							class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
 						/>
@@ -240,11 +263,12 @@
 				<div
 					class="group overflow-hidden rounded-2xl bg-white shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-elevated"
 				>
-					<div
-						class="flex aspect-[4/3] w-full items-center justify-center bg-border-light text-primary/40 transition-colors duration-300 group-hover:bg-border-medium"
-					>
-						<span class="text-xs font-medium tracking-[0.2em] uppercase">Заглушка: Современный</span
-						>
+					<div class="aspect-[4/3] w-full overflow-hidden">
+						<img
+							src="/images/style-modern.png"
+							alt="Современный стиль кухни"
+							class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+						/>
 					</div>
 					<div class="p-8">
 						<h3
@@ -264,11 +288,12 @@
 				<div
 					class="group overflow-hidden rounded-2xl bg-white shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-elevated"
 				>
-					<div
-						class="flex aspect-[4/3] w-full items-center justify-center bg-border-light text-primary/40 transition-colors duration-300 group-hover:bg-border-medium"
-					>
-						<span class="text-xs font-medium tracking-[0.2em] uppercase">Заглушка: Неоклассика</span
-						>
+					<div class="aspect-[4/3] w-full overflow-hidden">
+						<img
+							src="/images/style-neoclassic.png"
+							alt="Стиль неоклассика"
+							class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+						/>
 					</div>
 					<div class="p-8">
 						<h3
@@ -288,10 +313,12 @@
 				<div
 					class="group overflow-hidden rounded-2xl bg-white shadow-soft transition-all duration-300 hover:-translate-y-2 hover:shadow-elevated"
 				>
-					<div
-						class="flex aspect-[4/3] w-full items-center justify-center bg-border-light text-primary/40 transition-colors duration-300 group-hover:bg-border-medium"
-					>
-						<span class="text-xs font-medium tracking-[0.2em] uppercase">Заглушка: Лофт</span>
+					<div class="aspect-[4/3] w-full overflow-hidden">
+						<img
+							src="/images/style-loft.png"
+							alt="Стиль лофт"
+							class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+						/>
 					</div>
 					<div class="p-8">
 						<h3
@@ -341,4 +368,8 @@
 
 <Modal bind:showModal={isShowroomModalOpen} title="Запись в салон">
 	<ShowroomForm onSuccess={() => (isShowroomModalOpen = false)} />
+</Modal>
+
+<Modal bind:showModal={isDesignProjectModalOpen} title="Заказ дизайн-проекта">
+	<DesignProjectForm onSuccess={() => (isDesignProjectModalOpen = false)} />
 </Modal>

@@ -3,9 +3,11 @@
 	import { onMount } from 'svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import ShowroomForm from '$lib/components/ShowroomForm.svelte';
+	import DesignProjectForm from '$lib/components/DesignProjectForm.svelte';
 
 	let isVisible = $state(false);
 	let isShowroomModalOpen = $state(false);
+	let isDesignProjectModalOpen = $state(false);
 
 	onMount(() => {
 		isVisible = true;
@@ -65,8 +67,8 @@
 						продолжением вашей квартиры. Максимальная вместимость и премиальная эстетика внутреннего
 						пространства.
 					</p>
-					<a
-						href="/showrooms"
+					<button
+						onclick={() => (isDesignProjectModalOpen = true)}
 						class="group inline-flex cursor-pointer items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-primary rounded-sm"
 					>
 						Спроектировать шкаф
@@ -78,30 +80,20 @@
 								d="M14 5l7 7m0 0l-7 7m7-7H3"
 							/>
 						</svg>
-					</a>
+					</button>
 				</div>
 			{/if}
 		</div>
 		<div class="relative hidden overflow-hidden bg-border-light lg:block">
 			<!-- Hero Placeholder Diagram inside -->
-			<div class="absolute inset-0 flex flex-col items-center justify-center text-primary/30">
-				<svg
-					class="mb-6 h-32 w-32 opacity-30"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="1"
-						d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 12h16M12 4v16"
-					/>
-				</svg>
-				<span class="text-sm font-medium tracking-[0.2em] uppercase"
-					>Заглушка: Большое фото роскошного шкафа</span
-				>
-			</div>
+			<button onclick={() => (isDesignProjectModalOpen = true)} class="absolute inset-0 block group w-full text-left">
+				<img
+					src="/images/promo-wardrobe.png"
+					alt="Премиальная гардеробная ЗОВ"
+					class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+				/>
+				<div class="absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/10"></div>
+			</button>
 		</div>
 	</section>
 
@@ -160,15 +152,16 @@
 				<!-- Card 1 -->
 				<div class="group cursor-pointer">
 					<div
-						class="relative mb-6 flex aspect-[3/4] items-center justify-center overflow-hidden rounded-2xl bg-[#F0F0F0] transition-all duration-500 group-hover:bg-[#E5E5E5]"
+						class="relative mb-6 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-[#F0F0F0] transition-all duration-500 group-hover:bg-[#E5E5E5]"
 					>
 						<div
 							class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-primary/10 to-transparent"
 						></div>
-						<span
-							class="relative z-10 text-xs font-medium tracking-[0.2em] text-primary/40 uppercase"
-							>Заглушка: Встроенный шкаф</span
-						>
+						<img
+							src="/images/wardrobe_built_in.png"
+							alt="Встроенный шкаф"
+							class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+						/>
 					</div>
 					<h3
 						class="mb-2 text-xl font-light tracking-wide text-primary"
@@ -185,15 +178,16 @@
 				<!-- Card 2 -->
 				<div class="group cursor-pointer lg:-translate-y-8">
 					<div
-						class="relative mb-6 flex aspect-[3/4] items-center justify-center overflow-hidden rounded-2xl bg-[#E8E8E8] transition-all duration-500 group-hover:bg-[#DDDDDD]"
+						class="relative mb-6 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-[#E8E8E8] transition-all duration-500 group-hover:bg-[#DDDDDD]"
 					>
 						<div
 							class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-primary/10 to-transparent"
 						></div>
-						<span
-							class="relative z-10 text-xs font-medium tracking-[0.2em] text-primary/40 uppercase"
-							>Заглушка: Корпусный шкаф</span
-						>
+						<img
+							src="/images/wardrobe_corpus.png"
+							alt="Корпусный шкаф"
+							class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+						/>
 					</div>
 					<h3
 						class="mb-2 text-xl font-light tracking-wide text-primary"
@@ -210,15 +204,16 @@
 				<!-- Card 3 -->
 				<div class="group cursor-pointer lg:-translate-y-16">
 					<div
-						class="relative mb-6 flex aspect-[3/4] items-center justify-center overflow-hidden rounded-2xl bg-[#F0F0F0] transition-all duration-500 group-hover:bg-[#E5E5E5]"
+						class="relative mb-6 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-[#F0F0F0] transition-all duration-500 group-hover:bg-[#E5E5E5]"
 					>
 						<div
 							class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-primary/10 to-transparent"
 						></div>
-						<span
-							class="relative z-10 text-xs font-medium tracking-[0.2em] text-primary/40 uppercase"
-							>Заглушка: Гардеробная</span
-						>
+						<img
+							src="/images/wardrobe_walk_in.png"
+							alt="Гардеробная"
+							class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+						/>
 					</div>
 					<h3
 						class="mb-2 text-xl font-light tracking-wide text-primary"
@@ -258,4 +253,8 @@
 
 <Modal bind:showModal={isShowroomModalOpen} title="Запись в салон">
 	<ShowroomForm onSuccess={() => (isShowroomModalOpen = false)} />
+</Modal>
+
+<Modal bind:showModal={isDesignProjectModalOpen} title="Заказ дизайн-проекта">
+	<DesignProjectForm onSuccess={() => (isDesignProjectModalOpen = false)} />
 </Modal>

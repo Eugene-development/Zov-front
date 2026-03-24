@@ -32,7 +32,8 @@
 			origin: 'Австрия',
 			description:
 				'Австрийская компания Blum — признанный лидер в мире фурнитуры. Это синоним безупречного движения, долговечности и инноваций. Механизмы Blum рассчитаны на срок службы всей мебели и даже больше, обеспечивая плавность закрывания и комфорт в каждом движении.',
-			image: '/images/blum_hardware.png',
+			image:
+				'https://fierashop.ru/upload/resize_cache/sets-resized/resized/1000_1000_12adb9458de1595deff57efc175f533fe/25833.jpg',
 			features: [
 				'Системы петель CLIP top BLUMOTION',
 				'Подъемные механизмы AVENTOS',
@@ -47,9 +48,9 @@
 			origin: 'Германия',
 			description:
 				'Немецкое качество Hettich устанавливает стандарты во всем мире. Интеллектуальные технологии сочетаются с лаконичным дизайном. Hettich обеспечивает максимальную стабильность для самых широких и тяжелых фасадов, делая вашу мебель надежной и совершенной.',
-			image: '/images/hettich_hardware.png',
+			image: 'https://static.tildacdn.com/stor3233-3932-4232-b863-626564373064/41522534.jpg',
 			features: [
-				'Системы выдвижных ящиков ArciTech',
+				'Выдвижные ящики IT Atira, ArciTech, AvanTech',
 				'Инновационные петли Sensys',
 				'Скрытые направляющие Quadro',
 				'Высочайшая немецкая надежность'
@@ -62,7 +63,7 @@
 			origin: 'Польша',
 			description:
 				'Динамично развивающийся европейский бренд GTV предлагает современные решения для любой мебели. Это оптимальное сочетание высокого качества, премиального комфорта, новейших трендов в дизайне и ценовой доступности.',
-			image: '/images/gtv_hardware.png',
+			image: 'https://gtv-rus.com.ru/images/rrrsubmenu/sub-menu-zawias-solid-plus.jpg',
 			features: [
 				'Ультратонкие ящики Axis Pro',
 				'Системы скрытого монтажа Modern SLIDE PRO',
@@ -143,7 +144,7 @@
 				>
 					<a
 						href="#intro-section"
-						class="group inline-flex cursor-pointer items-center gap-3 border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent rounded-sm"
+						class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-secondary bg-secondary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent"
 					>
 						Узнать больше
 						<svg
@@ -209,7 +210,7 @@
 		<div class="flex flex-col gap-24 lg:gap-32">
 			{#each brands as brand, i (brand.id)}
 				<div
-					class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20"
+					class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16"
 					id={`brand-${brand.id}`}
 					data-animate
 				>
@@ -227,15 +228,15 @@
 						>
 							{brand.name}
 						</h3>
-						<div class="bg-border-strong mt-6 mb-8 h-px w-12"></div>
+						<div class="bg-border-strong mt-4 mb-8 h-px w-12"></div>
 						<p class="text-base leading-relaxed text-secondary">
 							{brand.description}
 						</p>
-						<ul class="mt-8 flex flex-col gap-5">
+						<ul class="mt-8 flex flex-col gap-4">
 							{#each brand.features as feature}
 								<li class="flex items-start gap-4">
 									<div
-										class="mt-1.5 flex h-3 w-3 flex-shrink-0 items-center justify-center border border-secondary"
+										class="mt-1 flex h-3 w-3 flex-shrink-0 items-center justify-center border border-secondary"
 									>
 										<div class="h-1 w-1 bg-secondary"></div>
 									</div>
@@ -247,18 +248,19 @@
 
 					<!-- Image Box -->
 					<div
-						class="relative aspect-[4/3] overflow-hidden opacity-0 lg:aspect-square"
+						class="relative aspect-[4/3] overflow-hidden opacity-0 shadow-soft lg:aspect-square"
 						class:animate-fade-up={sections[`brand-${brand.id}`]}
 						style="animation-delay: 0.4s"
 					>
 						<img
 							src={brand.image}
 							alt={`Фурнитура ${brand.name}`}
-							class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+							class="h-full w-full object-contain transition-transform duration-700 hover:scale-105"
 						/>
-						<div
+
+						<!-- <div
 							class="pointer-events-none absolute inset-0 border-[0.5rem] border-surface-warm/20"
-						></div>
+						></div> -->
 					</div>
 				</div>
 			{/each}
@@ -293,7 +295,7 @@
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
 				<a
 					href="/showrooms"
-					class="group inline-flex items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light rounded-sm"
+					class="group inline-flex items-center gap-3 rounded-sm border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
 				>
 					Записаться в салон
 					<svg
