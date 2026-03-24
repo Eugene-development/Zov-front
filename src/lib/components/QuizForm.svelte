@@ -188,13 +188,13 @@
 <div class="flex flex-col gap-5">
 	{#if step === 0}
 		<div class="py-2 text-center">
-			<p class="mx-auto mb-6 text-sm leading-relaxed text-secondary">
-				Ответьте на несколько простых вопросов о вашей будущей кухне, и мы рассчитаем ее примерную
+			<p class="mx-auto mb-6 px-12 text-sm leading-relaxed text-secondary">
+				Ответьте на несколько простых вопросов о вашей будущей мебели, и мы рассчитаем ее примерную
 				стоимость
 			</p>
-			<p class="mx-auto mb-8 text-sm leading-relaxed text-secondary">
-				А также подарим гарантированный бонус — промокод на скидку 10% на любую корпусную мебель,
-				комплект сантехники, столешницу или бытовую технику
+			<p class="mx-auto mb-8 px-12 text-sm leading-relaxed text-secondary">
+				А также подарим вам бонус — промокод со скидкой 10% на мебель, комплект сантехники,
+				столешницу или бытовую технику
 			</p>
 			<button
 				type="button"

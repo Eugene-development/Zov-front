@@ -1,11 +1,13 @@
 <script>
 	import { onMount } from 'svelte';
 	import Modal from '$lib/components/Modal.svelte';
+	import PromoConditionsModal from '$lib/components/PromoConditionsModal.svelte';
 	import StyleConsultationForm from '$lib/components/StyleConsultationForm.svelte';
 
 	let heroVisible = $state(false);
 	let isStyleModalOpen = $state(false);
 	let isPromoConditionsModalOpen = $state(false);
+	let selectedConditions = $state([]);
 	let sections = $state({});
 	let activeFilter = $state('all');
 	let timeLeft = $state({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -72,7 +74,33 @@
 			oldPrice: '600 000',
 			newPrice: '420 000',
 			image: '/images/promo-kitchen-painted.png',
-			until: '31 мая 2026'
+			until: '31 мая 2026',
+			conditions: [
+				'Стоимость до вычета скидки <strong>более 500 000 рублей</strong>',
+				'Дополнительно заказывается каменная столешница',
+				'Так же в заказ входит комплект бытовой техники <strong>не менее 4 предметов</strong>',
+				'В заказе обязательно присутствуют мойка и смеситель',
+				'Фасады ЛДСП в акции не учавствуют'
+			]
+		},
+		{
+			id: 2,
+			category: 'service',
+			tag: 'Сервис',
+			tagColor: 'secondary',
+			discount: 'В подарок',
+			title: 'Бесплатная доставка',
+			description: 'Бесплатная доставка и подъём грузчиками на любой заказ в черте города.',
+			oldPrice: '7 000',
+			newPrice: '0',
+			image: '/images/promo-delivery-zov.png',
+			until: '31 мая 2026',
+			conditions: [
+				'Только Москва и Санкт-Петербург',
+				'В черте города',
+				'С подъёмом на этаж',
+				'Бесплатное ожидание до 1 часа'
+			]
 		}
 		// {
 		// 	id: 2,
@@ -177,6 +205,11 @@
 	let filteredPromos = $derived(
 		activeFilter === 'all' ? promotions : promotions.filter((p) => p.category === activeFilter)
 	);
+
+	function openConditions(conds) {
+		selectedConditions = conds || [];
+		isPromoConditionsModalOpen = true;
+	}
 
 	function pad(n) {
 		return String(n).padStart(2, '0');
@@ -335,12 +368,6 @@
 							/>
 						</svg>
 					</a>
-					<button
-						onclick={() => (isStyleModalOpen = true)}
-						class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-border-medium bg-white/70 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary"
-					>
-						Бесплатная консультация
-					</button>
 				</div>
 			</div>
 		</div>
@@ -497,12 +524,7 @@
 		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 			{#each filteredPromos as promo, i (promo.id)}
 				<div
-					role="button"
-					tabindex="0"
-					onclick={() => (isStyleModalOpen = true)}
-					aria-label="Открыть подробности акции {promo.title}"
-					onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && (isStyleModalOpen = true)}
-					class="group relative flex cursor-pointer flex-col overflow-hidden bg-white shadow-card transition-all duration-500 hover:-translate-y-2 hover:shadow-elevated"
+					class="group relative flex flex-col overflow-hidden bg-white shadow-card transition-all duration-500 hover:-translate-y-2 hover:shadow-elevated"
 					class:opacity-0={!sections['promo-grid']}
 					class:animate-fade-up={sections['promo-grid']}
 					style="animation-delay: {0.15 + i * 0.1}s"
@@ -579,9 +601,6 @@
 						<div class="mt-6 border-t border-border-light pt-5">
 							<div class="flex items-end justify-between">
 								<div>
-									<p class="mb-1 text-[10px] tracking-wider text-muted uppercase">
-										Пример расчёта:
-									</p>
 									{#if promo.oldPrice}
 										<p class="text-xs text-muted line-through">{promo.oldPrice} ₽</p>
 									{/if}
@@ -606,22 +625,16 @@
 							<!-- CTA -->
 							<div class="mt-4 flex gap-2">
 								<button
-									onclick={(e) => {
-										e.stopPropagation();
-										isPromoConditionsModalOpen = true;
-									}}
+									onclick={() => openConditions(promo.conditions)}
 									class="inline-flex flex-1 cursor-pointer items-center justify-center rounded-sm border border-border-medium bg-transparent px-4 py-3 text-[10px] tracking-[0.12em] text-secondary uppercase transition-all duration-300 hover:border-primary hover:text-primary"
 								>
 									Условия
 								</button>
 								<button
-									onclick={(e) => {
-										e.stopPropagation();
-										isStyleModalOpen = true;
-									}}
+									onclick={() => (isStyleModalOpen = true)}
 									class="group/btn flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-sm border border-primary bg-primary px-4 py-3 text-[10px] tracking-[0.12em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 								>
-									Менеджер
+									Консультация
 									<svg
 										class="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1"
 										fill="none"
@@ -721,7 +734,7 @@
 							</svg>
 						</button>
 						<button
-							onclick={() => (isPromoConditionsModalOpen = true)}
+							onclick={() => openConditions(promotions[0].conditions)}
 							class="inline-flex cursor-pointer items-center gap-3 rounded-sm border border-white/30 bg-white/10 px-7 py-3.5 text-xs tracking-[0.15em] text-white uppercase backdrop-blur-sm transition-all duration-500 hover:bg-white hover:text-primary"
 						>
 							Условия акции
@@ -887,76 +900,4 @@
 	<StyleConsultationForm onSuccess={() => (isStyleModalOpen = false)} />
 </Modal>
 
-<Modal bind:showModal={isPromoConditionsModalOpen} title="Условия акции">
-	<div class="flex flex-col gap-4 text-secondary">
-		<ul class="list-none space-y-3">
-			<li class="flex items-start gap-3">
-				<svg
-					class="mt-1 h-4 w-4 shrink-0 text-accent"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					stroke-width="2"
-				>
-					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-				</svg>
-				<span class="text-sm leading-relaxed"
-					>Стоимость до вычета скидки <strong>более 500 000 рублей</strong></span
-				>
-			</li>
-			<li class="flex items-start gap-3">
-				<svg
-					class="mt-1 h-4 w-4 shrink-0 text-accent"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					stroke-width="2"
-				>
-					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-				</svg>
-				<span class="text-sm leading-relaxed">Дополнительно заказывается каменная столешница</span>
-			</li>
-			<li class="flex items-start gap-3">
-				<svg
-					class="mt-1 h-4 w-4 shrink-0 text-accent"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					stroke-width="2"
-				>
-					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-				</svg>
-				<span class="text-sm leading-relaxed"
-					>Так же в заказ входит комплект бытовой техники <strong>не менее 4 предметов</strong
-					></span
-				>
-			</li>
-			<li class="flex items-start gap-3">
-				<svg
-					class="mt-1 h-4 w-4 shrink-0 text-accent"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					stroke-width="2"
-				>
-					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-				</svg>
-				<span class="text-sm leading-relaxed"
-					>В заказе обязательно присутствуют мойка и смеситель</span
-				>
-			</li>
-			<li class="flex items-start gap-3">
-				<svg
-					class="mt-1 h-4 w-4 shrink-0 text-accent"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					stroke-width="2"
-				>
-					<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-				</svg>
-				<span class="text-sm leading-relaxed">Фасады ЛДСП в акции не учавствуют</span>
-			</li>
-		</ul>
-	</div>
-</Modal>
+<PromoConditionsModal bind:showModal={isPromoConditionsModalOpen} conditions={selectedConditions} />

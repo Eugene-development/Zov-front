@@ -396,6 +396,6 @@
 	</div>
 </Modal>
 
-<Modal bind:showModal={isQuizModalOpen} title="Узнайте стоимость вашей мебели">
+<Modal bind:showModal={isQuizModalOpen} title="Экспресс расчёт мебели за 1 час">
 	<QuizForm onSuccess={() => (isQuizModalOpen = false)} />
 </Modal>
