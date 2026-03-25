@@ -212,7 +212,7 @@
 				>
 					<!-- Image Side -->
 					<div
-						class="relative aspect-[4/3] overflow-hidden opacity-0 lg:aspect-[4/5] {index % 2 !== 0
+						class="relative aspect-[16/9] overflow-hidden opacity-0 lg:aspect-[4/3] {index % 2 !== 0
 							? 'lg:order-last'
 							: ''}"
 						class:animate-fade-up={sections[`facade-${facade.id}`]}
