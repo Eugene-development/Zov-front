@@ -9,22 +9,12 @@
 	let isDesignerModalOpen = $state(false);
 	let isShowroomModalOpen = $state(false);
 	let sections = $state({});
-	let activeCountry = $state('Россия');
-	let activeCity = $state('Все');
 	let mapContainer = $state(null);
 	let mapInstance = $state(null);
+	let searchQuery = $state('');
 
 	onMount(() => {
 		heroVisible = true;
-
-		// Set default city from global state
-		for (const [country, cities] of Object.entries(showrooms)) {
-			if (cities.some((c) => c.city === regionState.selectedCity)) {
-				activeCountry = country;
-				activeCity = regionState.selectedCity;
-				break;
-			}
-		}
 
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -108,15 +98,473 @@
 			{
 				city: 'Москва и МО',
 				places: [
+					// ,
+					// {
+					// 	address: '',
+					// 	hours: 'Пн-Вс: 10:00 – 20:00',
+					// 	coords: []
+					// },
 					{
-						address: 'Подольское ш., д. 8, корп. 5',
+						address: 'г. Москва, Подольское ш., д. 8, корп. 5',
 						hours: 'Пн-Вс: 10:00 – 20:00',
 						coords: [55.709324, 37.653457]
 					},
 					{
-						address: 'Ленинградский пр-т, д. 74, корп. 1',
+						address: 'г. Москва, Ленинградский пр-т, д. 74, корп. 1',
 						hours: 'Пн-Вс: 10:00 – 20:00',
 						coords: [55.805133, 37.516952]
+					},
+					{
+						address: 'г. Москва, Тихорецкий б-р, д. 1, корп. 5, ТЦ «ЛЮБЛИНСКОЕ ПОЛЕ»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: [55.678, 37.7712]
+					},
+					{
+						address: 'г. Москва, Варшавское ш., д. 94',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: [55.6385, 37.6208]
+					},
+					{
+						address: 'г. Москва, ул. Ярцевская, д. 19, МФК «Кунцево Плаза»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: [55.7394, 37.4093]
+					},
+					{
+						address: 'г. Москва, Рязанский пр-т, д. 2, корп. 2, ТРЦ «Город»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: [55.732, 37.753]
+					},
+					{
+						address: 'г. Москва, Локомотивный проезд, д. 4, ТЦ «Парус»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: [55.845, 37.574]
+					},
+					{
+						address: 'г. Москва, ул. Вавилова, д. 3, ТРЦ «ГАГАРИНСКИЙ»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: [55.707, 37.592]
+					},
+					{
+						address: 'г. Москва, МКАД, 25-й км, вл. 1, ТЦ «Конструктор», 2 этаж',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ш. Энтузиастов, д. 76/1',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Дмитровское ш., д. 73, корп. 1, ТЦ «Metromall»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, пр-т Мира, д. 33, корп. 1, торгово-офисный центр «OLYMPIC PLAZA»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Комсомольский пр-т, д. 19',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. Таганская, д. 3, ТЦ «Таганский Пассаж»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. Ленинская Слобода, д. 26, МЦ «ROOMER»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Волоколамское ш., д. 71/22 , корп. 3',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Хорошёвское ш., д. 16, стр. 3, ТЦ «На Беговой»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Ленинградское ш., д. 25, МЦ «FAMILY ROOM»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, пр-т Мира, д. 211, корп. 2, ТРК «ЕВРОПОЛИС»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Ходынский бульвар, д. 4, ТЦ «АВИАПАРК»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Варшавское ш., д. 160, ТРЦ «ГАЛЕРЕЯ АТЛАНТИС»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, МКАД, 71-й км, стр. 16, ТЦ «КухниПарк»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Коровинское ш., д. 2, ТРЦ «Avenue sever», -1 этаж',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. Кировоградская, д. 15, МТЦ «Гранд Юг»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Красногорск, ул. Международная, д. 4, гипермаркет «Твой Дом»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Реутов, МКАД, 2-й км, д. 2, ТК «Шоколад»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, наб. Тараса Шевченко, д. 1',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Одинцово, ул. Вокзальная, д. 2, ТЦ «Андромеда»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'р.п. Новоивановское, ул. Луговая, д. 1, МЦ «Три Кита»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Чехов, ул. Московская, д. 83',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Дмитровское ш., д. 161Б, МЦ «Империя»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Дмитровское ш., д. 161Б, МЦ «Империя»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Дмитровское ш., д. 163А, корп. 1, ТРЦ «РИО»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Королёв, ул. Лермонтова, д. 10, корп. 3',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. Пришвина, д. 26, ТВК «Миллион мелочей»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Московский, 1-й мкр., д. 58, Cпортивно-развлекательный центр «НЕБО АРЕНА»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. Дубравная, д. 51, стр. 1, ТРЦ «Митино Парк»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Химки, ул. Молодёжная, д. 78',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. Полярная, д. 21, ТЦ «Дом Мебели»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Красногорск, Новорижское ш., 23-й км, вл. 2, стр. 1, ТРЦ «РИГАМОЛЛ»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. Зорге, д. 1, стр. 2, ТЦ «Дом для Дома»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Новоухтомское ш., д. 2А, ТРЦ «Город Косино»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г.о. Красногорск, пос. Отрадное, Пятницкое ш., д. 1, стр. 1, ТП «Отрада»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Мичуринский пр-т, д. 10, корп. 1',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Можайское ш., д. 25',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Мытищи, ул. Мира, д. 39',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. Люблинская, д. 165',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Химки, ул. Бутаково, д. 4, МЦ «Гранд»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ш. Энтузиастов, д. 12, корп. 2, ТРЦ «ГОРОД Лефортово»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Волгоградский пр-т, д. 132',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Домодедово, Каширское ш., д. 17Г, МЦ «ДОМ», «Торговая галерея»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address:
+							'г. Москва, Киевское ш., 22-ой км, д. 4, стр. 2, корп. В, ТЦ «Мебель Park», БП «Румянцево», вход 5, 3 этаж, пав. 327В',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Реутов, Юбилейный пр-т, д. 47',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Балашиха, ул. Юбилейная, д. 4, корп. 5',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Жуковский, ул. Королёва, д. 6, стр. 3',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Ногинск, ул. Трудовая, д. 4Б, ТД «Люкс»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, пр-т Маршала Жукова, д. 59',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Балашиха, ул. Свердлова, д. 7',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Красногорск, ул. Ленина, д. 2, ТЦ «Красный Кит»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, МКАД, 84-й км, вл. 3, стр. 1, ТЦ «Ашан»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. А. Монаховой, д. 109, корп. 1',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Боровское ш., д. 20',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Балашиха, пр-т Ленина, д. 8',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Люберцы, Октябрьский пр-т, д. 112, ТРЦ «ВЫХОДНОЙ»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Орехово-Зуево, ул. Урицкого, д. 92, ТЦ «БАРРИКАДА»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Дмитровское ш., д. 124А',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. Обручева, д. 34/63, стр.1, ТЦ «Мебель BOX»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, 7-я Кожуховская ул., д. 9, ТРЦ «Мозаика»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Раменское, ул. 1-ая Ленинская, д. 37, гипермаркет мебели «МЕБЕЛЬdom»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. Бутырская, д. 65/68',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Мытищи, ул. Коммунистическая, д. 10, корп. 1, ТЦ «XL HOME»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Каширское ш., д. 62/2',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. Шереметьевская, д. 20, ТЦ «Капитолий»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Мытищи, Осташковское ш., д. 2, ТЦ «Твой дом»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, пр-т Вернадского, д. 86А, ТРЦ «AVENUE»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, ул. Рябиновая, д. 41, корп. 1, ДЦ «MADEX»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Люберцы, Новорязанское ш., д. 3, ТК «ГРАНТ»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Пушкино, Красноармейское ш., д. 101, стр. 2',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Москва, Сиреневый бульвар, д. 31, ТЦ «София»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: 'г. Воскресенск, ул. Зелинского, д. 2, ТЦ «Вега»',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address:
+							'г. Воскресенск, ул. Лопатинская, д. 11А, строительный рынок «Планета», пав. 30',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: '',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: '',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: '',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: '',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: '',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: '',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: '',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: '',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: '',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: '',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
+					},
+					{
+						address: '',
+						hours: 'Пн-Вс: 10:00 – 20:00',
+						coords: []
 					}
 				]
 			},
@@ -134,23 +582,39 @@
 		]
 	};
 
-	let availableCities = $derived(['Все', ...showrooms[activeCountry].map((d) => d.city)]);
-	let filteredShowrooms = $derived(
-		activeCity === 'Все'
-			? showrooms[activeCountry]
-			: showrooms[activeCountry].filter((d) => d.city === activeCity)
-	);
+	let filteredShowrooms = $derived.by(() => {
+		for (const [country, cities] of Object.entries(showrooms)) {
+			const cityData = cities.filter((c) => c.city === regionState.selectedCity);
+			if (cityData.length > 0) {
+				const clonedCityData = cityData.map((c) => {
+					const filteredPlaces = c.places.filter((p) => {
+						if (!searchQuery) return true;
+						const query = searchQuery.toLowerCase();
+						const matchName = p.name && p.name.toLowerCase().includes(query);
+						const matchAddress = p.address && p.address.toLowerCase().includes(query);
+						return matchName || matchAddress;
+					});
+					return { ...c, places: filteredPlaces };
+				});
+				return clonedCityData.filter((c) => c.places.length > 0);
+			}
+		}
+		return [];
+	});
 
 	let totalPlaces = $derived(filteredShowrooms.reduce((acc, curr) => acc + curr.places.length, 0));
 
 	$effect(() => {
 		if (!mapInstance || typeof window.ymaps === 'undefined') return;
-		
+
 		mapInstance.geoObjects.removeAll();
-		
+
+		const CustomPin =
+			'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0MCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjAgMEM4Ljk1NCAwIDAgOC45NTQgMCAyMGMwIDE0LjQgMjAgMjggMjAgMjhzMjAtMTMuNiAyMC0yOGMwLTExLjA0Ni04Ljk1NC0yMC0yMC0yMFoiIGZpbGw9IiM4YjczNTUiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSI4IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==';
+
 		filteredShowrooms.forEach((city) => {
 			city.places.forEach((place) => {
-				if (place.coords) {
+				if (place.coords && place.coords.length === 2) {
 					const placemark = new window.ymaps.Placemark(
 						place.coords,
 						{
@@ -159,7 +623,9 @@
 							balloonContentFooter: place.hours
 						},
 						{
-							preset: 'islands#blueIcon'
+							preset: 'islands#brownIcon',
+							hideIconOnBalloonOpen: false,
+							balloonOffset: [0, -30]
 						}
 					);
 					mapInstance.geoObjects.add(placemark);
@@ -169,18 +635,20 @@
 
 		const bounds = mapInstance.geoObjects.getBounds();
 		if (bounds) {
-			mapInstance.setBounds(bounds, {
-				checkZoomRange: true,
-				zoomMargin: 50,
-				duration: 400
-			}).then(() => {
-				if (mapInstance.getZoom() > 15) {
-					mapInstance.setZoom(15);
-				}
-			});
+			mapInstance
+				.setBounds(bounds, {
+					checkZoomRange: true,
+					zoomMargin: 50,
+					duration: 400
+				})
+				.then(() => {
+					if (mapInstance.getZoom() > 15) {
+						mapInstance.setZoom(15);
+					}
+				});
 		} else {
-            mapInstance.setCenter([54.5, 31.0], 5);
-        }
+			mapInstance.setCenter([54.5, 31.0], 5);
+		}
 	});
 </script>
 
@@ -283,7 +751,7 @@
 	data-animate
 >
 	<div class="mx-auto max-w-7xl px-6">
-		<div class="grid gap-16 lg:grid-cols-12 lg:gap-12">
+		<div class="grid items-start gap-16 lg:grid-cols-12 lg:gap-12">
 			<!-- Left Column: Locations List -->
 			<div
 				class="flex flex-col opacity-0 lg:col-span-5"
@@ -296,50 +764,55 @@
 					Дилерская сеть салонов в Беларуси и России
 				</h2>
 
-				<!-- Country Toggle -->
-				<div class="mt-8 flex items-center gap-4 border-b border-border-light pb-4">
-					{#each Object.keys(showrooms) as country (country)}
-						<button
-							class="relative text-sm font-medium tracking-wide transition-colors duration-300 {activeCountry ===
-							country
-								? 'text-primary'
-								: 'text-muted hover:text-secondary'}"
-							onclick={() => {
-								activeCountry = country;
-								activeCity = 'Все';
-							}}
+				<div
+					class="mt-8 flex flex-col items-start gap-4 border-b border-border-light pb-6 sm:flex-row sm:items-center"
+				>
+					<button
+						class="group inline-flex h-12 shrink-0 cursor-pointer items-center gap-3 rounded-sm border border-border-medium px-5 text-xs tracking-[0.1em] text-primary transition-all duration-300 hover:border-secondary hover:text-secondary"
+						onclick={() => (regionState.isCityModalOpen = true)}
+					>
+						Ваш город: <span class="font-medium text-secondary">{regionState.selectedCity}</span>
+						<svg
+							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							stroke-width="1.5"
 						>
-							{country}
-							{#if activeCountry === country}
-								<span
-									class="absolute -bottom-[17px] left-0 h-px w-full bg-primary"
-									class:animate-fade-in={true}
-								></span>
-							{/if}
-						</button>
-					{/each}
-				</div>
+							<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+						</svg>
+					</button>
 
-				<!-- City Filter -->
-				<div class="mt-6 flex flex-wrap gap-2">
-					{#each availableCities as city (city)}
-						<button
-							class="rounded-sm border border-border-light px-4 py-1.5 text-xs tracking-wide transition-colors duration-300 {activeCity ===
-							city
-								? 'border-primary bg-primary text-white'
-								: 'bg-transparent text-secondary hover:border-text-muted hover:text-primary'}"
-							onclick={() => (activeCity = city)}
-						>
-							{city}
-						</button>
-					{/each}
+					<div class="relative w-full max-w-sm">
+						<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+							<svg
+								class="h-4 w-4 text-muted"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="1.5"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+								/>
+							</svg>
+						</div>
+						<input
+							type="text"
+							bind:value={searchQuery}
+							placeholder="Поиск по адресу..."
+							class="h-12 w-full rounded-sm border border-border-medium bg-transparent pr-4 pl-10 text-sm text-primary transition-all duration-300 placeholder:text-muted focus:border-secondary focus:ring-0 focus:outline-none"
+						/>
+					</div>
 				</div>
 
 				<!-- Cities List -->
 				<div class="relative -mx-2 mt-8 px-2">
 					<div
 						class="flex flex-col gap-10 {totalPlaces > 3
-							? 'max-h-[550px] overflow-y-auto pr-4 pb-10 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border-light/80 hover:[&::-webkit-scrollbar-thumb]:bg-border-light [&::-webkit-scrollbar-track]:bg-transparent'
+							? 'max-h-[400px] overflow-y-auto pr-4 pb-10 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border-light/80 hover:[&::-webkit-scrollbar-thumb]:bg-border-light [&::-webkit-scrollbar-track]:bg-transparent'
 							: ''}"
 					>
 						{#each filteredShowrooms as data (data.city)}
@@ -403,6 +876,33 @@
 								</div>
 							</div>
 						{/each}
+
+						{#if filteredShowrooms.length === 0}
+							<div class="flex flex-col items-center py-12 text-center">
+								<svg
+									class="h-10 w-10 text-border-medium"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="1.5"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+									/>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+									/>
+								</svg>
+								<p class="mt-4 text-sm text-secondary">
+									В выбранном городе пока нет наших фирменных салонов.
+								</p>
+								<p class="mt-2 text-xs text-muted">Вы можете оформить заявку на выездной расчет.</p>
+							</div>
+						{/if}
 					</div>
 					{#if totalPlaces > 3}
 						<div
@@ -436,14 +936,14 @@
 
 			<!-- Right Column: Yandex Interactive Map -->
 			<div
-				class="h-[600px] opacity-0 lg:col-span-7 lg:h-[750px]"
+				class="sticky top-32 h-[600px] opacity-0 lg:col-span-7 lg:h-[750px]"
 				class:animate-fade-up={sections['network-section']}
 				style="animation-delay: 0.3s"
 			>
 				<div class="relative h-full w-full overflow-hidden bg-surface-warm shadow-soft">
 					<div
 						bind:this={mapContainer}
-						class="absolute inset-0 contrast-125 grayscale transition-all duration-700 hover:grayscale-0"
+						class="absolute inset-0 [filter:sepia(0.3)_saturate(0.5)_contrast(1.05)_brightness(0.98)] transition-all duration-1000 hover:[filter:none]"
 					></div>
 				</div>
 			</div>

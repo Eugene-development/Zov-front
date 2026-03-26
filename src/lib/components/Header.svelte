@@ -15,7 +15,6 @@
 
 	let mobileMenuOpen = $state(false);
 	let isShowroomModalOpen = $state(false);
-	let isCityModalOpen = $state(false);
 	let isQuizModalOpen = $state(false);
 	let activeCountry = $state('Россия');
 
@@ -144,7 +143,7 @@
 				<span class="h-3 w-px bg-border-medium"></span>
 				<button
 					class="flex cursor-pointer items-center gap-1.5 text-xs tracking-wide text-secondary transition-colors duration-300 hover:text-secondary"
-					onclick={() => (isCityModalOpen = true)}
+					onclick={() => (regionState.isCityModalOpen = true)}
 				>
 					<svg
 						class="h-3.5 w-3.5"
@@ -302,7 +301,7 @@
 		<button
 			class="mb-4 flex w-full cursor-pointer items-center gap-2 text-sm text-secondary transition-colors duration-300 hover:text-secondary"
 			onclick={() => {
-				isCityModalOpen = true;
+				regionState.isCityModalOpen = true;
 				closeMenu();
 			}}
 		>
@@ -352,7 +351,7 @@
 	<ShowroomForm onSuccess={() => (isShowroomModalOpen = false)} />
 </Modal>
 
-<Modal bind:showModal={isCityModalOpen} title="Выберите город">
+<Modal bind:showModal={regionState.isCityModalOpen} title="Выберите город">
 	<div class="flex flex-col gap-6">
 		<div class="flex items-center gap-4 border-b border-border-light pb-4">
 			{#each Object.keys(showroomsData) as country}
@@ -381,7 +380,7 @@
 						: 'bg-transparent text-secondary hover:border-primary hover:text-primary'}"
 					onclick={() => {
 						regionState.setCity(city);
-						isCityModalOpen = false;
+						regionState.isCityModalOpen = false;
 					}}
 				>
 					{city}
