@@ -188,6 +188,10 @@
 				title: 'Спасибо. Всё успешно!',
 				message: 'Наш менеджер свяжется с вами для обсуждения цены и деталей проекта.'
 			});
+			if (typeof window !== 'undefined' && (window as any).ym) {
+				(window as any).ym(93835019, 'reachGoal', 'kviz_success');
+				console.log('Цель kviz_success отправлена в Метрику');
+			}
 			onSuccess?.();
 		} catch (err) {
 			console.error('QuizForm submit error:', err);

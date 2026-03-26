@@ -24,7 +24,8 @@
 </script>
 
 <svelte:head>
-	{#if !dev}
+	<!-- {#if !dev} -->
+	{#if true}
 		<!-- Yandex.Metrika counter -->
 		<script type="text/javascript">
 			(function (m, e, t, r, i, k, a) {
