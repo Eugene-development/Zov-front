@@ -3,10 +3,12 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import PromoConditionsModal from '$lib/components/PromoConditionsModal.svelte';
 	import StyleConsultationForm from '$lib/components/StyleConsultationForm.svelte';
+	import QuizForm from '$lib/components/QuizForm.svelte';
 
 	let heroVisible = $state(false);
 	let isStyleModalOpen = $state(false);
 	let isPromoConditionsModalOpen = $state(false);
+	let isQuizModalOpen = $state(false);
 	let selectedConditions = $state([]);
 	let sections = $state({});
 	let activeFilter = $state('all');
@@ -96,7 +98,7 @@
 			image: '/images/promo-delivery-zov.png',
 			until: '31 мая 2026',
 			conditions: [
-				'Только Москва и Санкт-Петербург',
+				'Только Москва и МО и Санкт-Петербург',
 				'В черте города',
 				'С подъёмом на этаж',
 				'Бесплатное ожидание до 1 часа'
@@ -353,12 +355,12 @@
 
 				<!-- Description -->
 				<p
-					class="mt-6 max-w-md text-base leading-relaxed text-secondary opacity-0 md:text-lg"
+					class="mt-6 max-w-lg text-base leading-relaxed text-secondary opacity-0 md:text-lg"
 					class:animate-fade-up={heroVisible}
 					style="animation-delay: 0.7s"
 				>
-					Эксклюзивные предложения на кухни, гардеробные и мебель для гостиной. Только реальные
-					скидки на премиальные решения от фабрики ЗОВ.
+					По промокоду "весна2026" скидка 10% на мебель, технику, столешницу или мойку при заказе
+					просчёта вашего проекта мебели.
 				</p>
 
 				<!-- CTA Buttons -->
@@ -367,11 +369,11 @@
 					class:animate-fade-up={heroVisible}
 					style="animation-delay: 0.9s"
 				>
-					<a
-						href="#promo-grid"
-						class="group inline-flex items-center gap-3 rounded-sm border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
+					<button
+						onclick={() => (isQuizModalOpen = true)}
+						class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 					>
-						Смотреть акции
+						Расчёт проекта за час
 						<svg
 							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
 							fill="none"
@@ -385,7 +387,7 @@
 								d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
 							/>
 						</svg>
-					</a>
+					</button>
 				</div>
 			</div>
 		</div>
@@ -916,6 +918,10 @@
 <!-- Modals -->
 <Modal bind:showModal={isStyleModalOpen} title="Бесплатная консультация">
 	<StyleConsultationForm onSuccess={() => (isStyleModalOpen = false)} />
+</Modal>
+
+<Modal bind:showModal={isQuizModalOpen} title="Экспресс расчёт мебели за 1 час">
+	<QuizForm onSuccess={() => (isQuizModalOpen = false)} />
 </Modal>
 
 <PromoConditionsModal bind:showModal={isPromoConditionsModalOpen} conditions={selectedConditions} />

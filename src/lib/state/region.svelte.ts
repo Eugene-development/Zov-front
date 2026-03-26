@@ -1,5 +1,5 @@
 export class RegionState {
-	selectedCity = $state<string>('Москва');
+	selectedCity = $state<string>('Москва и МО');
 	hasConfirmedCity = $state<boolean>(false);
 
 	init() {

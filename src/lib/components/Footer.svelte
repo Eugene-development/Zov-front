@@ -70,7 +70,7 @@
 					/>
 				</a>
 				<p class="mt-6 max-w-xs text-sm leading-relaxed text-white/60">
-					Более 20 лет создаём кухни и мебель премиального качества. Белорусское производство с
+					Более 25 лет мы создаём мебель премиального качества. Белорусское производство с
 					европейскими технологиями.
 				</p>
 
@@ -113,7 +113,7 @@
 
 			<!-- Contact Column -->
 			<div class="col-span-1 lg:col-span-2">
-				<h4 class="text-xs font-medium tracking-[0.2em] text-white/40 uppercase">Контакты</h4>
+				<h4 class="text-xs font-medium tracking-[0.2em] text-white/40 uppercase">Контакты в РФ</h4>
 				<div class="mt-1 flex flex-col gap-1">
 					<a
 						href="tel:+375291234567"

@@ -22,23 +22,13 @@
 	const showroomsData = {
 		Беларусь: ['Минск', 'Гродно', 'Брест', 'Витебск', 'Гомель', 'Могилёв'],
 		Россия: [
-			'Москва',
+			'Москва и МО',
 			'Санкт-Петербург',
 			'Нижний Новгород',
 			'Казань',
 			'Екатеринбург',
 			'Новосибирск',
 			'Омск',
-			'Тюмень',
-			'Челябинск',
-			'Уфа',
-			'Самара',
-			'Воронеж',
-			'Краснодар',
-			'Ростов-на-Дону',
-			'Волгоград',
-			'Пермь',
-			'Красноярск',
 			'Тюмень',
 			'Челябинск',
 			'Уфа',
@@ -113,9 +103,7 @@
 		class="relative hidden border-b border-border-light bg-surface-warm lg:block"
 		style="height: {TOP_BAR_HEIGHT}px;"
 	>
-		<div
-			class="mx-auto flex h-10 max-w-7xl items-center justify-between px-6"
-		>
+		<div class="mx-auto flex h-10 max-w-7xl items-center justify-between px-6">
 			<div class="flex items-center gap-6">
 				{#each topLinks as link}
 					<a

@@ -13,7 +13,7 @@
 			id: 'modern',
 			name: 'Современный',
 			description:
-				'Чистые линии, минимализм, интегрированная техника и матовые текстуры для создания идеального пространства.',
+				'Чистые линии, минимализм, интегрированная техника и матовые текстуры для создания идеального пространства',
 			image: 'https://storage.yandexcloud.net/zovtop/stiles/sovremjknvndgvhj.jpg',
 			tags: ['Минимализм', 'Hi-Tech', 'Матовость']
 		},
@@ -21,7 +21,7 @@
 			id: 'classic',
 			name: 'Классика',
 			description:
-				'Традиционные формы, резные фасады, обилие дерева и теплые оттенки для уюта и респектабельности.',
+				'Традиционные формы, резные фасады, обилие дерева и теплые оттенки для уюта и респектабельности',
 			image: 'https://storage.yandexcloud.net/zovtop/stiles/claskjdgnbkdgmj.jpg',
 			tags: ['Дерево', 'Резьба', 'Патина']
 		},
@@ -29,7 +29,7 @@
 			id: 'loft',
 			name: 'Лофт',
 			description:
-				'Индустриальный шик: бетон, кирпич, металл и брутальные формы, создающие стильное современное пространство.',
+				'Индустриальный шик: бетон, кирпич, металл и брутальные формы, создающие стильное современное пространство',
 			image: 'https://storage.yandexcloud.net/zovtop/stiles/loftelkjbngrtobnhekrjthbn.jpg',
 			tags: ['Бетон', 'Металл', 'Брутальность']
 		},
@@ -37,7 +37,7 @@
 			id: 'minimalist',
 			name: 'Минимализм',
 			description:
-				'Лаконичность, строгая геометрия форм, нейтральная палитра и отсутствие лишних деталей для создания просторного интерьера.',
+				'Лаконичность, строгая геометрия форм без лишних деталей, нейтральная палитра для создания просторного интерьера',
 			image: 'https://storage.yandexcloud.net/zovtop/stiles/minimkjfvnfsjnvk.jpg',
 			tags: ['Лаконичность', 'Геометрия', 'Пространство']
 		},
@@ -45,7 +45,7 @@
 			id: 'modern',
 			name: 'Модерн',
 			description:
-				'Плавные линии, элегантная асимметрия, сочетание природных мотивов и современных материалов в каждой детали.',
+				'Плавные линии, элегантная асимметрия, сочетание природных мотивов и современных материалов в каждой детали',
 			image: 'https://storage.yandexcloud.net/zovtop/stiles/modernlkthetrlkmjkdrythk.jpg',
 			tags: ['Плавные линии', 'Элегантность', 'Природа']
 		},
@@ -53,7 +53,7 @@
 			id: 'retro',
 			name: 'Ретро',
 			description:
-				'Винтажный шарм, смелые цветовые акценты, стилизованная техника и эстетика, отсылающая к ярким эпохам прошлого.',
+				'Винтажный шарм, смелые цветовые акценты, стилизованная техника и эстетика, отсылающая к ярким эпохам прошлого',
 			image: 'https://storage.yandexcloud.net/zovtop/stiles/retrofmsjvbjksdfvbnjksdjds.jpg',
 			tags: ['Винтаж', 'Акценты', 'Стилизация']
 		},
@@ -61,7 +61,7 @@
 			id: 'neoclassic',
 			name: 'Неоклассика',
 			description:
-				'Изящное сочетание традиционных элементов с современными материалами и светлыми тонами.',
+				'Изящное сочетание традиционных элементов с современными материалами и светлыми интерьерными тонами',
 			image: 'https://storage.yandexcloud.net/zovtop/stiles/neokjewtgniertwjv.jpg',
 			tags: ['Изящность', 'Мрамор', 'Светлые тона']
 		},
@@ -69,7 +69,7 @@
 			id: 'scandinavian',
 			name: 'Скандинавский',
 			description:
-				'Максимум света и пространства, натуральные материалы, светлое дерево и функциональный лаконичный дизайн.',
+				'Максимум света и пространства, натуральные материалы, светлое дерево и функциональный лаконичный дизайн',
 			image: 'https://storage.yandexcloud.net/zovtop/stiles/scandkjbfvkjsdenbkj.jpg',
 			tags: ['Свет', 'Уют', 'Функциональность']
 		},
@@ -77,7 +77,7 @@
 			id: 'provence',
 			name: 'Прованс',
 			description:
-				'Французский кантри с пастельными тонами, винтажной фурнитурой и домашним теплом.',
+				'Французский кантри с пастельными тонами, винтажной фурнитурой и домашним теплом',
 			image: 'https://storage.yandexcloud.net/zovtop/stiles/provanjvngkjenbkjrn.jpg',
 			tags: ['Кантри', 'Винтаж', 'Уют']
 		}
@@ -240,14 +240,14 @@
 					/>
 				</svg>
 			</button>
-			<button
+			<!-- <button
 				onclick={() => {
 					isStyleModalOpen = true;
 				}}
 				class="group relative ml-4 inline-flex items-center justify-center gap-3 overflow-hidden rounded-sm border border-primary bg-transparent px-8 py-4 text-sm tracking-wider text-primary uppercase transition-all hover:bg-primary-light hover:text-secondary active:scale-95"
 			>
 				<span>Консультация по стилю</span>
-			</button>
+			</button> -->
 		</div>
 	</section>
 

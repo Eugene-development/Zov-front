@@ -197,7 +197,7 @@
 			id="details"
 			bind:value={showroom}
 			class="border-b border-border-light bg-transparent py-3 text-primary transition-colors outline-none focus:border-secondary focus:ring-0"
-			placeholder="Например: Москва, ул. Ленина..."
+			placeholder="Например: Москва и МО, ул. Ленина..."
 		/>
 	</div>
 

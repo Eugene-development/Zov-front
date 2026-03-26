@@ -3,18 +3,28 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import DesignerForm from '$lib/components/DesignerForm.svelte';
 	import ShowroomForm from '$lib/components/ShowroomForm.svelte';
+	import { regionState } from '$lib/state/region.svelte';
 
 	let heroVisible = $state(false);
 	let isDesignerModalOpen = $state(false);
 	let isShowroomModalOpen = $state(false);
 	let sections = $state({});
-	let activeCountry = $state('Беларусь');
+	let activeCountry = $state('Россия');
 	let activeCity = $state('Все');
 	let mapContainer = $state(null);
 	let mapInstance = $state(null);
 
 	onMount(() => {
 		heroVisible = true;
+
+		// Set default city from global state
+		for (const [country, cities] of Object.entries(showrooms)) {
+			if (cities.some((c) => c.city === regionState.selectedCity)) {
+				activeCountry = country;
+				activeCity = regionState.selectedCity;
+				break;
+			}
+		}
 
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -96,7 +106,7 @@
 		],
 		Россия: [
 			{
-				city: 'Москва',
+				city: 'Москва и МО',
 				places: [
 					{
 						address: 'Подольское ш., д. 8, корп. 5',
