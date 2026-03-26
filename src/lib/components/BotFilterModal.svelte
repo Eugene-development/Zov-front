@@ -2,10 +2,11 @@
 	import { onMount } from 'svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import { regionState } from '$lib/state/region.svelte';
+	import { toastState } from '$lib/state/toast.svelte';
 
 	let isBotFilterModalOpen = $state(false);
 	let botFilterMountedTime = $state(0);
-	let honeypotValue = $state('');
+	let v_token = $state('');
 	let activeCountry = $state('Россия');
 
 	const showroomsData = {
@@ -35,15 +36,24 @@
 		const timeTaken = Date.now() - botFilterMountedTime;
 
 		// Silent check: honeypot or too fast (< 100ms)
-		if (honeypotValue !== '' || timeTaken < 100) {
+		if (v_token !== '' || timeTaken < 100) {
 			console.warn('Bot detected by silent check!');
-			alert('Обнаружена подозрительная активность. Действие заблокировано.');
+			toastState.add({
+				type: 'error',
+				title: 'Ошибка',
+				message: 'Обнаружена подозрительная активность. Действие заблокировано.'
+			});
 			return;
 		}
 
 		regionState.setCity(city);
 		regionState.confirmCity();
 		isBotFilterModalOpen = false;
+
+		toastState.add({
+			type: 'success',
+			message: 'Город выбран'
+		});
 	}
 
 	onMount(() => {
@@ -66,14 +76,14 @@
 			город.
 		</p>
 
-		<!-- Honeypot -->
+		<!-- Honeypot: field with unobvious name to trap bots -->
 		<input
 			type="text"
-			name="website_url"
-			style="display: none;"
+			name="session_verification_token"
+			class="absolute -left-9999 top-0 h-0 w-0 opacity-0"
 			tabindex="-1"
 			autocomplete="off"
-			bind:value={honeypotValue}
+			bind:value={v_token}
 		/>
 
 		<div class="flex items-center gap-4 border-b border-border-light pb-4">
