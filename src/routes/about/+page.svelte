@@ -131,7 +131,7 @@
 				>
 					<a
 						href="/showrooms"
-						class="group inline-flex items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
+						class="group inline-flex items-center gap-3 rounded-sm border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 					>
 						Найти ближайший салон
 						<svg
@@ -150,7 +150,7 @@
 					</a>
 					<a
 						href="tel:+375291234567"
-						class="group inline-flex md:hidden items-center gap-3 border border-border-medium bg-white/60 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary rounded-sm"
+						class="group inline-flex items-center gap-3 rounded-sm border border-border-medium bg-white/60 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary md:hidden"
 					>
 						<svg
 							class="h-4 w-4"
@@ -236,7 +236,7 @@
 			<div class="flex flex-col justify-center">
 				{#each stats as stat, i}
 					<div
-						class="group flex gap-6 border-b border-border-light py-8 opacity-0 transition-colors duration-300 first:border-t hover:bg-surface-warm/50 lg:px-6 rounded-sm"
+						class="group flex gap-6 rounded-sm border-b border-border-light py-8 opacity-0 transition-colors duration-300 first:border-t hover:bg-surface-warm/50 lg:px-6"
 						class:animate-slide-right={sections['mission-section']}
 						style="animation-delay: {0.2 + i * 0.15}s"
 					>
@@ -256,15 +256,106 @@
 	</div>
 </section>
 
+<!-- ==================== FACTORY BENTO GRID ==================== -->
+<section class="relative bg-surface py-section-sm lg:py-section" id="factory-section" data-animate>
+	<div class="mx-auto max-w-7xl px-6">
+		<!-- Header -->
+		<div
+			class="mb-12 opacity-0 transition-all duration-700"
+			class:animate-fade-up={sections['factory-section']}
+		>
+			<span class="text-[11px] tracking-[0.3em] text-secondary uppercase">Производство</span>
+			<h2
+				class="mt-3 text-4xl font-light text-primary lg:text-5xl"
+				style="font-family: var(--font-heading);"
+			>
+				Наша
+				<span class="text-secondary">фабрика</span>
+			</h2>
+			<p class="mt-4 max-w-xl text-base leading-relaxed text-secondary">
+				25&nbsp;000 м² современного производства, оснащённого передовым европейским оборудованием
+			</p>
+		</div>
+
+		<!-- Bento Grid -->
+		<div class="bento-grid">
+			<!-- Cell 1 — large, spans 2 cols + 2 rows -->
+			<div
+				class="bento-cell bento-cell--large opacity-0 transition-all duration-700"
+				class:animate-fade-up={sections['factory-section']}
+				style="animation-delay: 0.1s"
+			>
+				<img
+					src="https://storage.yandexcloud.net/zovtop/foto/fabr-1jhbnikjnmim.jpg"
+					alt="Цех сборки"
+					class="bento-media"
+				/>
+			</div>
+
+			<!-- Cell 2 — top right -->
+			<div
+				class="bento-cell bento-cell--medium opacity-0 transition-all duration-700"
+				class:animate-fade-up={sections['factory-section']}
+				style="animation-delay: 0.2s"
+			>
+				<img
+					src="https://storage.yandexcloud.net/zovtop/foto/fabr-2jfnvkjfdvijkmf.jpg"
+					alt="ЧПУ-станки"
+					class="bento-media"
+				/>
+			</div>
+
+			<!-- Cell 3 — middle right -->
+			<div
+				class="bento-cell bento-cell--medium opacity-0 transition-all duration-700"
+				class:animate-fade-up={sections['factory-section']}
+				style="animation-delay: 0.3s"
+			>
+				<img
+					src="https://storage.yandexcloud.net/zovtop/foto/fabr-3kjvndfnvjhdgnvjhd.jpg"
+					alt="Окрасочная камера"
+					class="bento-media"
+				/>
+			</div>
+
+			<!-- Cell 4 — bottom left -->
+			<div
+				class="bento-cell bento-cell--medium opacity-0 transition-all duration-700"
+				class:animate-fade-up={sections['factory-section']}
+				style="animation-delay: 0.4s"
+			>
+				<img
+					src="https://storage.yandexcloud.net/zovtop/foto/fabr-4dlkfvmdfmvjkfd.jpg"
+					alt="Склад"
+					class="bento-media"
+				/>
+			</div>
+
+			<!-- Cell 5 — bottom right wide -->
+			<div
+				class="bento-cell bento-cell--wide opacity-0 transition-all duration-700"
+				class:animate-fade-up={sections['factory-section']}
+				style="animation-delay: 0.5s"
+			>
+				<img
+					src="https://storage.yandexcloud.net/zovtop/foto/fabr-5kjfndvjkdfgknkgj.jpg"
+					alt="Контроль качества"
+					class="bento-media"
+				/>
+			</div>
+		</div>
+	</div>
+</section>
+
 <!-- ==================== VIDEO SECTION ==================== -->
-<section class="relative z-10 px-6" id="video-section" data-animate>
-	<div class="mx-auto max-w-7xl">
+<section class="relative z-10 -mt-12" id="video-section" data-animate>
+	<div class="mx-auto max-w-7xl px-6">
 		<div
 			class="relative overflow-hidden opacity-0"
 			class:animate-scale-in={sections['video-section']}
 		>
 			<video
-				class="h-[400px] w-full bg-black object-cover lg:h-[600px]"
+				class="h-[400px] w-full bg-black object-cover lg:h-[640px]"
 				controls
 				preload="metadata"
 			>
@@ -357,7 +448,7 @@
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
 				<button
 					onclick={() => (isDesignerModalOpen = true)}
-					class="group inline-flex cursor-pointer items-center gap-3 border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light rounded-sm"
+					class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-accent bg-accent px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-accent-light hover:bg-accent-light"
 				>
 					Заказать дизайн-проект
 					<svg
@@ -376,7 +467,7 @@
 				</button>
 				<a
 					href="tel:+375291234567"
-					class="inline-flex md:hidden items-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 rounded-sm"
+					class="inline-flex items-center gap-2 rounded-sm border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 md:hidden"
 				>
 					<svg
 						class="h-4 w-4"
@@ -402,3 +493,101 @@
 <Modal bind:showModal={isDesignerModalOpen} title="Заказ дизайн-проекта">
 	<DesignerForm onSuccess={() => (isDesignerModalOpen = false)} />
 </Modal>
+
+<style>
+	/* ── Bento Grid ── */
+	.bento-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: 260px 260px;
+		gap: 12px;
+	}
+
+	.bento-cell--large {
+		grid-column: span 2;
+		grid-row: span 2;
+	}
+	.bento-cell--medium {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+	.bento-cell--wide {
+		grid-column: span 2;
+		grid-row: span 1;
+	}
+
+	.bento-cell {
+		position: relative;
+		overflow: hidden;
+		border-radius: 4px;
+	}
+
+	.bento-cell:hover .bento-media {
+		transform: scale(1.05);
+	}
+
+	.bento-media {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+		background-color: #f5f5f5; /* Fallback */
+	}
+
+	.bento-caption {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 16px 20px;
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, transparent 100%);
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	.bento-caption__tag {
+		font-size: 10px;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.7);
+	}
+
+	.bento-caption__text {
+		font-size: 14px;
+		font-weight: 500;
+		color: #fff;
+		margin: 0;
+	}
+
+	@media (max-width: 1024px) {
+		.bento-grid {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: auto;
+		}
+		.bento-cell--large {
+			grid-column: span 2;
+			grid-row: span 1;
+			min-height: 300px;
+		}
+		.bento-cell--wide {
+			grid-column: span 2;
+		}
+		.bento-cell--medium {
+			min-height: 220px;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.bento-grid {
+			grid-template-columns: 1fr;
+		}
+		.bento-cell--large,
+		.bento-cell--wide {
+			grid-column: span 1;
+		}
+		.bento-cell {
+			min-height: 200px;
+		}
+	}
+</style>
