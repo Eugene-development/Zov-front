@@ -125,7 +125,7 @@
 				</div>
 
 				<!-- Heading -->
-				<h1
+				<h2
 					class="text-5xl leading-[1.1] font-light text-primary opacity-0 md:text-6xl lg:text-7xl"
 					style="font-family: var(--font-heading); animation-delay: 0.5s"
 					class:animate-fade-up={heroVisible}
@@ -135,7 +135,7 @@
 					в которых
 					<br class="md:hidden" />
 					<span class="font-normal text-secondary">живёт стиль</span>
-				</h1>
+				</h2>
 
 				<!-- Description -->
 				<p
@@ -266,12 +266,12 @@
 					/>
 				</svg>
 
-				<h2
+				<h1
 					class="text-3xl font-light text-primary md:text-4xl lg:text-[2.5rem] lg:leading-tight"
 					style="font-family: var(--font-heading);"
 				>
-					<span class="text-secondary italic">«Мебель для жизни»</span>
-				</h2>
+					<span class="text-secondary italic">Мебельная фабрика «ЗОВ»</span>
+				</h1>
 
 				<div class="mt-8 space-y-4">
 					<p class="text-base leading-relaxed text-secondary">
