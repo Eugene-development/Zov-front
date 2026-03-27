@@ -35,16 +35,8 @@
 	function handleCitySelect(city) {
 		const timeTaken = Date.now() - botFilterMountedTime;
 
-		// Silent check: honeypot or too fast (< 100ms)
-		if (v_token !== '' || timeTaken < 100) {
-			console.warn('Bot detected by silent check!');
-			toastState.add({
-				type: 'error',
-				title: 'Ошибка',
-				message: 'Обнаружена подозрительная активность. Действие заблокировано.'
-			});
-			return;
-		}
+		// Silent check: honeypot or too fast (< 1000ms)
+		if (v_token !== '' || timeTaken < 1000) return;
 
 		regionState.setCity(city);
 		regionState.confirmCity();
@@ -54,6 +46,11 @@
 			type: 'success',
 			message: 'Город выбран'
 		});
+
+		// Metrics goal
+		if (typeof window !== 'undefined' && typeof window.ym === 'function') {
+			window.ym(93835019, 'reachGoal', 'sity_success');
+		}
 	}
 
 	onMount(() => {

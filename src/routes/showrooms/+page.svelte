@@ -12,6 +12,14 @@
 	let mapContainer = $state(null);
 	let mapInstance = $state(null);
 	let searchQuery = $state('');
+	let selectedPlace = $state(null);
+
+	$effect(() => {
+		// Reset selection when city or search changes
+		regionState.selectedCity;
+		searchQuery;
+		selectedPlace = null;
+	});
 
 	onMount(() => {
 		heroVisible = true;
@@ -766,45 +774,53 @@
 
 		mapInstance.geoObjects.removeAll();
 
-		const CustomPin =
-			'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0MCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjAgMEM4Ljk1NCAwIDAgOC45NTQgMCAyMGMwIDE0LjQgMjAgMjggMjAgMjhzMjAtMTMuNiAyMC0yOGMwLTExLjA0Ni04Ljk1NC0yMC0yMC0yMFoiIGZpbGw9IiM4YjczNTUiLz48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSI4IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==';
+		const placesToShow = selectedPlace ? [selectedPlace] : filteredShowrooms.flatMap((c) => c.places);
 
-		filteredShowrooms.forEach((city) => {
-			city.places.forEach((place) => {
-				if (place.coords && place.coords.length === 2) {
-					const placemark = new window.ymaps.Placemark(
-						place.coords,
-						{
-							balloonContentHeader: place.name || 'Салон ЗОВ',
-							balloonContentBody: place.address,
-							balloonContentFooter: place.hours
-						},
-						{
-							preset: 'islands#brownIcon',
-							hideIconOnBalloonOpen: false,
-							balloonOffset: [0, -30]
-						}
-					);
-					mapInstance.geoObjects.add(placemark);
+		placesToShow.forEach((place) => {
+			if (place.coords && place.coords.length === 2) {
+				const placemark = new window.ymaps.Placemark(
+					place.coords,
+					{
+						balloonContentHeader: place.name || 'Салон ЗОВ',
+						balloonContentBody: place.address,
+						balloonContentFooter: place.hours
+					},
+					{
+						preset: 'islands#brownIcon',
+						hideIconOnBalloonOpen: false,
+						balloonOffset: [0, -30],
+						balloonAutoPan: false
+					}
+				);
+				mapInstance.geoObjects.add(placemark);
+
+				if (selectedPlace) {
+					placemark.balloon.open();
 				}
-			});
+			}
 		});
 
-		const bounds = mapInstance.geoObjects.getBounds();
-		if (bounds) {
-			mapInstance
-				.setBounds(bounds, {
-					checkZoomRange: true,
-					zoomMargin: 50,
-					duration: 400
-				})
-				.then(() => {
-					if (mapInstance.getZoom() > 15) {
-						mapInstance.setZoom(15);
-					}
-				});
+		if (selectedPlace) {
+			mapInstance.setCenter(selectedPlace.coords, 16, {
+				duration: 400
+			});
 		} else {
-			mapInstance.setCenter([54.5, 31.0], 5);
+			const bounds = mapInstance.geoObjects.getBounds();
+			if (bounds) {
+				mapInstance
+					.setBounds(bounds, {
+						checkZoomRange: true,
+						zoomMargin: 50,
+						duration: 400
+					})
+					.then(() => {
+						if (mapInstance.getZoom() > 15) {
+							mapInstance.setZoom(15);
+						}
+					});
+			} else {
+				mapInstance.setCenter([54.5, 31.0], 5);
+			}
 		}
 	});
 </script>
@@ -1001,8 +1017,13 @@
 
 								<div class="mt-6 flex flex-col gap-6">
 									{#each data.places as place, i ((place.name ?? place.address) + i)}
-										<div
-											class="group border-l-2 border-border-light pl-6 transition-colors duration-300 hover:border-secondary"
+										<button
+											class="group block w-full border-l-2 border-border-light pl-6 text-left transition-colors duration-300 hover:border-secondary"
+											class:!border-secondary={selectedPlace === place}
+											onclick={() => {
+												selectedPlace = selectedPlace === place ? null : place;
+												document.getElementById('network-section')?.scrollIntoView({ behavior: 'smooth' });
+											}}
 										>
 											{#if place.name}
 												<h4 class="text-base font-medium text-primary">{place.name}</h4>
@@ -1028,7 +1049,7 @@
 													{place.hours}
 												</div>
 											</div>
-										</div>
+										</button>
 									{/each}
 								</div>
 							</div>
