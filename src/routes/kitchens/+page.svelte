@@ -104,7 +104,7 @@
 				<div class="order-1 lg:order-2 lg:w-1/2">
 					<div class="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-elevated">
 						<img
-							src="/images/kitchen_design_pro.png"
+							src="https://storage.yandexcloud.net/zovtop/foto/technoljergbmeogkmbktgg.jpg"
 							alt="Проектирование кухни технологами"
 							class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
 						/>
