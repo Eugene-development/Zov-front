@@ -140,6 +140,9 @@
 				title: 'Вы успешно записаны',
 				message: 'Менеджер салона свяжется с вами для подтверждения времени.'
 			});
+			if (typeof window !== 'undefined' && (window as any).ym) {
+				(window as any).ym(93835019, 'reachGoal', 'salon_target');
+			}
 			onSuccess?.();
 		} catch (err) {
 			console.error('ShowroomForm submit error:', err);

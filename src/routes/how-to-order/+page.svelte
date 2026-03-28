@@ -2,11 +2,11 @@
 	import { onMount } from 'svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import DesignerForm from '$lib/components/DesignerForm.svelte';
-	import StyleConsultationForm from '$lib/components/StyleConsultationForm.svelte';
+	import ConsultationForm from '$lib/components/ConsultationForm.svelte';
 
 	let heroVisible = $state(false);
 	let isDesignerModalOpen = $state(false);
-	let isStyleModalOpen = $state(false);
+	let isConsultationModalOpen = $state(false);
 	let sections = $state({});
 
 	onMount(() => {
@@ -266,7 +266,7 @@
 			</p>
 			<div class="mt-10 flex flex-col items-center justify-center gap-4">
 				<button
-					onclick={() => (isStyleModalOpen = true)}
+					onclick={() => (isConsultationModalOpen = true)}
 					class="inline-flex w-full cursor-pointer items-center justify-center gap-2 border border-white/20 px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-white/50 sm:w-auto rounded-sm"
 				>
 					Бесплатная консультация
@@ -295,6 +295,6 @@
 	<DesignerForm onSuccess={() => (isDesignerModalOpen = false)} />
 </Modal>
 
-<Modal bind:showModal={isStyleModalOpen} title="Бесплатная консультация">
-	<StyleConsultationForm onSuccess={() => (isStyleModalOpen = false)} />
+<Modal bind:showModal={isConsultationModalOpen} title="Бесплатная консультация">
+	<ConsultationForm onSuccess={() => (isConsultationModalOpen = false)} />
 </Modal>

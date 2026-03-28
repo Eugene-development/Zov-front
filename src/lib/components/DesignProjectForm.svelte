@@ -138,6 +138,9 @@
 				title: 'Заявка на проект принята',
 				message: 'Наш дизайнер свяжется с вами для обсуждения деталей вашего проекта.'
 			});
+			if (typeof window !== 'undefined' && (window as any).ym) {
+				(window as any).ym(93835019, 'reachGoal', 'project_target');
+			}
 			onSuccess?.();
 		} catch (err) {
 			console.error('DesignProjectForm submit error:', err);

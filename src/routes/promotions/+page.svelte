@@ -2,11 +2,11 @@
 	import { onMount } from 'svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import PromoConditionsModal from '$lib/components/PromoConditionsModal.svelte';
-	import StyleConsultationForm from '$lib/components/StyleConsultationForm.svelte';
+	import ConsultationForm from '$lib/components/ConsultationForm.svelte';
 	import QuizForm from '$lib/components/QuizForm.svelte';
 
 	let heroVisible = $state(false);
-	let isStyleModalOpen = $state(false);
+	let isConsultationModalOpen = $state(false);
 	let isPromoConditionsModalOpen = $state(false);
 	let isQuizModalOpen = $state(false);
 	let selectedConditions = $state([]);
@@ -651,7 +651,7 @@
 									Условия
 								</button>
 								<button
-									onclick={() => (isStyleModalOpen = true)}
+									onclick={() => (isConsultationModalOpen = true)}
 									class="group/btn flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-sm border border-primary bg-primary px-4 py-3 text-[10px] tracking-[0.12em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary"
 								>
 									Консультация
@@ -735,7 +735,7 @@
 					</p>
 					<div class="mt-8 flex flex-wrap gap-4">
 						<button
-							onclick={() => (isStyleModalOpen = true)}
+							onclick={() => (isConsultationModalOpen = true)}
 							class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-accent bg-accent px-7 py-3.5 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-300 hover:bg-accent-light"
 						>
 							Консультация по акции
@@ -916,8 +916,8 @@
 </section>
 
 <!-- Modals -->
-<Modal bind:showModal={isStyleModalOpen} title="Бесплатная консультация">
-	<StyleConsultationForm onSuccess={() => (isStyleModalOpen = false)} />
+<Modal bind:showModal={isConsultationModalOpen} title="Бесплатная консультация">
+	<ConsultationForm onSuccess={() => (isConsultationModalOpen = false)} />
 </Modal>
 
 <Modal bind:showModal={isQuizModalOpen} title="Экспресс расчёт мебели за 1 час">

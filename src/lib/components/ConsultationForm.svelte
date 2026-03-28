@@ -147,11 +147,14 @@
 			toastState.add({
 				type: 'success',
 				title: 'Заявка успешно отправлена',
-				message: 'Наш дизайнер свяжется с вами в течение 15 минут для консультации по стилю.'
+				message: 'Наш дизайнер свяжется с вами в течение 30 минут для консультации.'
 			});
+			if (typeof window !== 'undefined' && (window as any).ym) {
+				(window as any).ym(93835019, 'reachGoal', 'consultation_target');
+			}
 			onSuccess?.();
 		} catch (err) {
-			console.error('StyleConsultationForm submit error:', err);
+			console.error('ConsultationForm submit error:', err);
 			toastState.add({
 				type: 'error',
 				title: 'Ошибка отправки',
@@ -178,8 +181,7 @@
 	</div>
 
 	<div class="relative flex flex-col gap-2">
-		<label class="text-xs tracking-wider text-secondary uppercase" for="phone"
-			>Номер телефона</label
+		<label class="text-xs tracking-wider text-secondary uppercase" for="phone">Номер телефона</label
 		>
 		<input
 			type="tel"
@@ -214,7 +216,7 @@
 	<button
 		type="submit"
 		disabled={isSubmitting}
-		class="group mt-4 inline-flex items-center justify-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary disabled:opacity-70 rounded-sm"
+		class="group mt-4 inline-flex items-center justify-center gap-3 rounded-sm border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary disabled:opacity-70"
 	>
 		{#if isSubmitting}
 			<span

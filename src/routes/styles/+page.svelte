@@ -2,10 +2,10 @@
 	import { fade } from 'svelte/transition';
 	import Modal from '$lib/components/Modal.svelte';
 	import ShowroomForm from '$lib/components/ShowroomForm.svelte';
-	import StyleConsultationForm from '$lib/components/StyleConsultationForm.svelte';
+	import ConsultationForm from '$lib/components/ConsultationForm.svelte';
 
 	let isShowroomModalOpen = $state(false);
-	let isStyleModalOpen = $state(false);
+	let isConsultationModalOpen = $state(false);
 
 	// Data for styles
 	const styles = [
@@ -242,7 +242,7 @@
 			</button>
 			<!-- <button
 				onclick={() => {
-					isStyleModalOpen = true;
+					isConsultationModalOpen = true;
 				}}
 				class="group relative ml-4 inline-flex items-center justify-center gap-3 overflow-hidden rounded-sm border border-primary bg-transparent px-8 py-4 text-sm tracking-wider text-primary uppercase transition-all hover:bg-primary-light hover:text-secondary active:scale-95"
 			>
@@ -256,7 +256,7 @@
 		<ShowroomForm onSuccess={() => (isShowroomModalOpen = false)} />
 	</Modal>
 
-	<Modal bind:showModal={isStyleModalOpen} title="Бесплатная консультация">
-		<StyleConsultationForm onSuccess={() => (isStyleModalOpen = false)} />
+	<Modal bind:showModal={isConsultationModalOpen} title="Бесплатная консультация">
+		<ConsultationForm onSuccess={() => (isConsultationModalOpen = false)} />
 	</Modal>
 </div>
