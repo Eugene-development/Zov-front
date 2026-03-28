@@ -229,6 +229,10 @@
 	function openConditions(conds) {
 		selectedConditions = conds || [];
 		isPromoConditionsModalOpen = true;
+		if (typeof window !== 'undefined' && typeof window.ym === 'function') {
+			window.ym(93835019, 'reachGoal', 'terms_of_promotions');
+			console.log('Цель terms_of_promotions отправлена в Метрику');
+		}
 	}
 
 	function pad(n) {

@@ -63,7 +63,16 @@
 			observer.observe(el);
 		});
 
+		// Яндекс Метрика: цель при пребывании 30+ секунд на странице Салоны
+		const salonTimer = setTimeout(() => {
+			if (typeof window !== 'undefined' && typeof window.ym === 'function') {
+				window.ym(93835019, 'reachGoal', 'page_salon_30');
+				console.log('Цель page_salon_30 отправлена в Метрику');
+			}
+		}, 30000);
+
 		return () => {
+			clearTimeout(salonTimer);
 			observer.disconnect();
 			if (mapInstance) {
 				mapInstance.destroy();

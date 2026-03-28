@@ -69,6 +69,10 @@
 	}
 
 	function goToContacts() {
+		if (typeof window !== 'undefined' && (window as any).ym) {
+			(window as any).ym(93835019, 'reachGoal', 'kviz_4_step');
+			console.log('Цель kviz_4_step отправлена в Метрику');
+		}
 		step = 5;
 	}
 

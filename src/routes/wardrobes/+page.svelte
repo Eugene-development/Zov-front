@@ -6,8 +6,29 @@
 	import DesignProjectForm from '$lib/components/DesignProjectForm.svelte';
 
 	let isVisible = $state(false);
+	let galleryVisible = $state(false);
 	let isShowroomModalOpen = $state(false);
 	let isDesignProjectModalOpen = $state(false);
+	
+	function viewport(element, callback) {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						callback();
+						observer.unobserve(element);
+					}
+				});
+			},
+			{ threshold: 0.1, rootMargin: '50px' }
+		);
+		observer.observe(element);
+		return {
+			destroy() {
+				observer.disconnect();
+			}
+		};
+	}
 
 	onMount(() => {
 		isVisible = true;
@@ -47,7 +68,7 @@
 
 <main class="min-h-screen bg-surface-warm">
 	<!-- Hero: Split Layout -->
-	<section class="grid min-h-[70vh] lg:grid-cols-2">
+	<section class="grid min-h-[calc(100vh-64px)] lg:min-h-[calc(100vh-120px)] lg:grid-cols-2 relative lg:border-b border-border-light">
 		<div class="flex shrink-0 flex-col justify-center bg-white px-8 py-16 lg:px-20">
 			{#if isVisible}
 				<div in:fly={{ x: -30, duration: 1000, delay: 100 }}>
@@ -95,6 +116,7 @@
 				<div class="absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/10"></div>
 			</button>
 		</div>
+
 	</section>
 
 	<!-- Bento Box Features (Difference in structure from Kitchens) -->
@@ -128,6 +150,77 @@
 					<p class="leading-relaxed text-secondary">{feature.desc}</p>
 				</div>
 			{/each}
+		</div>
+	</section>
+
+	<!-- Gallery Section -->
+	<section class="bg-white px-6 py-24" use:viewport={() => (galleryVisible = true)}>
+		<div class="mx-auto max-w-7xl">
+			<div class="mb-16 text-center">
+				{#if galleryVisible}
+					<div in:fly={{ y: 30, duration: 1000 }}>
+						<div class="mb-4 text-sm font-medium tracking-[0.2em] text-accent uppercase">
+							Галерея
+						</div>
+						<h2
+							class="mb-6 text-3xl font-light tracking-wide text-primary uppercase lg:text-4xl"
+							style="font-family: var(--font-heading);"
+						>
+							Наши шкафы и гардеробные
+						</h2>
+						<p class="mx-auto max-w-2xl text-lg leading-relaxed font-light text-secondary">
+							Ознакомьтесь с реализованными проектами систем хранения. Мы создаем мебель, которая
+							идеально вписывается в ваше пространство и образ жизни.
+						</p>
+					</div>
+				{/if}
+			</div>
+
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+				{#each [1, 2, 3, 4, 5, 6] as item, i}
+					{#if galleryVisible}
+						<div
+							in:fly={{ y: 50, duration: 1000, delay: 200 + i * 150 }}
+							class="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-surface-warm shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-elevated"
+						>
+							<div
+								class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-200 text-secondary/30 transition-transform duration-700 group-hover:scale-105"
+							>
+								<svg
+									class="mb-4 h-12 w-12 opacity-50"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1"
+										d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+									/>
+								</svg>
+								<span class="text-sm font-medium tracking-[0.2em] uppercase">Проект {item}</span>
+							</div>
+							<div
+								class="absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/5"
+							></div>
+							<div
+								class="absolute bottom-0 left-0 right-0 translate-y-full bg-white/90 p-6 backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0"
+							>
+								<h3
+									class="mb-2 text-lg font-light tracking-wide text-primary"
+									style="font-family: var(--font-heading);"
+								>
+									Шкаф/гардеробная {item}
+								</h3>
+								<p class="text-sm text-secondary">
+									Индивидуальное наполнение, премиальные материалы
+								</p>
+							</div>
+						</div>
+					{/if}
+				{/each}
+			</div>
 		</div>
 	</section>
 

@@ -3,11 +3,13 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import DesignerForm from '$lib/components/DesignerForm.svelte';
 	import ConsultationForm from '$lib/components/ConsultationForm.svelte';
+	import PromoCodeForm from '$lib/components/PromoCodeForm.svelte';
 	import { regionState } from '$lib/state/region.svelte';
 
 	let heroVisible = $state(false);
 	let isDesignerModalOpen = $state(false);
 	let isConsultationModalOpen = $state(false);
+	let isPromoModalOpen = $state(false);
 	let sections = $state({});
 
 	onMount(() => {
@@ -172,12 +174,12 @@
 							/>
 						</svg>
 					</button>
-					<a
-						href="/about"
-						class="group inline-flex items-center gap-3 rounded-sm border border-border-medium bg-white/60 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary"
-					>
-						О фабрике
-					</a>
+					<button
+						onclick={() => (isPromoModalOpen = true)}
+						class="group inline-flex items-center gap-3 rounded-sm border border-border-medium bg-white/60 px-8 py-4 text-xs tracking-[0.15em] text-primary uppercase backdrop-blur-sm transition-all duration-500 hover:border-secondary hover:text-secondary"					>
+						
+						Получить промокод на 10% скидку
+					</button>
 				</div>
 			</div>
 		</div>
@@ -586,4 +588,8 @@
 
 <Modal bind:showModal={isConsultationModalOpen} title="Бесплатная консультация">
 	<ConsultationForm onSuccess={() => (isConsultationModalOpen = false)} />
+</Modal>
+
+<Modal bind:showModal={isPromoModalOpen} title="Промокод на скидку 10%">
+	<PromoCodeForm onSuccess={() => (isPromoModalOpen = false)} />
 </Modal>
