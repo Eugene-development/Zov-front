@@ -9,7 +9,17 @@
 	let galleryVisible = $state(false);
 	let isShowroomModalOpen = $state(false);
 	let isDesignProjectModalOpen = $state(false);
-	
+
+	let selectedImage = $state(null);
+	let scrollContainer = $state();
+
+	function scrollRight() {
+		if (scrollContainer) {
+			const scrollAmount = scrollContainer.offsetWidth * 0.8;
+			scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+		}
+	}
+
 	const wardrobeProjects = [
 		{
 			title: 'Шкаф/гардеробная 1',
@@ -40,9 +50,19 @@
 			title: 'Шкаф/гардеробная 6',
 			description: 'Индивидуальное наполнение, премиальные материалы',
 			image: 'https://zovofficial.com/image/cache/wp/gj/products/kuhni/boston-ru/cam-1-1600x0.webp'
+		},
+		{
+			title: 'Шкаф/гардеробная 7',
+			description: 'Индивидуальное наполнение, премиальные материалы',
+			image: 'https://zovofficial.com/image/cache/wp/gj/products/kuhni/boston-ru/cam-1-1600x0.webp'
+		},
+		{
+			title: 'Шкаф/гардеробная 8',
+			description: 'Индивидуальное наполнение, премиальные материалы',
+			image: 'https://zovofficial.com/image/cache/wp/gj/products/kuhni/boston-ru/cam-1-1600x0.webp'
 		}
 	];
-	
+
 	function viewport(element, callback) {
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -101,7 +121,9 @@
 
 <main class="min-h-screen bg-surface-warm">
 	<!-- Hero: Split Layout -->
-	<section class="grid min-h-[calc(100vh-64px)] lg:min-h-[calc(100vh-120px)] lg:grid-cols-2 relative lg:border-b border-border-light">
+	<section
+		class="relative grid min-h-[calc(100vh-64px)] border-border-light lg:min-h-[calc(100vh-120px)] lg:grid-cols-2 lg:border-b"
+	>
 		<div class="flex shrink-0 flex-col justify-center bg-white px-8 py-16 lg:px-20">
 			{#if isVisible}
 				<div in:fly={{ x: -30, duration: 1000, delay: 100 }}>
@@ -123,10 +145,15 @@
 					</p>
 					<button
 						onclick={() => (isDesignProjectModalOpen = true)}
-						class="group inline-flex cursor-pointer items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-primary rounded-sm"
+						class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-primary"
 					>
 						Спроектировать шкаф
-						<svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<svg
+							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
 							<path
 								stroke-linecap="round"
 								stroke-linejoin="round"
@@ -140,20 +167,119 @@
 		</div>
 		<div class="relative hidden overflow-hidden bg-border-light lg:block">
 			<!-- Hero Placeholder Diagram inside -->
-			<button onclick={() => (isDesignProjectModalOpen = true)} class="absolute inset-0 block group w-full text-left">
+			<button
+				onclick={() => (isDesignProjectModalOpen = true)}
+				class="group absolute inset-0 block w-full text-left"
+			>
 				<img
 					src="/images/promo-wardrobe.png"
 					alt="Премиальная гардеробная ЗОВ"
 					class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
 				/>
-				<div class="absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/10"></div>
+				<div
+					class="absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/10"
+				></div>
 			</button>
 		</div>
+	</section>
 
+	<!-- Gallery Section -->
+	<section class="bg-white px-6 py-24 xl:px-1" use:viewport={() => (galleryVisible = true)}>
+		<div class="mx-auto max-w-screen-xl">
+			<div class="mb-10 text-center">
+				{#if galleryVisible}
+					<div in:fly={{ y: 30, duration: 1000 }}>
+						<div class="mb-4 text-sm font-medium tracking-[0.2em] text-accent uppercase">
+							Галерея
+						</div>
+						<h2
+							class="mb-6 text-3xl font-light tracking-wide text-primary uppercase lg:text-4xl"
+							style="font-family: var(--font-heading);"
+						>
+							Наши шкафы и гардеробные
+						</h2>
+						<p class="mx-auto max-w-2xl text-lg leading-relaxed font-light text-secondary">
+							Ознакомьтесь с реализованными проектами систем хранения. Мы создаем мебель, которая
+							идеально вписывается в ваше пространство.
+						</p>
+					</div>
+				{/if}
+			</div>
+
+			{#if wardrobeProjects.length > 3}
+				<div class="mb-4 flex items-center justify-end gap-6">
+					<div class="flex items-center gap-4">
+						<span class="text-[10px] tracking-[0.2em] text-secondary/50 uppercase"
+							>Листайте вправо</span
+						>
+					</div>
+
+					<button
+						onclick={scrollRight}
+						class="group hidden h-10 w-10 items-center justify-center rounded-full border border-border-light bg-white/80 text-primary shadow-soft transition-all duration-300 hover:bg-primary hover:text-white lg:flex"
+						aria-label="Листать вправо"
+					>
+						<svg
+							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M9 5l7 7-7 7"
+							/>
+						</svg>
+					</button>
+				</div>
+			{/if}
+
+			<div class="relative">
+				<div
+					bind:this={scrollContainer}
+					class="no-scrollbar -mx-6 flex snap-x snap-mandatory gap-8 overflow-x-auto scroll-smooth px-6 pb-12 lg:mx-0 lg:px-0"
+				>
+					{#each wardrobeProjects as project, i}
+						{#if galleryVisible}
+							<button
+								type="button"
+								in:fly={{ y: 50, duration: 1000, delay: 200 + i * 150 }}
+								class="group relative aspect-[4/3] min-w-[85vw] cursor-zoom-in snap-start overflow-hidden rounded-2xl bg-surface-warm p-0 text-left shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-elevated md:min-w-[45vw] lg:min-w-[calc(33.333%-22px)]"
+								onclick={() => (selectedImage = project.image)}
+							>
+								<img
+									src={project.image}
+									alt={project.title}
+									class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+								/>
+								<div
+									class="absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/5"
+								></div>
+								<div
+									class="absolute right-0 bottom-0 left-0 translate-y-full bg-white/90 p-6 backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0"
+								>
+									<h3
+										class="mb-2 text-lg font-light tracking-wide text-primary"
+										style="font-family: var(--font-heading);"
+									>
+										{project.title}
+									</h3>
+									<p class="text-sm text-secondary">
+										{project.description}
+									</p>
+								</div>
+							</button>
+						{/if}
+					{/each}
+				</div>
+			</div>
+		</div>
 	</section>
 
 	<!-- Bento Box Features (Difference in structure from Kitchens) -->
-	<section class="mx-auto max-w-screen-xl px-6 xl:px-1 py-24">
+	<section class="mx-auto max-w-screen-xl px-6 py-24 xl:px-1">
 		<div class="mb-16 text-center">
 			<h2
 				class="text-3xl font-light tracking-wide text-primary lg:text-4xl"
@@ -186,66 +312,8 @@
 		</div>
 	</section>
 
-	<!-- Gallery Section -->
-	<section class="bg-white px-6 xl:px-1 py-24" use:viewport={() => (galleryVisible = true)}>
-		<div class="mx-auto max-w-screen-xl">
-			<div class="mb-16 text-center">
-				{#if galleryVisible}
-					<div in:fly={{ y: 30, duration: 1000 }}>
-						<div class="mb-4 text-sm font-medium tracking-[0.2em] text-accent uppercase">
-							Галерея
-						</div>
-						<h2
-							class="mb-6 text-3xl font-light tracking-wide text-primary uppercase lg:text-4xl"
-							style="font-family: var(--font-heading);"
-						>
-							Наши шкафы и гардеробные
-						</h2>
-						<p class="mx-auto max-w-2xl text-lg leading-relaxed font-light text-secondary">
-							Ознакомьтесь с реализованными проектами систем хранения. Мы создаем мебель, которая
-							идеально вписывается в ваше пространство и образ жизни.
-						</p>
-					</div>
-				{/if}
-			</div>
-
-			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-				{#each wardrobeProjects as project, i}
-					{#if galleryVisible}
-						<div
-							in:fly={{ y: 50, duration: 1000, delay: 200 + i * 150 }}
-							class="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-surface-warm shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-elevated"
-						>
-							<img
-								src={project.image}
-								alt={project.title}
-								class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-							/>
-							<div
-								class="absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/5"
-							></div>
-							<div
-								class="absolute bottom-0 left-0 right-0 translate-y-full bg-white/90 p-6 backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0"
-							>
-								<h3
-									class="mb-2 text-lg font-light tracking-wide text-primary"
-									style="font-family: var(--font-heading);"
-								>
-									{project.title}
-								</h3>
-								<p class="text-sm text-secondary">
-									{project.description}
-								</p>
-							</div>
-						</div>
-					{/if}
-				{/each}
-			</div>
-		</div>
-	</section>
-
 	<!-- Types of Wardrobes: Horizontal/Masonry visual approach -->
-	<section class="overflow-hidden bg-white px-6 xl:px-1 py-24">
+	<section class="overflow-hidden bg-white px-6 py-24 xl:px-1">
 		<div class="mx-auto max-w-screen-xl">
 			<div class="mb-16 flex flex-col items-end justify-between gap-8 lg:flex-row">
 				<div class="max-w-2xl">
@@ -343,7 +411,7 @@
 	</section>
 
 	<!-- Minimal Footer CTA -->
-	<section class="border-t border-border-light bg-surface-warm px-6 xl:px-1 py-24">
+	<section class="border-t border-border-light bg-surface-warm px-6 py-24 xl:px-1">
 		<div class="mx-auto max-w-4xl text-center">
 			<h2
 				class="mb-8 text-3xl font-light tracking-wide text-primary lg:text-5xl"
@@ -352,12 +420,22 @@
 				Закажите расчет стоимости
 			</h2>
 			<button
-				class="group inline-flex cursor-pointer items-center gap-3 border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-primary rounded-sm"
+				class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-primary bg-primary px-8 py-4 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:bg-transparent hover:text-primary"
 				onclick={() => (isShowroomModalOpen = true)}
 			>
 				Запись в салон
-				<svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+				<svg
+					class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="1.5"
+						d="M14 5l7 7m0 0l-7 7m7-7H3"
+					/>
 				</svg>
 			</button>
 		</div>
@@ -371,3 +449,44 @@
 <Modal bind:showModal={isDesignProjectModalOpen} title="Заказ дизайн-проекта">
 	<DesignProjectForm onSuccess={() => (isDesignProjectModalOpen = false)} />
 </Modal>
+
+{#if selectedImage}
+	<div
+		transition:fade={{ duration: 300 }}
+		class="fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-sm lg:p-12"
+	>
+		<!-- Background overlay button -->
+		<button
+			type="button"
+			class="absolute inset-0 h-full w-full bg-primary/95 transition-colors"
+			onclick={() => (selectedImage = null)}
+			aria-label="Закрыть"
+		></button>
+
+		<!-- Content container -->
+		<div class="relative z-[110] flex items-center justify-center">
+			<button
+				type="button"
+				class="absolute -top-12 -right-12 z-[120] flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
+				onclick={() => (selectedImage = null)}
+				aria-label="Закрыть"
+			>
+				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M6 18L18 6M6 6l12 12"
+					/>
+				</svg>
+			</button>
+
+			<img
+				in:fly={{ y: 50, duration: 500, delay: 200 }}
+				src={selectedImage}
+				alt="Проект крупным планом"
+				class="max-h-[90vh] max-w-full rounded-sm object-contain shadow-2xl"
+			/>
+		</div>
+	</div>
+{/if}

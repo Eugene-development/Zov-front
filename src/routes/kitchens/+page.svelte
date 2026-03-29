@@ -10,7 +10,7 @@
 	let cycleVisible = $state(false);
 	let isShowroomModalOpen = $state(false);
 	let isDesignProjectModalOpen = $state(false);
-	
+
 	const kitchenProjects = $state([
 		{
 			title: 'Кухонный гарнитур 1',
@@ -41,8 +41,29 @@
 			title: 'Кухонный гарнитур 6',
 			description: 'Премиальная отделка, современный дизайн',
 			image: 'https://zovofficial.com/image/cache/wp/gj/products/kuhni/boston-ru/cam-1-1600x0.webp'
+		},
+		{
+			title: 'Кухонный гарнитур 7',
+			description: 'Премиальная отделка, современный дизайн',
+			image: 'https://zovofficial.com/image/cache/wp/gj/products/kuhni/boston-ru/cam-1-1600x0.webp'
+		},
+		{
+			title: 'Кухонный гарнитур 8',
+			description: 'Премиальная отделка, современный дизайн',
+			image: 'https://zovofficial.com/image/cache/wp/gj/products/kuhni/boston-ru/cam-1-1600x0.webp'
 		}
 	]);
+
+	let scrollContainer = $state();
+
+	let selectedImage = $state(null);
+
+	function scrollRight() {
+		if (scrollContainer) {
+			const scrollAmount = scrollContainer.offsetWidth * 0.8;
+			scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+		}
+	}
 
 	function viewport(element, callback) {
 		const observer = new IntersectionObserver(
@@ -80,7 +101,7 @@
 <main class="bg-white">
 	<!-- Hero Section -->
 	<section
-		class="relative flex min-h-[calc(100vh-64px)] lg:min-h-[calc(100vh-120px)] items-center justify-center overflow-hidden bg-primary text-inverse"
+		class="relative flex min-h-[calc(100vh-64px)] items-center justify-center overflow-hidden bg-primary text-inverse lg:min-h-[calc(100vh-120px)]"
 	>
 		<div class="absolute inset-0 z-0">
 			<img
@@ -92,7 +113,7 @@
 				class="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-primary/95"
 			></div>
 		</div>
-		<div class="relative z-10 mx-auto max-w-screen-xl px-6 xl:px-1 text-center">
+		<div class="relative z-10 mx-auto max-w-screen-xl px-6 text-center xl:px-1">
 			{#if isVisible}
 				<h1
 					in:fly={{ y: 30, duration: 1000, delay: 100 }}
@@ -147,9 +168,9 @@
 	</section>
 
 	<!-- Gallery Section -->
-	<section class="bg-surface-warm px-6 xl:px-1 py-24" use:viewport={() => (galleryVisible = true)}>
+	<section class="bg-surface-warm px-6 py-24 xl:px-1" use:viewport={() => (galleryVisible = true)}>
 		<div class="mx-auto max-w-screen-xl">
-			<div class="mb-16 text-center">
+			<div class="mb-10 text-center">
 				{#if galleryVisible}
 					<div in:fly={{ y: 30, duration: 1000 }}>
 						<div class="mb-4 text-sm font-medium tracking-[0.2em] text-accent uppercase">
@@ -162,49 +183,91 @@
 							Наши гарнитуры
 						</h2>
 						<p class="mx-auto max-w-2xl text-lg leading-relaxed font-light text-secondary">
-							Ознакомьтесь с вариантами решений для вашей кухни. Идеальные пропорции,
-							инновационные материалы и европейская фурнитура.
+							Ознакомьтесь с вариантами решений для вашей кухни. Идеальные пропорции, инновационные
+							материалы и европейская фурнитура.
 						</p>
 					</div>
 				{/if}
 			</div>
 
-			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-				{#each kitchenProjects as project, i}
-					{#if galleryVisible}
-						<div
-							in:fly={{ y: 50, duration: 1000, delay: 200 + i * 150 }}
-							class="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-elevated"
+			{#if kitchenProjects.length > 3}
+				<div class="mb-4 flex items-center justify-end gap-6">
+					<div class="flex items-center gap-4">
+						<span class="text-[10px] tracking-[0.2em] text-secondary/50 uppercase"
+							>Листайте вправо</span
 						>
-							<img
-								src={project.image}
-								alt={project.title}
-								class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+					</div>
+
+					<button
+						onclick={scrollRight}
+						class="group hidden h-10 w-10 items-center justify-center rounded-full border border-border-light bg-white/80 text-primary shadow-soft transition-all duration-300 hover:bg-primary hover:text-white lg:flex"
+						aria-label="Листать вправо"
+					>
+						<svg
+							class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M9 5l7 7-7 7"
 							/>
-							<div class="absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/5"></div>
-							<div class="absolute bottom-0 left-0 right-0 translate-y-full bg-white/90 p-6 backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0">
-								<h3 class="mb-2 text-lg font-light tracking-wide text-primary" style="font-family: var(--font-heading);">
-									{project.title}
-								</h3>
-								<p class="text-sm text-secondary">{project.description}</p>
-							</div>
-						</div>
-					{/if}
-				{/each}
+						</svg>
+					</button>
+				</div>
+			{/if}
+
+			<div class="relative">
+				<div
+					bind:this={scrollContainer}
+					class="no-scrollbar -mx-6 flex snap-x snap-mandatory gap-8 overflow-x-auto px-6 pb-12 scroll-smooth lg:mx-0 lg:px-0"
+				>
+					{#each kitchenProjects as project, i}
+						{#if galleryVisible}
+							<button
+								type="button"
+								in:fly={{ y: 50, duration: 1000, delay: 200 + i * 150 }}
+								class="group relative aspect-[4/3] min-w-[85vw] snap-start cursor-zoom-in overflow-hidden rounded-2xl bg-white p-0 text-left shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-elevated md:min-w-[45vw] lg:min-w-[calc(33.333%-22px)]"
+								onclick={() => (selectedImage = project.image)}
+							>
+								<img
+									src={project.image}
+									alt={project.title}
+									class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+								/>
+								<div
+									class="absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/5"
+								></div>
+								<div
+									class="absolute right-0 bottom-0 left-0 translate-y-full bg-white/90 p-6 backdrop-blur-md transition-transform duration-500 group-hover:translate-y-0"
+								>
+									<h3
+										class="mb-2 text-lg font-light tracking-wide text-primary"
+										style="font-family: var(--font-heading);"
+									>
+										{project.title}
+									</h3>
+									<p class="text-sm text-secondary">{project.description}</p>
+								</div>
+							</button>
+						{/if}
+					{/each}
+				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- Content Sections -->
-	<section class="relative px-6 xl:px-1 py-24" use:viewport={() => (cycleVisible = true)}>
+	<section class="relative px-6 py-24 xl:px-1" use:viewport={() => (cycleVisible = true)}>
 		<div class="mx-auto flex max-w-screen-xl flex-col gap-32">
 			<!-- Section Header -->
 			<div class="mb-16 text-center">
 				{#if cycleVisible}
 					<div in:fly={{ y: 30, duration: 1000 }}>
-						<div class="mb-4 text-sm font-medium tracking-[0.2em] text-accent uppercase">
-							Этапы
-						</div>
+						<div class="mb-4 text-sm font-medium tracking-[0.2em] text-accent uppercase">Этапы</div>
 						<h2
 							class="mb-6 text-3xl font-light tracking-wide text-primary uppercase lg:text-4xl"
 							style="font-family: var(--font-heading);"
@@ -273,9 +336,9 @@
 					</h2>
 					<p class="mb-6 leading-relaxed text-secondary">
 						Производство кухонь ЗОВ — это симбиоз передовых роботизированных линий и ручного
-						мастерства. Мы используем европейское оборудование сверхвысокой
-						точности для распила и кромления, что гарантирует идеальную геометрию фасадов,
-						долговечность фурнитуры и высочайшее качество готовых изделий.
+						мастерства. Мы используем европейское оборудование сверхвысокой точности для распила и
+						кромления, что гарантирует идеальную геометрию фасадов, долговечность фурнитуры и
+						высочайшее качество готовых изделий.
 					</p>
 					<div class="h-px w-24 bg-accent"></div>
 				</div>
@@ -285,7 +348,7 @@
 			<div class="relative grid grid-cols-1 gap-16 py-12 md:grid-cols-2">
 				<!-- Decorative background elements -->
 				<div
-					class="absolute inset-0 -z-10 -mx-6 rounded-3xl bg-surface-warm px-6 xl:px-1 lg:-mx-12 lg:px-6 xl:px-12"
+					class="absolute inset-0 -z-10 -mx-6 rounded-3xl bg-surface-warm px-6 lg:-mx-12 lg:px-6 xl:px-1 xl:px-12"
 				></div>
 
 				<div class="p-8 lg:p-12">
@@ -381,7 +444,7 @@
 	</section>
 
 	<!-- Kitchen Variations Section -->
-	<section class="bg-surface-warm px-6 xl:px-1 py-24">
+	<section class="bg-surface-warm px-6 py-24 xl:px-1">
 		<div class="mx-auto max-w-screen-xl">
 			<div class="mb-16 text-center">
 				<h2
@@ -476,7 +539,7 @@
 	</section>
 
 	<!-- Call to Action -->
-	<section class="bg-primary px-6 xl:px-1 py-24 text-center text-white">
+	<section class="bg-primary px-6 py-24 text-center text-white xl:px-1">
 		<h2
 			class="mb-8 text-3xl font-light tracking-wide uppercase lg:text-4xl"
 			style="font-family: var(--font-heading);"
@@ -511,3 +574,44 @@
 <Modal bind:showModal={isDesignProjectModalOpen} title="Заказ дизайн-проекта">
 	<DesignProjectForm onSuccess={() => (isDesignProjectModalOpen = false)} />
 </Modal>
+
+{#if selectedImage}
+	<div
+		transition:fade={{ duration: 300 }}
+		class="fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-sm lg:p-12"
+	>
+		<!-- Background overlay button -->
+		<button
+			type="button"
+			class="absolute inset-0 h-full w-full bg-primary/95 transition-colors"
+			onclick={() => (selectedImage = null)}
+			aria-label="Закрыть"
+		></button>
+
+		<!-- Content container -->
+		<div class="relative z-[110] flex items-center justify-center">
+			<button
+				type="button"
+				class="absolute -top-12 -right-12 z-[120] flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
+				onclick={() => (selectedImage = null)}
+				aria-label="Закрыть"
+			>
+				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M6 18L18 6M6 6l12 12"
+					/>
+				</svg>
+			</button>
+
+			<img
+				in:fly={{ y: 50, duration: 500, delay: 200 }}
+				src={selectedImage}
+				alt="Проект крупным планом"
+				class="max-h-[90vh] max-w-full rounded-sm object-contain shadow-2xl"
+			/>
+		</div>
+	</div>
+{/if}
