@@ -10,6 +10,39 @@
 	let isShowroomModalOpen = $state(false);
 	let isDesignProjectModalOpen = $state(false);
 	
+	const wardrobeProjects = [
+		{
+			title: 'Шкаф/гардеробная 1',
+			description: 'Индивидуальное наполнение, премиальные материалы',
+			image: 'https://zovofficial.com/image/cache/wp/gj/products/kuhni/boston-ru/cam-1-1600x0.webp'
+		},
+		{
+			title: 'Шкаф/гардеробная 2',
+			description: 'Индивидуальное наполнение, премиальные материалы',
+			image: 'https://zovofficial.com/image/cache/wp/gj/products/kuhni/boston-ru/cam-1-1600x0.webp'
+		},
+		{
+			title: 'Шкаф/гардеробная 3',
+			description: 'Индивидуальное наполнение, премиальные материалы',
+			image: 'https://zovofficial.com/image/cache/wp/gj/products/kuhni/boston-ru/cam-1-1600x0.webp'
+		},
+		{
+			title: 'Шкаф/гардеробная 4',
+			description: 'Индивидуальное наполнение, премиальные материалы',
+			image: 'https://zovofficial.com/image/cache/wp/gj/products/kuhni/boston-ru/cam-1-1600x0.webp'
+		},
+		{
+			title: 'Шкаф/гардеробная 5',
+			description: 'Индивидуальное наполнение, премиальные материалы',
+			image: 'https://zovofficial.com/image/cache/wp/gj/products/kuhni/boston-ru/cam-1-1600x0.webp'
+		},
+		{
+			title: 'Шкаф/гардеробная 6',
+			description: 'Индивидуальное наполнение, премиальные материалы',
+			image: 'https://zovofficial.com/image/cache/wp/gj/products/kuhni/boston-ru/cam-1-1600x0.webp'
+		}
+	];
+	
 	function viewport(element, callback) {
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -177,30 +210,17 @@
 			</div>
 
 			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-				{#each [1, 2, 3, 4, 5, 6] as item, i}
+				{#each wardrobeProjects as project, i}
 					{#if galleryVisible}
 						<div
 							in:fly={{ y: 50, duration: 1000, delay: 200 + i * 150 }}
 							class="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-surface-warm shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-elevated"
 						>
-							<div
-								class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-200 text-secondary/30 transition-transform duration-700 group-hover:scale-105"
-							>
-								<svg
-									class="mb-4 h-12 w-12 opacity-50"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="1"
-										d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-									/>
-								</svg>
-								<span class="text-sm font-medium tracking-[0.2em] uppercase">Проект {item}</span>
-							</div>
+							<img
+								src={project.image}
+								alt={project.title}
+								class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+							/>
 							<div
 								class="absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/5"
 							></div>
@@ -211,10 +231,10 @@
 									class="mb-2 text-lg font-light tracking-wide text-primary"
 									style="font-family: var(--font-heading);"
 								>
-									Шкаф/гардеробная {item}
+									{project.title}
 								</h3>
 								<p class="text-sm text-secondary">
-									Индивидуальное наполнение, премиальные материалы
+									{project.description}
 								</p>
 							</div>
 						</div>
