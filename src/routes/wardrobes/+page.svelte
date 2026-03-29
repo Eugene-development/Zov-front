@@ -120,7 +120,7 @@
 	</section>
 
 	<!-- Bento Box Features (Difference in structure from Kitchens) -->
-	<section class="mx-auto max-w-7xl px-6 py-24">
+	<section class="mx-auto max-w-screen-xl px-6 xl:px-1 py-24">
 		<div class="mb-16 text-center">
 			<h2
 				class="text-3xl font-light tracking-wide text-primary lg:text-4xl"
@@ -154,8 +154,8 @@
 	</section>
 
 	<!-- Gallery Section -->
-	<section class="bg-white px-6 py-24" use:viewport={() => (galleryVisible = true)}>
-		<div class="mx-auto max-w-7xl">
+	<section class="bg-white px-6 xl:px-1 py-24" use:viewport={() => (galleryVisible = true)}>
+		<div class="mx-auto max-w-screen-xl">
 			<div class="mb-16 text-center">
 				{#if galleryVisible}
 					<div in:fly={{ y: 30, duration: 1000 }}>
@@ -225,8 +225,8 @@
 	</section>
 
 	<!-- Types of Wardrobes: Horizontal/Masonry visual approach -->
-	<section class="overflow-hidden bg-white px-6 py-24">
-		<div class="mx-auto max-w-7xl">
+	<section class="overflow-hidden bg-white px-6 xl:px-1 py-24">
+		<div class="mx-auto max-w-screen-xl">
 			<div class="mb-16 flex flex-col items-end justify-between gap-8 lg:flex-row">
 				<div class="max-w-2xl">
 					<span class="mb-4 block text-sm font-medium tracking-[0.2em] text-accent uppercase"
@@ -323,7 +323,7 @@
 	</section>
 
 	<!-- Minimal Footer CTA -->
-	<section class="border-t border-border-light bg-surface-warm px-6 py-24">
+	<section class="border-t border-border-light bg-surface-warm px-6 xl:px-1 py-24">
 		<div class="mx-auto max-w-4xl text-center">
 			<h2
 				class="mb-8 text-3xl font-light tracking-wide text-primary lg:text-5xl"

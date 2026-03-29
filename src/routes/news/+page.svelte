@@ -85,7 +85,7 @@
 	></div>
 	<div class="absolute bottom-0 left-16 h-40 w-40 border border-border-light opacity-20"></div>
 
-	<div class="relative mx-auto max-w-7xl px-6">
+	<div class="relative mx-auto max-w-screen-xl px-6 xl:px-1">
 		<div class="opacity-0" class:animate-fade-up={heroVisible} style="animation-delay: 0.2s">
 			<span
 				class="inline-flex items-center gap-2 text-[11px] tracking-[0.3em] text-secondary uppercase"
@@ -112,7 +112,7 @@
 	id="filter-bar"
 	data-animate
 >
-	<div class="mx-auto max-w-7xl px-6">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1">
 		<div class="scrollbar-none flex items-center gap-1 overflow-x-auto py-4">
 			{#each categories as cat}
 				<button
@@ -132,7 +132,7 @@
 
 <!-- ==================== NEWS LIST ==================== -->
 <section class="py-16 lg:py-20" id="news-section" data-animate>
-	<div class="mx-auto max-w-7xl px-6">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1">
 		<div class="divide-y divide-border-light">
 			{#each filteredNews as item, i (item.id)}
 				<article
@@ -207,7 +207,7 @@
 		class="absolute top-0 right-0 h-48 w-48 translate-x-1/3 -translate-y-1/3 border border-border-medium opacity-30"
 	></div>
 
-	<div class="relative mx-auto max-w-3xl px-6 text-center">
+	<div class="relative mx-auto max-w-3xl px-6 xl:px-1 text-center">
 		<div class="opacity-0" class:animate-fade-up={sections['news-cta']}>
 			<span class="text-[11px] tracking-[0.3em] text-secondary uppercase"
 				>Хотите узнавать первыми?</span

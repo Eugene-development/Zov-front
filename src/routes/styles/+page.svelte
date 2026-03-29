@@ -95,7 +95,7 @@
 <div class="min-h-screen bg-surface text-primary selection:bg-accent-light selection:text-primary">
 	<!-- Editorial Hero Section -->
 	<section
-		class="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden border-b border-border-light px-4 py-20 text-center sm:px-6 lg:px-8"
+		class="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden border-b border-border-light px-4 py-20 text-center sm:px-6 xl:px-1 "
 	>
 		<!-- Background Image -->
 		<div
@@ -157,7 +157,7 @@
 	<!-- Light Editorial Grid -->
 	<section
 		id="styles-grid"
-		class="mx-auto max-w-7xl scroll-mt-24 px-4 py-20 sm:px-6 lg:scroll-mt-32 lg:px-8"
+		class="mx-auto max-w-screen-xl scroll-mt-24 px-4 py-20 sm:px-6 xl:px-1 lg:scroll-mt-32 "
 	>
 		<div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2 lg:gap-16">
 			{#each styles as style}

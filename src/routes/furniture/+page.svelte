@@ -99,7 +99,7 @@
 
 	<!-- Content -->
 	<div class="relative z-10 flex min-h-[90vh] items-center">
-		<div class="mx-auto w-full max-w-7xl px-6">
+		<div class="mx-auto w-full max-w-screen-xl px-6 xl:px-1">
 			<div class="max-w-2xl">
 				<!-- Label -->
 				<div
@@ -184,7 +184,7 @@
 	id="intro-section"
 	data-animate
 >
-	<div class="mx-auto max-w-7xl px-6 text-center">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1 text-center">
 		<div class="opacity-0" class:animate-fade-up={sections['intro-section']}>
 			<span class="text-[11px] tracking-[0.3em] text-secondary uppercase">Качество в деталях</span>
 			<h2
@@ -205,7 +205,7 @@
 
 <!-- ==================== BRANDS SECTION ==================== -->
 <section class="relative bg-surface-warm pb-section-sm lg:pb-section">
-	<div class="mx-auto max-w-7xl px-6 pt-20">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1 pt-20">
 		<div class="flex flex-col gap-24 lg:gap-32">
 			{#each brands as brand, i (brand.id)}
 				<div
@@ -277,7 +277,7 @@
 	<div class="absolute top-0 left-0 h-40 w-40 border border-white/5 opacity-50"></div>
 	<div class="absolute right-0 bottom-0 h-64 w-64 border border-white/5 opacity-50"></div>
 
-	<div class="relative mx-auto max-w-7xl px-6 text-center">
+	<div class="relative mx-auto max-w-screen-xl px-6 xl:px-1 text-center">
 		<div class="opacity-0" class:animate-fade-up={sections['cta-section']}>
 			<span class="text-[11px] tracking-[0.3em] text-accent uppercase">консультация</span>
 			<h2

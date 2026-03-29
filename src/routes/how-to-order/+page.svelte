@@ -93,7 +93,7 @@
 
 	<!-- Content -->
 	<div class="relative z-10 flex min-h-[60vh] items-center pt-20 pb-16">
-		<div class="mx-auto w-full max-w-7xl px-6">
+		<div class="mx-auto w-full max-w-screen-xl px-6 xl:px-1">
 			<div class="max-w-2xl">
 				<!-- Label -->
 				<div
@@ -156,7 +156,7 @@
 		style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%232c2c2c\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"
 	></div>
 
-	<div class="relative mx-auto max-w-5xl px-6">
+	<div class="relative mx-auto max-w-5xl px-6 xl:px-1">
 		<div
 			class="mb-16 text-center opacity-0 transition-all duration-700 md:mb-24"
 			class:animate-fade-up={sections['steps-section']}
@@ -251,7 +251,7 @@
 	<div class="absolute top-0 left-0 h-32 w-32 border border-white/5 lg:h-64 lg:w-64"></div>
 	<div class="absolute right-0 bottom-0 h-48 w-48 border border-white/5 lg:h-80 lg:w-80"></div>
 
-	<div class="relative mx-auto max-w-3xl px-6 text-center">
+	<div class="relative mx-auto max-w-3xl px-6 xl:px-1 text-center">
 		<div class="opacity-0" class:animate-fade-up={sections['cta-section']}>
 			<span class="text-[11px] tracking-[0.3em] text-accent uppercase">Готовы начать?</span>
 			<h2

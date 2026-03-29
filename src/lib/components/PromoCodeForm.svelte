@@ -192,7 +192,7 @@
 		<div>
 			<p class="text-sm text-secondary">Ваш уникальный промокод на скидку 10%</p>
 			<div
-				class="mt-4 flex items-center justify-center gap-3 border border-dashed border-secondary/40 bg-surface-warm px-6 py-4"
+				class="mt-4 flex items-center justify-center gap-3 border border-dashed border-secondary/40 bg-surface-warm px-6 xl:px-1 py-4"
 			>
 				<span class="font-mono text-2xl font-semibold tracking-widest text-primary"
 					>{promoCode}</span

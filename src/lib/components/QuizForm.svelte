@@ -332,7 +332,7 @@
 					onclick={() => {
 						step = 4;
 					}}
-					class="inline-flex items-center gap-2 rounded-sm border border-primary bg-primary px-6 py-3 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-300 hover:border-secondary hover:bg-secondary disabled:opacity-40"
+					class="inline-flex items-center gap-2 rounded-sm border border-primary bg-primary px-6 xl:px-1 py-3 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-300 hover:border-secondary hover:bg-secondary disabled:opacity-40"
 					>Далее</button
 				>
 			</div>
@@ -362,7 +362,7 @@
 				<button
 					type="button"
 					onclick={goToContacts}
-					class="inline-flex items-center gap-2 rounded-sm border border-primary bg-primary px-6 py-3 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-300 hover:border-secondary hover:bg-secondary"
+					class="inline-flex items-center gap-2 rounded-sm border border-primary bg-primary px-6 xl:px-1 py-3 text-xs tracking-[0.15em] text-inverse uppercase transition-all duration-300 hover:border-secondary hover:bg-secondary"
 					>Далее</button
 				>
 			</div>

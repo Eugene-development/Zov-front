@@ -861,7 +861,7 @@
 
 	<!-- Content -->
 	<div class="relative z-10 flex min-h-[90vh] items-center">
-		<div class="mx-auto w-full max-w-7xl px-6">
+		<div class="mx-auto w-full max-w-screen-xl px-6 xl:px-1">
 			<div class="max-w-xl">
 				<div
 					class="mb-6 opacity-0"
@@ -934,7 +934,7 @@
 	id="network-section"
 	data-animate
 >
-	<div class="mx-auto max-w-7xl px-6">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1">
 		<div class="grid items-start gap-16 lg:grid-cols-12 lg:gap-12">
 			<!-- Left Column: Locations List -->
 			<div
@@ -1105,7 +1105,7 @@
 				<div class="mt-10 flex">
 					<button
 						onclick={() => (isShowroomModalOpen = true)}
-						class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-border-medium px-6 py-3 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
+						class="group inline-flex cursor-pointer items-center gap-3 rounded-sm border border-border-medium px-6 xl:px-1 py-3 text-xs tracking-[0.15em] text-primary uppercase transition-all duration-500 hover:border-secondary hover:text-secondary"
 					>
 						Запись в салон
 						<svg
@@ -1153,7 +1153,7 @@
 		style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"
 	></div>
 
-	<div class="relative mx-auto max-w-4xl px-6 text-center">
+	<div class="relative mx-auto max-w-4xl px-6 xl:px-1 text-center">
 		<div class="opacity-0" class:animate-fade-up={sections['cta-section']}>
 			<h2
 				class="text-3xl font-light text-white lg:text-5xl"

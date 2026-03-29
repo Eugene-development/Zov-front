@@ -18,7 +18,7 @@
 
 <!-- ==================== HERO SECTION ==================== -->
 <section class="relative min-h-[40vh] bg-surface pt-32 pb-16 lg:pt-40 lg:pb-24">
-	<div class="mx-auto max-w-4xl px-6">
+	<div class="mx-auto max-w-4xl px-6 xl:px-1">
 		<div class="opacity-0 transition-all duration-700" class:animate-fade-up={contentVisible}>
 			<span class="text-[11px] tracking-[0.3em] text-secondary uppercase">Документы</span>
 			<h1
@@ -34,7 +34,7 @@
 
 <!-- ==================== CONTENT SECTION ==================== -->
 <section class="relative bg-white py-16 lg:py-24">
-	<div class="mx-auto max-w-4xl px-6">
+	<div class="mx-auto max-w-4xl px-6 xl:px-1">
 		<div
 			class="space-y-8 opacity-0 transition-all delay-300 duration-700"
 			class:animate-fade-up={contentVisible}

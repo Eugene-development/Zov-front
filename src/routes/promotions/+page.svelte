@@ -304,7 +304,7 @@
 
 	<!-- Content -->
 	<div class="relative z-10 flex min-h-[90vh] items-center pt-40 pb-32">
-		<div class="mx-auto w-full max-w-7xl px-6">
+		<div class="mx-auto w-full max-w-screen-xl px-6 xl:px-1">
 			<div class="max-w-2xl">
 				<!-- Label -->
 				<div
@@ -412,7 +412,7 @@
 
 <!-- ==================== COUNTDOWN TIMER ==================== -->
 <section class="relative bg-surface pt-16 pb-24 lg:pt-24 lg:pb-32" id="timer-section" data-animate>
-	<div class="mx-auto max-w-7xl px-6">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1">
 		<div
 			class="relative flex flex-col items-center gap-16 lg:flex-row lg:justify-between lg:gap-24"
 			class:opacity-0={!sections['timer-section']}
@@ -506,7 +506,7 @@
 		style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%232c2c2c\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"
 	></div>
 
-	<div class="relative mx-auto max-w-7xl px-6">
+	<div class="relative mx-auto max-w-screen-xl px-6 xl:px-1">
 		<!-- Section Header -->
 		<div
 			class="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end"
@@ -704,8 +704,8 @@
 </section>
 
 <!-- ==================== FEATURED BANNER ==================== -->
-<section class="relative z-10 px-6" id="featured-banner" data-animate>
-	<div class="mx-auto max-w-7xl">
+<section class="relative z-10 px-6 xl:px-1" id="featured-banner" data-animate>
+	<div class="mx-auto max-w-screen-xl">
 		<div
 			class="relative overflow-hidden"
 			class:opacity-0={!sections['featured-banner']}
@@ -776,7 +776,7 @@
 	id="how-section"
 	data-animate
 >
-	<div class="mx-auto max-w-7xl px-6">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1">
 		<!-- Header -->
 		<div
 			class="mb-16 text-center"
@@ -860,7 +860,7 @@
 		class="absolute top-0 right-0 left-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent"
 	></div>
 
-	<div class="relative mx-auto max-w-3xl px-6 text-center">
+	<div class="relative mx-auto max-w-3xl px-6 xl:px-1 text-center">
 		<div class:opacity-0={!sections['promo-cta']} class:animate-fade-up={sections['promo-cta']}>
 			<span class="text-[11px] tracking-[0.3em] text-accent uppercase">Не упустите момент</span>
 			<h2

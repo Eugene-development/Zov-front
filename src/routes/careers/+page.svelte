@@ -202,7 +202,7 @@
 		class="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-secondary to-transparent opacity-30"
 	></div>
 
-	<div class="relative mx-auto max-w-7xl px-6">
+	<div class="relative mx-auto max-w-screen-xl px-6 xl:px-1">
 		<div class="max-w-2xl">
 			<div class="opacity-0" class:animate-fade-up={heroVisible} style="animation-delay:0.2s">
 				<span
@@ -271,7 +271,7 @@
 			style="animation-delay: 1s"
 		>
 			{#each [{ value: '300+', label: 'сотрудников' }, { value: `${vacancies.length}`, label: 'открытых вакансий' }, { value: '25 лет', label: 'на рынке' }, { value: '30%', label: 'скидка для сотрудников' }] as stat}
-				<div class="flex flex-col gap-1.5 bg-white/5 px-6 py-5 backdrop-blur-sm">
+				<div class="flex flex-col gap-1.5 bg-white/5 px-6 xl:px-1 py-5 backdrop-blur-sm">
 					<span
 						class="text-3xl font-light text-accent-light"
 						style="font-family: var(--font-heading);">{stat.value}</span
@@ -285,7 +285,7 @@
 
 <!-- ==================== PERKS ==================== -->
 <section class="py-20 lg:py-28" id="perks-section" data-animate>
-	<div class="mx-auto max-w-7xl px-6">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1">
 		<div
 			class="mb-14 opacity-0 transition-all duration-700"
 			class:animate-fade-up={sections['perks-section']}
@@ -334,7 +334,7 @@
 
 <!-- ==================== VACANCIES ==================== -->
 <section class="bg-surface-warm py-20 lg:py-28" id="vacancies" data-animate>
-	<div class="mx-auto max-w-7xl px-6">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1">
 		<!-- Header + filter -->
 		<div
 			class="mb-10 flex flex-col gap-6 opacity-0 transition-all duration-700 sm:flex-row sm:items-end sm:justify-between"
@@ -397,7 +397,7 @@
 						id="vacancy-{vac.id}"
 					>
 						<div
-							class="flex items-start gap-6 px-6 py-6 transition-colors duration-300 hover:bg-surface-warm sm:items-center sm:px-8 rounded-sm"
+							class="flex items-start gap-6 px-6 xl:px-1 py-6 transition-colors duration-300 hover:bg-surface-warm sm:items-center sm:px-8 rounded-sm"
 						>
 							<!-- Info -->
 							<div class="flex flex-1 flex-col gap-1 sm:flex-row sm:items-center sm:gap-8">
@@ -446,7 +446,7 @@
 
 					<!-- Expanded details -->
 					{#if expandedId === vac.id}
-						<div class="border-t border-border-light bg-surface-warm px-6 pt-6 pb-8 sm:px-8">
+						<div class="border-t border-border-light bg-surface-warm px-6 xl:px-1 pt-6 pb-8 sm:px-8">
 							<p class="max-w-2xl text-sm leading-relaxed text-secondary">{vac.description}</p>
 
 							<div class="mt-5 flex flex-wrap gap-2">
@@ -461,7 +461,7 @@
 							<div class="mt-6 flex flex-wrap items-center gap-4">
 								<a
 									href="#open-resume"
-									class="group inline-flex items-center gap-3 border border-primary bg-primary px-6 py-3 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
+									class="group inline-flex items-center gap-3 border border-primary bg-primary px-6 xl:px-1 py-3 text-xs tracking-[0.15em] text-white uppercase transition-all duration-500 hover:border-secondary hover:bg-secondary rounded-sm"
 								>
 									Откликнуться
 									<svg
@@ -508,7 +508,7 @@
 		class="absolute right-0 bottom-0 h-80 w-80 translate-x-1/3 translate-y-1/3 border border-white/5"
 	></div>
 
-	<div class="relative mx-auto max-w-7xl px-6">
+	<div class="relative mx-auto max-w-screen-xl px-6 xl:px-1">
 		<div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
 			<!-- Left -->
 			<div

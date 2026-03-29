@@ -59,7 +59,7 @@
 				class="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-primary/95"
 			></div>
 		</div>
-		<div class="relative z-10 mx-auto max-w-7xl px-6 text-center">
+		<div class="relative z-10 mx-auto max-w-screen-xl px-6 xl:px-1 text-center">
 			{#if isVisible}
 				<h1
 					in:fly={{ y: 30, duration: 1000, delay: 100 }}
@@ -114,8 +114,8 @@
 	</section>
 
 	<!-- Gallery Section -->
-	<section class="bg-surface-warm px-6 py-24" use:viewport={() => (galleryVisible = true)}>
-		<div class="mx-auto max-w-7xl">
+	<section class="bg-surface-warm px-6 xl:px-1 py-24" use:viewport={() => (galleryVisible = true)}>
+		<div class="mx-auto max-w-screen-xl">
 			<div class="mb-16 text-center">
 				{#if galleryVisible}
 					<div in:fly={{ y: 30, duration: 1000 }}>
@@ -164,8 +164,8 @@
 	</section>
 
 	<!-- Content Sections -->
-	<section class="relative px-6 py-24" use:viewport={() => (cycleVisible = true)}>
-		<div class="mx-auto flex max-w-7xl flex-col gap-32">
+	<section class="relative px-6 xl:px-1 py-24" use:viewport={() => (cycleVisible = true)}>
+		<div class="mx-auto flex max-w-screen-xl flex-col gap-32">
 			<!-- Section Header -->
 			<div class="mb-16 text-center">
 				{#if cycleVisible}
@@ -253,7 +253,7 @@
 			<div class="relative grid grid-cols-1 gap-16 py-12 md:grid-cols-2">
 				<!-- Decorative background elements -->
 				<div
-					class="absolute inset-0 -z-10 -mx-6 rounded-3xl bg-surface-warm px-6 lg:-mx-12 lg:px-12"
+					class="absolute inset-0 -z-10 -mx-6 rounded-3xl bg-surface-warm px-6 xl:px-1 lg:-mx-12 lg:px-6 xl:px-12"
 				></div>
 
 				<div class="p-8 lg:p-12">
@@ -349,8 +349,8 @@
 	</section>
 
 	<!-- Kitchen Variations Section -->
-	<section class="bg-surface-warm px-6 py-24">
-		<div class="mx-auto max-w-7xl">
+	<section class="bg-surface-warm px-6 xl:px-1 py-24">
+		<div class="mx-auto max-w-screen-xl">
 			<div class="mb-16 text-center">
 				<h2
 					class="mb-6 text-3xl font-light tracking-wide text-primary uppercase lg:text-4xl"
@@ -444,7 +444,7 @@
 	</section>
 
 	<!-- Call to Action -->
-	<section class="bg-primary px-6 py-24 text-center text-white">
+	<section class="bg-primary px-6 xl:px-1 py-24 text-center text-white">
 		<h2
 			class="mb-8 text-3xl font-light tracking-wide uppercase lg:text-4xl"
 			style="font-family: var(--font-heading);"

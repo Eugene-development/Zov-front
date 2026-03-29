@@ -87,7 +87,7 @@
 
 	<!-- Content -->
 	<div class="relative z-10 flex min-h-[90vh] items-center pb-24">
-		<div class="mx-auto w-full max-w-7xl px-6">
+		<div class="mx-auto w-full max-w-screen-xl px-6 xl:px-1">
 			<div class="max-w-2xl">
 				<!-- Label -->
 				<div
@@ -197,7 +197,7 @@
 		style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%232c2c2c\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"
 	></div>
 
-	<div class="relative mx-auto max-w-7xl px-6">
+	<div class="relative mx-auto max-w-screen-xl px-6 xl:px-1">
 		<div class="grid gap-16 lg:grid-cols-2 lg:gap-20">
 			<!-- Left: Mission -->
 			<div
@@ -236,7 +236,7 @@
 			<div class="flex flex-col justify-center">
 				{#each stats as stat, i}
 					<div
-						class="group flex gap-6 rounded-sm border-b border-border-light py-8 opacity-0 transition-colors duration-300 first:border-t hover:bg-surface-warm/50 lg:px-6"
+						class="group flex gap-6 rounded-sm border-b border-border-light py-8 opacity-0 transition-colors duration-300 first:border-t hover:bg-surface-warm/50 lg:px-6 xl:px-1"
 						class:animate-slide-right={sections['mission-section']}
 						style="animation-delay: {0.2 + i * 0.15}s"
 					>
@@ -258,7 +258,7 @@
 
 <!-- ==================== FACTORY BENTO GRID ==================== -->
 <section class="relative bg-surface py-section-sm lg:py-section" id="factory-section" data-animate>
-	<div class="mx-auto max-w-7xl px-6">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1">
 		<!-- Header -->
 		<div
 			class="mb-12 opacity-0 transition-all duration-700"
@@ -349,7 +349,7 @@
 
 <!-- ==================== VIDEO SECTION ==================== -->
 <section class="relative z-10 -mt-12" id="video-section" data-animate>
-	<div class="mx-auto max-w-7xl px-6">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1">
 		<div
 			class="relative overflow-hidden opacity-0"
 			class:animate-scale-in={sections['video-section']}
@@ -375,7 +375,7 @@
 	id="principles-section"
 	data-animate
 >
-	<div class="mx-auto max-w-7xl px-6">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1">
 		<!-- Header -->
 		<div class="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
 			<div
@@ -431,7 +431,7 @@
 	<div class="absolute top-0 left-0 h-32 w-32 border border-white/5 lg:h-64 lg:w-64"></div>
 	<div class="absolute right-0 bottom-0 h-48 w-48 border border-white/5 lg:h-80 lg:w-80"></div>
 
-	<div class="relative mx-auto max-w-3xl px-6 text-center">
+	<div class="relative mx-auto max-w-3xl px-6 xl:px-1 text-center">
 		<div class="opacity-0" class:animate-fade-up={sections['about-cta']}>
 			<span class="text-[11px] tracking-[0.3em] text-accent uppercase">Бесплатная услуга</span>
 			<h2

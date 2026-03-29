@@ -125,7 +125,7 @@
 	</div>
 
 	<div class="relative z-10 flex min-h-[90vh] items-center">
-		<div class="mx-auto w-full max-w-7xl px-6">
+		<div class="mx-auto w-full max-w-screen-xl px-6 xl:px-1">
 			<div class="max-w-2xl">
 				<div
 					class="mb-6 opacity-0"
@@ -207,7 +207,7 @@
 	id="facades-catalog"
 	data-animate
 >
-	<div class="mx-auto max-w-7xl px-6">
+	<div class="mx-auto max-w-screen-xl px-6 xl:px-1">
 		<div class="mb-16 opacity-0 lg:mb-24" class:animate-fade-up={sections['facades-catalog']}>
 			<h2
 				class="text-4xl font-light text-primary lg:text-5xl"
@@ -302,7 +302,7 @@
 	id="cta-section"
 	data-animate
 >
-	<div class="relative mx-auto max-w-4xl px-6 text-center">
+	<div class="relative mx-auto max-w-4xl px-6 xl:px-1 text-center">
 		<div class="opacity-0" class:animate-fade-up={sections['cta-section']}>
 			<span class="text-[11px] tracking-[0.3em] text-secondary uppercase">Образцы</span>
 			<h2
